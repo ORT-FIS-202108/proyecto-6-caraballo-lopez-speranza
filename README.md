@@ -25,7 +25,7 @@ Los informes académicos para cada entrega se realizan en los archivos README.md
 * [Informe entrega 2](src/README.md)
 
 
-### Convenciones sobre el uso y nombramiento en git
+# Convenciones sobre el uso y nombramiento en git
 
 A continuación pasamos a documentar cómo vamos a manejar el uso de git en el proyecto.
 
