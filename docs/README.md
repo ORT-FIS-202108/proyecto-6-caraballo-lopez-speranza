@@ -23,7 +23,10 @@ Referencias a fuentes de información
 
 Caracterización de usuarios: User Personas
 
-Modelo conceptual del problema
+**Modelo conceptual del problema**
+
+A continuación presentamos el modelo conceptual así como también las distintas versiones que fuimos generando de manera de mostrar la evolución del mismo.
+![alt Modelo conceptual](https://i.im.ge/2021/10/10/oQDscM.png "Modelo conceptual")
 
 ## Especificación
 
