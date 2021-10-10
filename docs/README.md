@@ -60,6 +60,14 @@ _367 - bug\_fix - diego\_caraballo - agregar\_gasto\_validar\_negativos_
 
 # Elicitación
 
+## Técnicas de elicitación utilizadas
+
+Para nuestro proyecto decidimos realizar dos técnicas de elicitacion diferentes, Primero utilizamos Ingenieria Inversa sobre una aplicación que soluciona un problema similar al planteado en la consigna.
+
+Elegimos Ingeniería Inversa porque nos da una base sobre la que comparar nuestra solución, podremos analizar qué funcionalidades deberíamos importar y cuales dejar de lado. También es una buena forma de conocer a nuestra “competencia”, sus fortalezas y debilidades. Con este estudio intentaremos imitar lo que consideremos bueno de la aplicación y dejar de lado lo no tan bueno.
+
+Otra técnica utilizada es la entrevista, en este caso dirigida a nuestro cliente. Para que la aplicación funcione y tenga sentido se tiene que alinear con la necesidades de nuestro cliente y para conocer esas necesidades llevamos a cabo una entrevista con el. Nuestro objetivo aquí es obtener la información clave (sus necesidades) que nos guiará durante el proyecto.
+
 - Evidencia de actividades de investigación
 - Referencias a fuentes de información
 - Caracterización de usuarios: User Personas
