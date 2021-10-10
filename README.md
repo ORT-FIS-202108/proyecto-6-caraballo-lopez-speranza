@@ -23,9 +23,3 @@ Entrega 2: 29-nov-2021
 Los informes académicos para cada entrega se realizan en los archivos README.md que están en las carpetas docs (entrega 1) y src (entrega 2).
 * [Informe entrega 1](docs/README.md)
 * [Informe entrega 2](src/README.md)
-
-
-
-# Documentación
-
-[Convenciones sobre el uso y nombramiento en git](docs/convenciones_git.md)
