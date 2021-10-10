@@ -68,6 +68,10 @@ Elegimos Ingeniería Inversa porque nos da una base sobre la que comparar nuestr
 
 Otra técnica utilizada es la entrevista, en este caso dirigida a nuestro cliente. Para que la aplicación funcione y tenga sentido se tiene que alinear con la necesidades de nuestro cliente y para conocer esas necesidades llevamos a cabo una entrevista con el. Nuestro objetivo aquí es obtener la información clave (sus necesidades) que nos guiará durante el proyecto.
 
+Por ultimo realizamos user personas, que son arquetipos que representan a los diferentes tipoos de usuarios que podrian interactuar con nuestra aplicacion. Creemos que esta tecnica es vital ya que nos da una referencia a la hora de pensar quien sera el usuario promedio y recordar que nuestro objetivo es hacer una aplicacion que este dirigida a esa persona y le tiene que dar valor a esa misma persona.
+
+Una vez realizadas estas investigaciones y el modelo conceptual del problema, tenemos lo que necesitamos para comenzar con la especificacion.
+
 - Evidencia de actividades de investigación
 - Referencias a fuentes de información
 - Caracterización de usuarios: User Personas
