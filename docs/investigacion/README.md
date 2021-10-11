@@ -228,3 +228,68 @@ Entrevistado: Bruno Paulette
 <img src="https://i.ibb.co/vwBnwf6/Whats-App-Image-2021-10-10-at-11-45-52-AM.jpg" alt="Bruno Paulette Foto" width="200"/>
 
 Fecha de entrevista: 09/10/2021
+
+
+## Conclusiones segunda entrevista:
+
+En esta entrevista, la persona nos hizo referencia a que no puede mantener un orden o control de sus finanzas personales, que tampoco tiene claro en que gasta mes a mes. Que mas de una vez ha intentado definirse objetivos en relación al ahorro, pero con resultados dispares, hay veces que lo puede cumplir y otras no.
+A su vez también hablo de que nunca ha utilizado una aplicación ni ningún mecanismo para tener un registro de los gastos, argumentando que ve difícil que sea una práctica que pueda mantener en el tiempo.
+
+En relación a funcionalidades o formas de poder ver la información, la entrevistada manifestó que la mejor forma según ella de poder ver como fueron los gastos del mes seria a través de algún tipo de grafica agrupados por categorías o conceptos, ya que al ser algo visual facilitaría el identificar cuales son los mayores gastos.
+
+Otra funcionalidad que se manifestó,  fue que exista la posibilidad de definir objetivos del tipo 'Quisiera ahorrar X este mes', buscando genera una motivación extra que ayudaría a que el registro de los gastos se hiciera en buena forma.
+
+## Transcripción segunda entrevista:
+La entrevistada es Mayra Llanes, escribana pública.
+
+Diego: Hola Mayra, como andas?
+
+Mayra: Todo bien por acá.
+
+Diego: Bien, entonces para ir arrancando con la entrevista, arranco con la primer pregunta, cómo sentís que es la salud de sus finanzas personales?
+
+Mayra: En realidad si tuviera que definir en una palabra para describirlas, te diría que mis finanzas son desordenadas. Porque no tengo idea en detalle en que gasto mes a mes, salvo los impuestos o gastos fijos que es más fácil saber cuánto pago, pero del resto de los gastos no te podría decir cuáles son ni cuánto es el total de cada mes.
+
+Diego: Bien, en relación a eso la siguiente pregunta seria, te definís objetivos financieros a corto y/o mediano plazo?
+
+Mayra: Trate varias veces de ponerme objetivos sobre todo a corto plazo, de lograr poder ahorrar ‘X’ cantidad por mes y poder tener ciertos ahorros por cualquier cosa, pero lo que generalmente me pasa es que algunos meses lo puedo cumplir y otros no, porque me pasa que hay meses que tengo algunos gastos que no esperaba y eso me termina afectando la idea inicial y ya no cumplo con lo que había establecido.
+
+Diego: Ok, entiendo, pasando a la siguiente pregunta pero relacionada a lo anterior, además de intentar definir objetivos, también realizas o realizaste algún tipo de planificación en relación a las finanzas, tal vez en forma semanal o mensual? 
+
+Mayra: Planificación la verdad  no he hecho, no podría decir cuánto me va a quedar a fin de mes, creo que estaría muy bueno hacerlo, y tendría que hacerlo, además me he planteado la idea pero por una cosa u otra nunca lo hago. Lo más cerca de planificar es lo que te decía antes de decir ‘tengo que guardar ‘X’ este mes’, pero no llevo ningún control ni tengo una proyección de los gastos para cada mes.
+
+Diego: Y vos pensás que podrías llegar a usar una aplicación para llevar un control de todos los gastos? Digo al menos como una manera inicial de poder registrar en que gastas y ahí tener una mejor idea la situación.
+
+Mayra: Si creo que podría usar una aplicación, sé que hay varias en la vuelta, pero nunca use una, lo que me pasa en relación a eso es que debería anotar todos los gastos, por más chicos que sean y es eso lo que hace dudar si puedo hacerlo o mantenerlo en el tiempo. Pero tal vez es algo que podría llegar a usar, al menos un tiempo así puedo ver bien en que gasto y si hay algo que capaz puedo suprimir y no es tan necesario. Al menos un tiempo creo que sí, que la usaría, si la sigo usando o no, ahí ya no podría decirte.
+
+Diego: Genial, en ese caso, que información te gustaría poder obtener de la aplicación? O sea que querrías poder ver?
+
+ Mayra: Me gustaría que la aplicación me mostrara al terminar el mes en que porcentaje se dividieron mis gastos, por ejemplo así puedo ver que ‘X’ porcentaje fue a tarjetas de crédito, otro tanto a comprar comida afuera, etc. Tal vez verlo en una grafica, algo fácil de entender y saber bien en que se está gastando. Eso creo que sería algo que si o si debería tener.
+ 
+Diego: Claro, tiene sentido, entonces me decías que estaría bueno que la información fuera presentada en graficas, de alguna otra manera también te gustaría ver esta información?
+
+Mayra: Si en graficas creo que es la mejor manera de ver bien eso, de una forma muy visual y que se puede identificar muy fácil esto que te comentaba. También podría ser algo en un formato de tabla, con ingresos, egresos y el saldo total.
+
+Diego: impecable, otra pregunta, que funcionalidad sería la más importante?
+
+Mayra: No se si la más importante, pero va relacionado a lo que te decía de que te de un estado de tus finanzas al terminar mes, y además que vos puedas ver también la evolución de eso, que se pueda comparar con el mes pasado o el anterior y así ver como venís, si mejoraste o empeoraste. Creo que eso ayudaría también a controlarte un poco y a motivarte si vas por buen camino.
+
+Otra cosa que se me ocurre, es que la aplicación permita definir objetivos, del tipo: ‘quisiera que me sobrara ‘X’ plata por mes. Ya que también es una buena forma de tratar de llevar el registro de todo y también por donde mejorar.
+
+Diego: Hoy me decías que nunca habías usado una aplicación de este estilo no?
+
+Mayra: No, nunca use ninguna.
+
+Diego: Por que no?
+
+Mayra: Porque pienso que no es algo que voy a poder mantener en el tiempo, que tal vez lo hago algunas semanas pero que no me veo haciéndolo con cada gasto que tenga.
+
+Diego: Bien, esta fue la última pregunta de la entrevista, muchas gracias por el tiempo.
+
+## Datos:
+
+Entrevistador: Diego Caraballo
+
+Entrevistado: Mayra Llanes
+
+Fecha de entrevista: 10/10/2021
