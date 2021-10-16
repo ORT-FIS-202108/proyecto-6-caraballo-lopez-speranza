@@ -1,4 +1,4 @@
-# MisGastos User Stories
+# User Stories
 
 #### ID: #1
 
