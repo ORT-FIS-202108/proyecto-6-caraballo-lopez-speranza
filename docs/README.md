@@ -44,14 +44,7 @@ _687 - feature - ernesto\_speranza - log\_in\_usuario_
 
 _367 - bug\_fix - diego\_caraballo - agregar\_gasto\_validar\_negativos_
 
-### _Referencias:_
-
-[https://hackernoon.com/git-branch-naming-convention-7-best-practices-to-follow-1c2l33g2](https://hackernoon.com/git-branch-naming-convention-7-best-practices-to-follow-1c2l33g2)
-
-[https://deepsource.io/blog/git-branch-naming-conventions/](https://deepsource.io/blog/git-branch-naming-conventions/)
-
-[https://codingsight.com/git-branching-naming-convention-best-practices/](https://codingsight.com/git-branching-naming-convention-best-practices/)
-
+[Referencias](investigacion/Referencias.md)
 # Versionado
 
 - Buenas prácticas de versionado
@@ -190,7 +183,7 @@ RNF19: El sistema debe respetar las buenas prácticas de accesibilidad y guiarse
 Prioridad: Deseable
 
 - [User Stories](userstories/README.md)
-- Bocetos de IU (Link al material)
+- [Bocetos de IU](bocetosiu/README.md)
 # Validación y verificación
 
 - Verificar la especificación 
