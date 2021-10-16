@@ -74,7 +74,14 @@ Una vez realizadas estas investigaciones y el modelo conceptual del problema, te
 
 - [Evidencia de actividades de investigación](investigacion/README.md)
 - [Referencias a fuentes de información](investigacion/Referencias.md)
-- Caracterización de usuarios: User Personas
+
+## Caracterización de usuarios: User Personas
+
+A continuacion se detallan los 2 User Personas que definimos, de manera de tener representaciones de cuales podrian ser nuestros potenciales clientes.
+
+![alt User Persona 1](https://i.im.ge/2021/10/16/oOXdID.png "User Persona 1")
+
+![alt User Persona 2](https://i.im.ge/2021/10/16/oOXSMY.png "User Persona 2")
 
 ## Modelo conceptual del problema
 
