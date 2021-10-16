@@ -84,7 +84,105 @@ A continuación presentamos el modelo conceptual así como también las distinta
 
 # Especificación
 
-- Definición de requerimientos funcionales y no funcionales
+## Requerimientos funcionales
+
+RF1: El usuario deberá registrarse en la aplicación ingresando nombre, email, password y edad.<br>
+Prioridad: Obligatorio
+
+RF2: El usuario deberá loguearse con su email y password en la aplicación.<br>
+Prioridad: Obligatorio
+
+RF3: El usuario tendrá la posibilidad de modificar su contraseña.<br>
+Prioridad: Importante
+
+RF4: El usuario podrá registrar gastos en el sistema, cada gasto tendrá una categoría asignada por el usuario.<br>
+Prioridad: Obligatorio
+
+RF5: El usuario podrá registrar ingresos en el sistema, cada ingreso tendrá una categoría asignada por el usuario.<br>
+Prioridad: Obligatorio
+
+RF6: El usuario deberá poder escanear facturas de gastos para ingresar en el sistema.<br>
+Prioridad: No implementable
+
+RF7: El usuario debe poder setear un gasto como algo recurrente de manera mensual.<br>
+Prioridad: Deseable
+
+RF8: El sistema deberá generar sugerencias personalizadas para el usuario a partir de sus ingresos y gastos.<br>
+Prioridad: Deseable
+
+RF9: El usuario deberá poder determinar objetivos financieros en un marco temporal.<br>
+Prioridad: Importante
+
+RF10: El sistema generará reportes de gastos separados por categorías.<br>
+Prioridad: Obligatorio
+
+RF11: El sistema llevará un balance contable entre gastos e ingresos para el usuario.<br>
+Prioridad: Obligatorio
+
+RF12: El usuario podrá ver el estado de sus finanzas en una gráfica.<br>
+Prioridad: Importante
+
+
+## Requerimientos no funcionales
+
+RNF1: Toda funcionalidad del sistema debe responder al usuario en menos de 5 segundos.<br>
+Prioridad: Deseable
+
+RNF2: Los datos modificados deben ser actualizados para el usuario en menos de dos segundos.<br>
+Prioridad: Deseable
+
+RNF3: El tiempo de aprendizaje del sistema por un usuario deberá ser de menos de una hora.<br>
+Prioridad: Deseable
+
+RNF4: Se debe informar al usuario de los errores que suceden, de forma que el usuario entienda el error.<br>
+Prioridad: Importante
+
+RNF5: La interfaz de usuario debe ser web / mobile (responsive).<br>
+Prioridad: Obligatorio
+
+RNF6: La interfaz de usuario debe estar en su completitud en el idioma español.<br>
+Prioridad: Obligatorio
+
+RNF7: La aplicación se desarrollará utilizando el sistema de repositorios de GitHub.<br>
+Prioridad: Obligatorio
+
+RNF8: Las pruebas de software se realizan con Test unitario Jest.<br>
+Prioridad: Obligatorio
+
+RNF9: La documentación estará en formato Markdown.<br>
+Prioridad: Obligatorio
+
+RNF10: Para el desarrollo se utilizará la IDE Visual Studio Code 1.61.<br>
+Prioridad: Obligatorio
+
+RNF11: La aplicación debe ser desarrollada usando las siguientes tecnologías: Javascript, Node.js, Material Design, HTML5 y CSS.<br>
+Prioridad: Obligatorio
+
+RNF12: El código debe pasar la verificación de reglas estándar de ESlint.<br>
+Prioridad: Deseable
+
+RNF13: La aplicación será desarrollada para ser utilizada en Google Chrome, versión 94.0.4606.71 en adelante para windows y versión 94.0.4606.52 en adelante para iOS.<br>
+Prioridad: Obligatorio
+
+RNF14: La aplicación se lanzará para ser utilizada en Montevideo, Uruguay.<br>
+Prioridad: Deseable
+
+RNF15: La aplicación se deberá llamar “MisGastos”.<br>
+Prioridad: Obligatorio
+
+RNF16: El color primario será Deep Purple 700 y el secundario Teal 700.<br>
+Prioridad: Obligatorio
+
+RNF17: El font utilizado en la aplicación será Roboto.<br>
+Prioridad: Obligatorio
+
+RNF18: Utilizar una gama de colores amigable con el daltonismo.<br>
+Prioridad: Deseable
+
+RNF19: El sistema debe respetar las buenas prácticas de accesibilidad y guiarse por las Heurísticas de Nielsen en el diseño.<br>
+Prioridad: Deseable
+
+- Definición de requerimientos funcionales
 - User Stories / Use Cases detallados
 - Bocetos de IU
 # Validación y verificación
