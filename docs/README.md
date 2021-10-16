@@ -4,7 +4,7 @@ Fecha de entrega: 18-oct-2021
 # Repositorio Git
 
 - Creación y uso de repositorios locales y remotos 
-- [Comandos Git ejecutados desde terminal y desde el IDE](\gitdocs\gidocs.md)
+- [Comandos Git ejecutados desde terminal y desde el IDE](/gitdocs/gidocs.md)
 
 ## Convenciones sobre el uso y nombramiento en git
 
@@ -56,7 +56,7 @@ _367 - bug\_fix - diego\_caraballo - agregar\_gasto\_validar\_negativos_
 
 - Buenas prácticas de versionado
 - Uso de ramas separadas de 'main'
-- [Resumen de commits y evolución del proyecto](\gitdocs\gidocs.md)
+- [Resumen de commits y evolución del proyecto](/gitdocs/gidocs.md)
 
 # Elicitación
 
@@ -72,8 +72,8 @@ Por ultimo realizamos user personas, que son arquetipos que representan a los di
 
 Una vez realizadas estas investigaciones y el modelo conceptual del problema, tenemos lo que necesitamos para comenzar con la especificacion.
 
-- [Evidencia de actividades de investigación](\investigacion\README.md)
-- [Referencias a fuentes de información](\investigacion\Referencias.md)
+- [Evidencia de actividades de investigación](/investigacion/README.md)
+- [Referencias a fuentes de información](/investigacion/Referencias.md)
 - Caracterización de usuarios: User Personas
 
 ## Modelo conceptual del problema
@@ -182,7 +182,7 @@ Prioridad: Deseable
 RNF19: El sistema debe respetar las buenas prácticas de accesibilidad y guiarse por las Heurísticas de Nielsen en el diseño.<br>
 Prioridad: Deseable
 
-- [User Stories](\userstories\README.md)
+- [User Stories](/userstories/README.md)
 - Bocetos de IU (Link al material)
 # Validación y verificación
 
@@ -192,9 +192,9 @@ Prioridad: Deseable
 # Reflexión
 
 ### Detalle del trabajo individual:<br>
-[Ernesto](\reflexiones\ernesto.md)<br>
-[Diego](\reflexiones\diego.md)<br>
-[Francisco](\reflexiones\francisco.md)<br>
+[Ernesto](/reflexiones/ernesto.md)<br>
+[Diego](/reflexiones/diego.md)<br>
+[Francisco](/reflexiones/francisco.md)<br>
 
 
 ## Técnicas aplicadas y aprendizajes
