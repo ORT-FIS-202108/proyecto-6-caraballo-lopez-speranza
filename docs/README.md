@@ -184,10 +184,22 @@ Prioridad: Deseable
 
 - [User Stories](userstories/README.md)
 - [Bocetos de IU](bocetosiu/README.md)
+- [Link a la version final del prototipo](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Boceto%20UI#Uhttps%3A%2F%2Fdrive.[…]e%26export%3Ddownload)
+
 # Validación y verificación
 
 - Verificar la especificación 
-- Validar la solución con personas no involucradas en el proyecto (Link al material)
+
+- [Validar la solución con personas no involucradas en el proyecto](bocetosiu/README.md)
+
+Para la validación de nuestro prototipo, les enviamos nuestro prototipo a 2 personas.
+En el caso de la primera de ellas, nos comento que en líneas generales la veía bien y que no le haría ninguna mejora en primera instancia.
+En el caso de la segunda, nos hizo el comentario de que los botones que se encuentran debajo en cada vista, no queda claro que si lo son, algo que puede llevar a confusión para el usuario.
+Por lo que a raíz de este comentario tomamos la decisión en la siguiente iteración de nuestro prototipo de incluir una separación entre cada uno de ellos de manera de que sea más claro que son botones.
+
+A continuación se detalla cual es la versión final, luego de realizadas las mejoras propuestas.
+
+![alt Version Final UI](assets/IteracionFinal.png "Version Final UI")
 
 # Reflexión
 
