@@ -212,8 +212,29 @@ A continuación se detalla cual es la versión final, luego de realizadas las me
 ![alt Version Final UI](assets/IteracionFinal.png "Version Final UI")
 
 # Reflexión
+## Resumen
+Como grupo creemos que el uso de las técnicas de ingeniería de software tuvieron un impacto positivo en el proyecto. Nos parece que supimos organizarnos bien entre nosotros desde el inicio y dividir el trabajo de forma eficiente, siempre validando y apoyándonos entre nosotros para mejorar la calidad del producto. En cuanto a cómo distribuimos el trabajo, generalmente todos participamos en las tareas, aunque en algunas ocasiones un miembro del equipo era designado para investigar un tema en particular y luego volver con los apuntes al grupo, de esta forma pudimos trabajar en varios temas en paralelo y eso nos permitió avanzar con mayor eficacia. También el uso de trello y git nos permitieron un trabajo en simultáneo y remoto sin fricción entre los compañeros.
 
-### Detalle del trabajo individual:<br>
+## Git
+Git resultó ser una de nuestros mayores aliados, permitiéndonos modificar el documento sin pisarnos entre nosotros y dejando claro cuando alguien había terminado alguna tarea asignada en trello.
+
+## Trello
+Trello fue muy útil a la hora de asignarnos tareas y comunicar en qué parte del proceso íbamos, si habíamos iniciado el trabajo o si estaba esperando revisión de un par para realizar el merge a dev. También no ayudó a fraccionar el proyecto en varias tareas menores, así no parecía algo gigantesco. Además nos mostró bien la magnitud del proyecto y todo lo que había para hacer.
+
+## VSC
+Visual Studio Code fue una gran herramienta a la hora de separar la documentación en distintos archivos y poder acceder a todo de manera rápida. 
+
+## Google Drive y Meet
+El uso de herramientas colaborativas como Google drive, Google meet nos permitieron trabajar en simultáneo todo el equipo y editar sugerencias sobre los documentos, generamos una carpeta en google drive en la cual derivamos toda la información de la investigación para luego procesarla y pasarla a la documentaciones.
+También fue crucial el uso de convenciones ya que eso nos ahorró bastante tiempo al momento de crear ramas y hacer los commits generando al mismo tiempo uniformidad en el resultado de el registro del proyecto, creemos que ahora es simple para una persona que entiende las convenciones determinadas ver qué rama corresponde a que trabajó de forma rápida.
+
+## Markdown
+Markdown tuvo una curva de aprendizaje al principio, pero creemos que fue de ayuda de manera de poder generar documentación ordenada y donde todos siguiéramos los mismos criterios.
+
+## draw.io
+draw.io nos permitió crear los bocetos de UI y los prototipos y la razón de su elección fue que algunos miembros del equipo contaban con cierta experiencia con dicha herramienta, algo que nos facilitó la creación de estos bocetos y prototipado.
+
+## Detalle del trabajo individual:<br>
 [Ernesto](reflexiones/ernesto.md)<br>
 [Diego](reflexiones/diego.md)<br>
 [Francisco](reflexiones/francisco.md)<br>
