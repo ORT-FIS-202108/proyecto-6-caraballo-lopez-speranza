@@ -189,8 +189,16 @@ Prioridad: Deseable
 
 # Validación y verificación
 
+## Verificar la especificación 
 
-
+Para verificar la especificación hicimos un listado de los requerimientos obligatorios del proyecto y nos encargamos que todos estén contemplados en los bocetos.<br>
+El sistema demostró incluir las siguientes implementaciones:
+- RF1: Registro de usuario
+- RF2: Login de usuario
+- RF4: Registrar gastos
+- RF5: Registrar ingresos
+- RF10: Generar reportes por usuario
+- RF11: Llevar un balance de las finanzas de usuario
 
 ## Validar la solución con personas no involucradas en el proyecto
 
