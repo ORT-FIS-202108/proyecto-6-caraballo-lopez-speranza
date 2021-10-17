@@ -3,8 +3,8 @@
 | Identificación del proyecto
 |-----------
 | Fundamentos de Ingeniería de Software
-ID M4A - Docente: Alejandro Adorjan
-Estudiantes: 
+N3A-AN - Docentes: Miguel Sánchez y Gabriela Sánchez
+Estudiantes: López Vaccaro, Francisco  (209003), Caraballo Soto, Diego  (180268), Speranza Peraza, Raul Ernesto (198426)
 
 Lectura: 30-ago-2021
 
