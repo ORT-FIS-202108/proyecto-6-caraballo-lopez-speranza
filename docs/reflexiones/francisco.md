@@ -1,0 +1,6 @@
+# Reflexion Francisco
+Durante este proyecto he aprendido muchas herramientas valiosas a la hora de desarrollar un software. De ahora en adelante en vez de simplemente programar, primero podría llevar a cabo una investigación del problema que estoy solucionando a través de las técnicas de elicitación aprendidas durante el curso. También aprendí que es un repositorio y a como utilizar git, como lo hemos estado usando durante el proyecto. Ahora seré capaz de utilizarlo mientras trabajo con compañeros y eso me permitirá un trabajo más limpio y menos caótico.
+
+Gracias al proyecto ahora soy capaz de desestructurar un problema y no solo encontrar la solución si no que también separar la solución en un conjunto de pasos o requerimientos a cumplir a la hora de crear un programa. A determinar para qué tipo de usuario estoy haciendo la aplicación y cómo realizar bocetos para recibir feedback mientras voy avanzando en el proyecto en vez de mostrarlo por primera vez cuando ya está terminado todo el proceso de programar.
+
+Creo que este proyecto me ha hecho crecer como futuro profesional en el area de informática y me ha dado las herramientas para poder llevar proyectos personales de forma organizada.
