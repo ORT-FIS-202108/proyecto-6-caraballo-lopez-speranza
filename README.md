@@ -1,4 +1,4 @@
-# Proyectos FIS Grupo 6
+# Proyecto FIS Grupo 6
 
 | Identificación del proyecto
 |-----------
