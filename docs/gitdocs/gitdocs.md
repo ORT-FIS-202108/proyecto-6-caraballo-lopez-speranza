@@ -16,6 +16,11 @@ Como es el primer push de esta rama tenemos que settear el upstream, una vez rea
 Una vez terminado estos pasos el merge esta terminado y nuestros cambios en dev.
 
 # Errores cometidos con Git
+## Errores con las convenciones
 Como era de esperar a la hora de usar una nueva tecnología cometimos algunos errores. El primer error que cometimos fue a la hora de nombrar las ramas, habíamos acordado un estándar pero algunos de nosotros nos olvidamos del estándar o lo recordamos distinto y no verificamos a la hora de crear las ramas. Esto llevó a que las primeras ramas no tuvieran el nombre correcto. Por ejemplo la rama “#6-feature-francisco_lopez-ingenieria_reversa” comienza con un “#” cuando el resto no, esto fue porque al principio pensamos en hacerlo así pero luego lo cambiamos, también hubieron ramas que no tenían el “feature” o ponían el nombre de la feature antes del nombre del autor. Rápidamente nos reunimos y corregimos estos errores.<br>
+
+## Errores en los merge
 Otro error que cometimos un par de veces fue hacer merge con main en vez de hacerlo con dev, probablemente por distracción más que otra cosa pero fue algo que también tuvimos que arreglar y acordarse a la hora de hacer los merge. Por suerte solo cometimos este error dos veces pero esperamos que para el siguiente proyecto no pase ni una vez.<br>
+
+## Error con el borrado de ramas
 Otro error fue el de borrar las ramas, si bien a nosotros nos parecía lo mejor, preguntamos a los profesores y se nos dijo que había que mantenerlas sin borrar, por esto las primeras ramas no están en github ya que fueron borradas a la hora de hacer merge.
