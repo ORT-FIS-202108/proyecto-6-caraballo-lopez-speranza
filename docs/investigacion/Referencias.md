@@ -95,5 +95,47 @@ Miedo: el caos, ser socavado o derrocado
 Debilidad: ser autoritario, incapaz de delegar
 Talento: responsabilidad, liderazgo
 
+# Referencias sobre requerimientos
 
+**¿Qué son los requerimientos?**
 
+Son la definición de lo que un sistema de software debe hacer y una especificación de las restricciones en su operación e implementación..
+
+Son la guía para comprender las necesidades de los usuarios con respecto al software.
+
+Especifican las funcionalidades que se deben encontrar en el producto a desarrollar.
+
+También describen otros atributos que se encuentran en los sistemas, como seguridad, desempeño, confiabilidad, disponibilidad entre otros.
+
+Además dan a conocer la ubicación física de nuestros usuarios y los hardwares que correrán nuestro software.
+
+Se consideran restricciones de hardware o software.(desarrollar para IOS o el software será recorrido con un ordenador de bajo presupuesto).
+
+**Para recopilar esta información** procedemos a la **Elicitación** que son las tareas de recopilación de información por parte de los usuarios. **Análisis** , tareas orientadas al entendimiento de las necesidades del usuario y sus posibles soluciones. **Especificación** , las tareas orientadas a establecer de forma clara, concisa, no ambigua y completa cuáles son las necesidades a resolver y las funciones que deben estar presentes en la solución. **Validación** tareas cuyo propósito es aprobar o descartar las propuestas de solución.
+
+**La ingeniería de requerimientos es** la capacidad que tienen los equipos de software para entender y encontrar las necesidades de sus clientes, alinear las prioridades contrarias que tienen y encontrar las funciones que le darán valor a todos. Hay que centrarse en solucionar problemas y no en agregar funciones.
+
+**A la hora de definir los requerimientos** primero tenemos que clasificarlos en estas categorías:
+
+- **Deseables:** Estéticos, lindos de tener si hay tiempo.
+- **Importantes:** Valiosos, pueden esperar y es mejor priorizar otros req.
+- **No implementables:** Poco valor, Costo alto.
+- **Obligatorios:** Sin ellos el producto no tiene razón de ser.
+
+**Los requerimientos están en una jerarquía de niveles:**
+
+- **N1:** Requerimiento de negocio, razón de ser del proyecto.
+- **N2:** Requerimiento de usuario, que busca el usuario.
+- **N3:** Requerimientos de software, describen lo que el software debe hacer para incluir y completar las actividades de los usuarios, además de otros atributos del sistema llamados requerimientos no funcionales (los no funcionales son siempre Obligatorios).
+
+Primero debemos identificar a nuestros StakeHolders, quienes son y en qué nivel de decisión se encuentran. Luego consultamos sus requerimientos y saber en qué nivel de la jerarquía se encuentran. Con este información debemos priorizar nuestros requerimientos.
+
+**Tecnicas de recoleccion de requerimientos(Usar más de una):**
+
+- Entrevistas
+- Talleres
+- Focus groups
+- Observación
+- Encuestas
+- Análisis de documentos
+- Evaluación heurística
