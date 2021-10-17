@@ -187,10 +187,18 @@ Prioridad: Deseable
 - [Link a la version final del prototipo](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Boceto%20UI#Uhttps%3A%2F%2Fdrive.[…]e%26export%3Ddownload)
 
 # Validación y verificación
+## Verificar la especificación 
 
-- Verificar la especificación 
+Para verificar la especificación hicimos un listado de los requerimientos obligatorios del proyecto y nos encargamos que todos estén contemplados en los bocetos.<br>
+El sistema demostró incluir las siguientes implementaciones:
+- RF1: Registro de usuario
+- RF2: Login de usuario
+- RF4: Registrar gastos
+- RF5: Registrar ingresos
+- RF10: Generar reportes por usuario
+- RF11: Llevar un balance de las finanzas de usuario
 
-- [Validar la solución con personas no involucradas en el proyecto](bocetosiu/README.md)
+## Validar la solución con personas no involucradas en el proyecto
 
 Para la validación de nuestro prototipo, les enviamos nuestro prototipo a 2 personas.
 En el caso de la primera de ellas, nos comento que en líneas generales la veía bien y que no le haría ninguna mejora en primera instancia.
