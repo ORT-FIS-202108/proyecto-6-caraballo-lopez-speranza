@@ -1,4 +1,4 @@
-# Repositorio plantilla para proyectos FIS
+# Proyectos FIS Grupo 6
 
 | Identificación del proyecto
 |-----------
