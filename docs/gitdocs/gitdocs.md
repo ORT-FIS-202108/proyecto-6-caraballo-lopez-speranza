@@ -24,3 +24,7 @@ Otro error que cometimos un par de veces fue hacer merge con main en vez de hace
 
 ## Error con el borrado de ramas
 Otro error fue el de borrar las ramas, si bien a nosotros nos parecía lo mejor, preguntamos a los profesores y se nos dijo que había que mantenerlas sin borrar, por esto las primeras ramas no están en github ya que fueron borradas a la hora de hacer merge.
+
+## Aqui tenemos la evidencia del uso de git
+<img src="https://i.imgur.com/87jaIZ8.png" alt="SourceTree1" width="800"/><br>
+<img src="https://i.imgur.com/HmAZoqW.png" alt="SourceTree2" width="800"/><br>
