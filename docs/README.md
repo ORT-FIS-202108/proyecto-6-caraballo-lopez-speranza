@@ -183,7 +183,7 @@ RNF19: El sistema debe respetar las buenas prácticas de accesibilidad y guiarse
 Prioridad: Deseable
 
 - [User Stories](userstories/README.md)
-- [User Cases]()
+- [Use Cases](usecases/README.md)
 - [Bocetos de IU](bocetosiu/README.md)
 - [Link a la version final del prototipo](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Boceto%20UI#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1650bGR3F0_gbzgGpVUDW2QBebLxu0ree%26export%3Ddownload)
 
