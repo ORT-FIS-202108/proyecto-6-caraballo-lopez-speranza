@@ -3,8 +3,8 @@ Fecha de entrega: 18-oct-2021
 
 # Repositorio Git
 
-- Creación y uso de repositorios locales y remotos
-- Comandos Git ejecutados desde terminal y desde el IDE
+- Creación y uso de repositorios locales y remotos 
+- [Comandos Git ejecutados desde terminal y desde el IDE](gitdocs/gitdocs.md)
 
 ## Convenciones sobre el uso y nombramiento en git
 
@@ -44,19 +44,12 @@ _687 - feature - ernesto\_speranza - log\_in\_usuario_
 
 _367 - bug\_fix - diego\_caraballo - agregar\_gasto\_validar\_negativos_
 
-### _Referencias:_
-
-[https://hackernoon.com/git-branch-naming-convention-7-best-practices-to-follow-1c2l33g2](https://hackernoon.com/git-branch-naming-convention-7-best-practices-to-follow-1c2l33g2)
-
-[https://deepsource.io/blog/git-branch-naming-conventions/](https://deepsource.io/blog/git-branch-naming-conventions/)
-
-[https://codingsight.com/git-branching-naming-convention-best-practices/](https://codingsight.com/git-branching-naming-convention-best-practices/)
-
+[Referencias](investigacion/Referencias.md)
 # Versionado
 
 - Buenas prácticas de versionado
 - Uso de ramas separadas de 'main'
-- Resumen de commits y evolución del proyecto
+- [Resumen de commits y evolución del proyecto](gitdocs/gitdocs.md)
 
 # Elicitación
 
@@ -72,9 +65,16 @@ Por ultimo realizamos user personas, que son arquetipos que representan a los di
 
 Una vez realizadas estas investigaciones y el modelo conceptual del problema, tenemos lo que necesitamos para comenzar con la especificacion.
 
-- Evidencia de actividades de investigación
-- Referencias a fuentes de información
-- Caracterización de usuarios: User Personas
+- [Evidencia de actividades de investigación](investigacion/README.md)
+- [Referencias a fuentes de información](investigacion/Referencias.md)
+
+## Caracterización de usuarios: User Personas
+
+A continuacion se detallan los 2 User Personas que definimos, de manera de tener representaciones de cuales podrian ser nuestros potenciales clientes.
+
+![alt User Persona 1](https://i.im.ge/2021/10/16/oOXdID.png "User Persona 1")
+
+![alt User Persona 2](https://i.im.ge/2021/10/16/oOXSMY.png "User Persona 2")
 
 ## Modelo conceptual del problema
 
@@ -182,17 +182,63 @@ Prioridad: Deseable
 RNF19: El sistema debe respetar las buenas prácticas de accesibilidad y guiarse por las Heurísticas de Nielsen en el diseño.<br>
 Prioridad: Deseable
 
-- Definición de requerimientos funcionales
-- User Stories / Use Cases detallados
-- Bocetos de IU
+- [User Stories](userstories/README.md)
+- [Use Cases](usecases/README.md)
+- [Bocetos de IU](bocetosiu/README.md)
+- [Link a la version final del prototipo](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Boceto%20UI#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1650bGR3F0_gbzgGpVUDW2QBebLxu0ree%26export%3Ddownload)
+
 # Validación y verificación
 
-- Verificar la especificación
-- Validar la solución con personas no involucradas en el proyecto
+## Verificar la especificación 
+
+Para verificar la especificación hicimos un listado de los requerimientos obligatorios del proyecto y nos encargamos que todos estén contemplados en los bocetos.<br>
+El sistema demostró incluir las siguientes implementaciones:
+- RF1: Registro de usuario
+- RF2: Login de usuario
+- RF4: Registrar gastos
+- RF5: Registrar ingresos
+- RF10: Generar reportes por usuario
+- RF11: Llevar un balance de las finanzas de usuario
+
+## Validar la solución con personas no involucradas en el proyecto
+
+Para la validación de nuestro prototipo, les enviamos nuestro prototipo a 2 personas.
+En el caso de la primera de ellas, nos comento que en líneas generales la veía bien y que no le haría ninguna mejora en primera instancia.
+En el caso de la segunda, nos hizo el comentario de que los botones que se encuentran debajo en cada vista, no queda claro que si lo son, algo que puede llevar a confusión para el usuario.
+Por lo que a raíz de este comentario tomamos la decisión en la siguiente iteración de nuestro prototipo de incluir una separación entre cada uno de ellos de manera de que sea más claro que son botones.
+
+A continuación se detalla cual es la versión final, luego de realizadas las mejoras propuestas.
+
+![alt Version Final UI](assets/IteracionFinal.png "Version Final UI")
 
 # Reflexión
+## Resumen
+Como grupo creemos que el uso de las técnicas de ingeniería de software tuvieron un impacto positivo en el proyecto. Nos parece que supimos organizarnos bien entre nosotros desde el inicio y dividir el trabajo de forma eficiente, siempre validando y apoyándonos entre nosotros para mejorar la calidad del producto. En cuanto a cómo distribuimos el trabajo, generalmente todos participamos en las tareas, aunque en algunas ocasiones un miembro del equipo era designado para investigar un tema en particular y luego volver con los apuntes al grupo, de esta forma pudimos trabajar en varios temas en paralelo y eso nos permitió avanzar con mayor eficacia. También el uso de trello y git nos permitieron un trabajo en simultáneo y remoto sin fricción entre los compañeros.
 
-- Detalle del trabajo individual
+## Git
+Git resultó ser una de nuestros mayores aliados, permitiéndonos modificar el documento sin pisarnos entre nosotros y dejando claro cuando alguien había terminado alguna tarea asignada en trello.
+
+## Trello
+Trello fue muy útil a la hora de asignarnos tareas y comunicar en qué parte del proceso íbamos, si habíamos iniciado el trabajo o si estaba esperando revisión de un par para realizar el merge a dev. También no ayudó a fraccionar el proyecto en varias tareas menores, así no parecía algo gigantesco. Además nos mostró bien la magnitud del proyecto y todo lo que había para hacer.
+
+## VSC
+Visual Studio Code fue una gran herramienta a la hora de separar la documentación en distintos archivos y poder acceder a todo de manera rápida. 
+
+## Google Drive y Meet
+El uso de herramientas colaborativas como Google drive, Google meet nos permitieron trabajar en simultáneo todo el equipo y editar sugerencias sobre los documentos, generamos una carpeta en google drive en la cual derivamos toda la información de la investigación para luego procesarla y pasarla a la documentaciones.
+También fue crucial el uso de convenciones ya que eso nos ahorró bastante tiempo al momento de crear ramas y hacer los commits generando al mismo tiempo uniformidad en el resultado de el registro del proyecto, creemos que ahora es simple para una persona que entiende las convenciones determinadas ver qué rama corresponde a que trabajó de forma rápida.
+
+## Markdown
+Markdown tuvo una curva de aprendizaje al principio, pero creemos que fue de ayuda de manera de poder generar documentación ordenada y donde todos siguiéramos los mismos criterios.
+
+## draw.io
+draw.io nos permitió crear los bocetos de UI y los prototipos y la razón de su elección fue que algunos miembros del equipo contaban con cierta experiencia con dicha herramienta, algo que nos facilitó la creación de estos bocetos y prototipado.
+
+## Detalle del trabajo individual:<br>
+[Ernesto](reflexiones/ernesto.md)<br>
+[Diego](reflexiones/diego.md)<br>
+[Francisco](reflexiones/francisco.md)<br>
+
 
 ## Técnicas aplicadas y aprendizajes
 
