@@ -3,7 +3,6 @@ Fecha de entrega: 18-oct-2021
 
 # Repositorio Git
 
-- Creación y uso de repositorios locales y remotos 
 - [Comandos Git ejecutados desde terminal y desde el IDE](gitdocs/gitdocs.md)
 
 ## Convenciones sobre el uso y nombramiento en git
@@ -47,8 +46,6 @@ _367 - bug\_fix - diego\_caraballo - agregar\_gasto\_validar\_negativos_
 [Referencias](investigacion/Referencias.md)
 # Versionado
 
-- Buenas prácticas de versionado
-- Uso de ramas separadas de 'main'
 - [Resumen de commits y evolución del proyecto](gitdocs/gitdocs.md)
 
 # Elicitación
