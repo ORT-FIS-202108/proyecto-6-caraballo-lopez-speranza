@@ -11,7 +11,7 @@
   <header class="mdc-top-app-bar">
     <div class="mdc-top-app-bar__row">
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-        <span class="mdc-top-app-bar__title">Cartelera</span>
+        <span class="mdc-top-app-bar__title">Mis Gastos</span>
       </section>
     </div>
 
@@ -22,7 +22,7 @@
 
             <button class="mdc-tab mdc-tab--active sample-content-tab" role="tab" aria-selected="true" tabindex="0">
               <span class="mdc-tab__content">
-                <span class="mdc-tab__text-label">Películas</span>
+                <span class="mdc-tab__text-label">Home</span>
               </span>
               <span class="mdc-tab-indicator mdc-tab-indicator--active">
                 <span
@@ -33,13 +33,34 @@
 
             <button class="mdc-tab sample-content-tab" role="tab" aria-selected="false" tabindex="1">
               <span class="mdc-tab__content">
-                <span class="mdc-tab__text-label">Agregar película</span>
+                <span class="mdc-tab__text-label">Agregar gasto</span>
               </span>
               <span class="mdc-tab-indicator">
                 <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
               </span>
               <span class="mdc-tab__ripple"></span>
             </button>
+
+            <button class="mdc-tab sample-content-tab" role="tab" aria-selected="false" tabindex="2">
+              <span class="mdc-tab__content">
+                <span class="mdc-tab__text-label">Agregar ingreso</span>
+              </span>
+              <span class="mdc-tab-indicator">
+                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+              </span>
+              <span class="mdc-tab__ripple"></span>
+            </button>
+            
+            <button class="mdc-tab sample-content-tab" role="tab" aria-selected="false" tabindex="3">
+              <span class="mdc-tab__content">
+                <span class="mdc-tab__text-label">Ver reporte</span>
+              </span>
+              <span class="mdc-tab-indicator">
+                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+              </span>
+              <span class="mdc-tab__ripple"></span>
+            </button>
+
           </div>
         </div>
       </div>
@@ -48,10 +69,64 @@
 
   <main class="mdc-top-app-bar--fixed-adjust">
     <section class="content">
-      <h1>Películas</h1>
+      Aca va la Home
     </section>
-    <section class="content sample-content--hidden">
-      <h1>Próximamente</h1>
+
+    <section class="content content--hidden">
+      <div class="add-form">
+        <label class="mdc-text-field mdc-text-field--outlined" id="expenseName">
+          <span class="mdc-notched-outline">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__notch">
+              <span class="mdc-floating-label">Nombre del gasto</span>
+            </span>
+            <span class="mdc-notched-outline__trailing"></span>
+          </span>
+          <input type="text" class="mdc-text-field__input" aria-labelledby="expenseName">
+        </label>
+
+        <label class="mdc-text-field mdc-text-field--outlined" id="expenseCategory">
+          <span class="mdc-notched-outline">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__notch">
+              <span class="mdc-floating-label">Categoria</span>
+            </span>
+            <span class="mdc-notched-outline__trailing"></span>
+          </span>
+          <input type="text" class="mdc-text-field__input" aria-labelledby="expenseCategory">
+        </label>
+        
+        <label class="mdc-text-field mdc-text-field--outlined" id="expenseAmount">
+          <span class="mdc-notched-outline">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__notch">
+              <span class="mdc-floating-label">Monto</span>
+            </span>
+            <span class="mdc-notched-outline__trailing"></span>
+          </span>
+          <input type="number" class="mdc-text-field__input" aria-labelledby="expenseAmount" min=0>
+        </label>
+
+        <label class="mdc-text-field mdc-text-field--outlined" id="expenseDate">
+          <span class="mdc-notched-outline">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__notch">
+              <span class="mdc-floating-label">Fecha</span>
+            </span>
+            <span class="mdc-notched-outline__trailing"></span>
+          </span>
+          <input type="text" class="mdc-text-field__input" aria-labelledby="expenseDate">
+        </label>
+
+        <div class="actions">
+          <button class="mdc-button mdc-button--raised">
+            Agregar
+          </button>
+          <button class="mdc-button mdc-button--outlined">
+            Cancelar
+        </div>
+      </div>
+      <!-- <h1>Próximamente</h1>
       <label class="mdc-text-field mdc-text-field--outlined" id="title">
         <span class="mdc-notched-outline">
           <span class="mdc-notched-outline__leading"></span>
@@ -127,8 +202,69 @@
         <button class="mdc-button mdc-button--raised" id="addButton">
           <span class="mdc-button__label">AGREGAR</span>
         </button>
+      </div> -->
+    </section>
+
+    <section class="content content--hidden">
+      <div class="add-form">
+        <label class="mdc-text-field mdc-text-field--outlined" id="incomeName">
+          <span class="mdc-notched-outline">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__notch">
+              <span class="mdc-floating-label">Nombre del ingreso</span>
+            </span>
+            <span class="mdc-notched-outline__trailing"></span>
+          </span>
+          <input type="text" class="mdc-text-field__input" aria-labelledby="incomeName">
+        </label>
+
+        <label class="mdc-text-field mdc-text-field--outlined" id="incomeCategory">
+          <span class="mdc-notched-outline">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__notch">
+              <span class="mdc-floating-label">Categoria</span>
+            </span>
+            <span class="mdc-notched-outline__trailing"></span>
+          </span>
+          <input type="text" class="mdc-text-field__input" aria-labelledby="incomeCategory">
+        </label>
+        
+        <label class="mdc-text-field mdc-text-field--outlined" id="incomeAmount">
+          <span class="mdc-notched-outline">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__notch">
+              <span class="mdc-floating-label">Monto</span>
+            </span>
+            <span class="mdc-notched-outline__trailing"></span>
+          </span>
+          <input type="number" class="mdc-text-field__input" aria-labelledby="incomeAmount" min=0>
+        </label>
+
+        <label class="mdc-text-field mdc-text-field--outlined" id="incomeDate">
+          <span class="mdc-notched-outline">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__notch">
+              <span class="mdc-floating-label">Fecha</span>
+            </span>
+            <span class="mdc-notched-outline__trailing"></span>
+          </span>
+          <input type="text" class="mdc-text-field__input" aria-labelledby="incomeDate">
+        </label>
+
+        <div class="actions">
+          <button class="mdc-button mdc-button--raised">
+            Agregar
+          </button>
+          <button class="mdc-button mdc-button--outlined">
+            Cancelar
+        </div>
       </div>
     </section>
+
+    <section class="content content--hidden">
+      Aca va la Home
+    </section>
+
   </main>
 
   <aside class="mdc-snackbar">
