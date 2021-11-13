@@ -23,24 +23,26 @@ tabBar.listen("MDCTabBar:activated", (activatedEvent) => {
   });
 });
 
-const textFieldTitle = new MDCTextField(document.getElementById('title'));
-const textFieldYear = new MDCTextField(document.getElementById('year'));
-const selectGenre = new MDCSelect(document.querySelector('.mdc-select'));
+const textFieldExpenseName = new MDCTextField(document.getElementById('expenseName'));
+const textFieldExpenseCategory = new MDCTextField(document.getElementById('expenseCategory'));
+const textFieldExpenseAmount = new MDCTextField(document.getElementById('expenseAmount'));
+const textFieldExpenseDate = new MDCTextField(document.getElementById('expenseDate'));
+//TODO: agregar los inputs faltantes
 
-const addButton = new MDCRipple(document.getElementById('addButton'));
-addButton.listen('click', () => {
-  let title = textFieldTitle.value;
-  let year = textFieldYear.value;
-  let genre = selectGenre.value;
-  try {
-    // let newPelicula = new Pelicula(title, genre, year);
-    // listaPeliculas.agregar(newPelicula);
-  } catch (error) {
-    const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
-    snackbar.labelText = error.message;
-    snackbar.open();
-  } finally {
-    // let peliculas = listaPeliculas.getPeliculas();
-    // console.log(peliculas);
-  }
-})
+// const addButton = new MDCRipple(document.getElementById('addButton'));
+// addButton.listen('click', () => {
+//   // let title = textFieldTitle.value;
+//   // let year = textFieldYear.value;
+//   // let genre = selectGenre.value;
+//   try {
+//     // let newPelicula = new Pelicula(title, genre, year);
+//     // listaPeliculas.agregar(newPelicula);
+//   } catch (error) {
+//     // const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
+//     // snackbar.labelText = error.message;
+//     // snackbar.open();
+//   } finally {
+//     // let peliculas = listaPeliculas.getPeliculas();
+//     // console.log(peliculas);
+//   }
+// })
