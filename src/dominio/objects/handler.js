@@ -28,7 +28,7 @@ export default class Handler {
   }
 
   getTransactionsByUser(user) {
-    return this.transactions.filter(t => t.userId === user.id);
+    return this.transactions.filter(t => t.user.id === user.id);
   }
 
   getTransactionById(id) {
