@@ -1,6 +1,6 @@
 @use "@material/theme" with (
-  $primary: #00bcd4,
-  $secondary: #f44336,
+  $primary: #512da8,
+  $secondary: #00796b,
   $background: #c7c7c7,
 );
 @use '@material/button/mdc-button';
@@ -55,7 +55,7 @@ section {
   text-align: center;
 }
 
-.sample-content--hidden {
+.content--hidden {
   display: none;
 }
 
@@ -77,4 +77,9 @@ section {
 
 .mdc-snackbar__actions .mdc-button__label {
   color: #67daff;
+}
+
+.add-form {
+  display: flex;
+  flex-direction: column;
 }
