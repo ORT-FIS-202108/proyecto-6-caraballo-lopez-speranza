@@ -1,8 +1,9 @@
 @use "@material/theme" with (
-  $primary: #512da8,
-  $secondary: #00796b,
+  $primary: #512DA8,
+  $secondary: #00796B,
   $background: #c7c7c7,
 );
+@use "material-components-web";
 @use '@material/button/mdc-button';
 @use '@material/button';
 @use "@material/drawer";
@@ -40,9 +41,28 @@ body {
   position: absolute;
 }
 
+#spanGastos {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0px;
+}
+
+
 .mdc-top-app-bar {
+
   z-index: 7;
   @include icon-button.core-styles;
+}
+
+.tab-bar-botom {
+  position: fixed;
+  bottom: -0.5em;
+  width: 100%;
 }
 
 section {

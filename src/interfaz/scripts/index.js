@@ -7,11 +7,9 @@ import {MDCSnackbar} from '@material/snackbar';
 import Handler from '../../dominio/objects/handler';
 import Transaction from '../../dominio/objects/transaction';
 import User from '../../dominio/objects/user';
+import MaterialDateTimePicker from 'material-datetime-picker';
 
-// import ListaPeliculas from '../../dominio/lista-peliculas.mjs';
-// import Pelicula from '../../dominio/pelicula.mjs';
 
-// const listaPeliculas = new ListaPeliculas();
 const handler = new Handler();
 
 const topAppBarElement = document.querySelector('.mdc-top-app-bar');
@@ -23,6 +21,7 @@ tabBar.listen("MDCTabBar:activated", (activatedEvent) => {
     if (index === activatedEvent.detail.index) {
       element.classList.remove("content--hidden");
     } else {
+      document.getElementById("spanGastos").innerHTML = retornaTitleSegunIndex(activatedEvent.detail.index);
       element.classList.add("content--hidden");
     }
   });
@@ -55,4 +54,27 @@ addExpenseButton.listen('click', () => {
     let transactions = handler.getTransactionsByUser(newUser);
     console.log(transactions);
   }
-})
+});
+
+
+// Funciones Auxiliares //
+function retornaTitleSegunIndex(index){
+  let title = "";
+  switch (index) {
+    case 0:
+      title = "Mis Gastos";
+      break;
+    case 1:
+      title = "Agregar Gasto";
+      break;
+    case 2: 
+      title = "Agregar Ingreso";
+      break;
+    case 3: 
+      title = "Ver Reporte";
+      break;
+    default:
+      title = "Mis Gastos";
+  }
+  return title;
+}
