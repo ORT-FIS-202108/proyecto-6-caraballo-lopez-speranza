@@ -7,7 +7,6 @@ import {MDCSnackbar} from '@material/snackbar';
 import Handler from '../../dominio/objects/handler';
 import Transaction from '../../dominio/objects/transaction';
 import User from '../../dominio/objects/user';
-import MaterialDateTimePicker from 'material-datetime-picker';
 
 
 const handler = new Handler();
