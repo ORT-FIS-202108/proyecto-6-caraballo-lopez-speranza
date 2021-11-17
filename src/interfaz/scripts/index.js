@@ -29,6 +29,13 @@ tabBar.listen('MDCTabBar:activated', (activatedEvent) => {
 const textFieldUserEmail = new MDCTextField(document.getElementById('userEmail'));
 const textFieldUserPassword = new MDCTextField(document.getElementById('userPassword'));
 
+const textFieldUserSignupName = new MDCTextField(document.getElementById('userSignupName'));
+const textFieldUserSignupAge = new MDCTextField(document.getElementById('userSignupAge'));
+const textFieldUserSignupEmail = new MDCTextField(document.getElementById('userSignupEmail'));
+const textFieldUserSignupEmailConfirmation = new MDCTextField(document.getElementById('userSignupEmailConfirmation'));
+const textFieldUserSignupPassword = new MDCTextField(document.getElementById('userSignupPassword'));
+const textFieldUseSignuprPasswordConfirmation = new MDCTextField(document.getElementById('userSignupPasswordConfirmation'));
+
 const textFieldExpenseName = new MDCTextField(document.getElementById('expenseName'));
 const textFieldExpenseCategory = new MDCTextField(document.getElementById('expenseCategory'));
 const textFieldExpenseAmount = new MDCTextField(document.getElementById('expenseAmount'));
@@ -40,8 +47,11 @@ const textFieldIncomeAmount = new MDCTextField(document.getElementById('incomeAm
 const textFieldIncomeDate = new MDCTextField(document.getElementById('incomeDate'));
 
 const loginButton = new MDCRipple(document.getElementById('loginButton'));
+const signupButton = new MDCRipple(document.getElementById('signupButton'));
 const addExpenseButton = new MDCRipple(document.getElementById('addExpenseButton'));
 const addIncomeButton = new MDCRipple(document.getElementById('addIncomeButton'));
+
+const signupLink = new MDCRipple(document.getElementById('signupLink'));
 
 addExpenseButton.listen('click', () => {
   // TODO: hacer funcion para el add de expense
@@ -85,11 +95,30 @@ addIncomeButton.listen('click', () => {
 });
 
 loginButton.listen('click', () => {
-  document.querySelectorAll('.main-hidden').forEach((element, index) => {
+  document.querySelectorAll('.main-hidden').forEach((element) => {
     element.classList.remove('main-hidden');
   });
-  document.querySelectorAll('.login').forEach((element, index) => {
-    element.classList.add('login-hidden');
+  document.querySelectorAll('.login').forEach((element) => {
+    element.classList.add('initial-content-hidden');
+  });
+});
+
+signupButton.listen('click', () => {
+  document.querySelectorAll('.main-hidden').forEach((element) => {
+    element.classList.remove('main-hidden');
+  });
+  document.querySelectorAll('.signup').forEach((element) => {
+    element.classList.add('initial-content-hidden');
+  });
+});
+
+
+signupLink.listen('click', () => {
+  document.querySelectorAll('.login').forEach((element) => {
+    element.classList.add('initial-content-hidden');
+  });
+  document.querySelectorAll('.signup').forEach((element) => {
+    element.classList.remove('initial-content-hidden');
   });
 });
 
