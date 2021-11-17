@@ -1,12 +1,18 @@
+// Manejar la grafica de la Home
+
+
+// Manejar la grafica del reporte por categorias por mes
 
 const data = {
+  // Aca van los labels de las categorias
   labels: [
     'Red',
     'Blue',
     'Yellow',
   ],
   datasets: [{
-    label: 'My First Dataset',
+    label: 'Reporte agregado de gasto',
+    // Aca van los valores de
     data: [300, 50, 100],
     backgroundColor: [
       'rgb(255, 99, 132)',
@@ -16,10 +22,12 @@ const data = {
     hoverOffset: 4,
   }],
 };
+// para home usar doughnut | para reporte por categoria y fecha 
 const config = {
   type: 'doughnut',
   data: data,
 };
+
 const myChart = new Chart(
     document.getElementById('myChart'),
     config,
