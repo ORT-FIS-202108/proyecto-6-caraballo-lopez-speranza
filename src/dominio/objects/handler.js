@@ -1,4 +1,4 @@
-import Category from "./category";
+import Category from './category';
 
 const MIN_AGE = 1;
 const MAX_AGE = 99;
@@ -84,42 +84,37 @@ export default class Handler {
   validateAge(age) {
     return age >= MIN_AGE && age <= MAX_AGE;
   }
-  //es metodo devuelve una lista de cuanto se gasto por categoria
+  // es metodo devuelve una lista de cuanto se gasto por categoria
   getCategories(user) {
-    let transactionList = getTransactionsByUser(user);
+    const transactionList = getTransactionsByUser(user);
     let categories = [];
-    for(let i = 0; i < transactionList.length()-1;i++) {
+    for (let i = 0; i < transactionList.length()-1; i++) {
       categories = addTransactionToCategory(transactionList[i], categories);
     }
     return categories;
   }
   addTransactionToCategory(transaction, categories) {
-    if(isCategoryAlreadyOnList(transaction.category, categories)){
-      for(let i = 0; i < categories.length()-1;i++) {
-        if(categories[i].name.toLowerCase() == category.toLowerCase()){
+    if (isCategoryAlreadyOnList(transaction.category, categories)) {
+      for (let i = 0; i < categories.length()-1; i++) {
+        if (categories[i].name.toLowerCase() == category.toLowerCase()) {
           categories[i].ammount += transaction.amount;
           return categories;
         }
       }
-    }
-    else{
+    } else {
       return addTransaccionToCategory(transaction, addCategoryToList(transaction.category, categories));
     }
   }
   isCategoryAlreadyOnList(category, categories) {
-    for(let i = 0; i < categories.length()-1;i++) {
-      if(categories[i].name.toLowerCase() == category.toLowerCase()){
+    for (let i = 0; i < categories.length()-1; i++) {
+      if (categories[i].name.toLowerCase() == category.toLowerCase()) {
         return True;
       }
     }
     return False;
   }
-  addCategoryToList(category, categories){
-      let toAdd = new Category(category);
-      return categories.push(toAdd);
+  addCategoryToList(category, categories) {
+    const toAdd = new Category(category);
+    return categories.push(toAdd);
   }
 }
-//Balance: activeUser.balance;
-//categories[i].name + ': ' + "categories[i].amount
-//auto: -1000
-// 
