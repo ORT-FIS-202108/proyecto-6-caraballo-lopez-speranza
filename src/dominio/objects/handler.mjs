@@ -1,5 +1,5 @@
-const MIN_AGE = 1;
-const MAX_AGE = 99;
+import User from './user.mjs';
+
 export default class Handler {
   constructor() {
     this.users = [];
@@ -46,40 +46,14 @@ export default class Handler {
     this.users[index].balance += transaction.amount;
   }
 
-  // metodo al que llama el front para crear un usuario
   createUser(name, age, email, password) {
     try {
-      verifyUser(age, email);
-    } catch (e) {
-      return e.Error;
+      verifyUser(name, age, email, password);
+      const user = new User(name, age, email, password);
+      this.addUser(user);
+      return 'El usuario ha sido registrado con exito';
+    } catch (err) {
+      return err;
     }
-    const id = calculateIdUser();
-    const user = new User(id, name, age, email, password);
-    this.addUser(user);
-    return 'El Usuario ha sido registrado con exito';
-  }
-
-  verifyUser(age, email) {
-    if (!this.validateEmail(email)) {
-      throw new Error('El email que ha ingresado no es valido');
-    }
-
-    if (!this.validateAge(age)) {
-      throw new Error('La edad que ha ingresado no es valida');
-    }
-  }
-
-  calculateIdUser() {
-    const users = this.getUsers();
-    return 1 + users.length();
-  }
-
-  validateEmail(email) {
-    const emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return emailRegex.test(email);
-  }
-
-  validateAge(age) {
-    return age >= MIN_AGE && age <= MAX_AGE;
   }
 }
