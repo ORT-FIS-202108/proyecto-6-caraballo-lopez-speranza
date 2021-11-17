@@ -1,13 +1,14 @@
 /* eslint-disable require-jsdoc */
-import { MDCRipple } from '@material/ripple';
-import { MDCTopAppBar } from '@material/top-app-bar';
-import { MDCTabBar } from '@material/tab-bar';
-import { MDCTextField } from '@material/textfield';
-import { MDCSnackbar } from '@material/snackbar';
+import {MDCRipple} from '@material/ripple';
+import {MDCTopAppBar} from '@material/top-app-bar';
+import {MDCTabBar} from '@material/tab-bar';
+import {MDCTextField} from '@material/textfield';
+import {MDCSnackbar} from '@material/snackbar';
 import Handler from '../../dominio/objects/handler';
 import Transaction from '../../dominio/objects/transaction';
 import User from '../../dominio/objects/user';
-import { INCOME_TYPE, EXPENSE_TYPE } from './constants';
+import {INCOME_TYPE, EXPENSE_TYPE} from './constants';
+import {drawBalanceChart, drawCategoryChart} from './charts';
 
 const handler = new Handler();
 
@@ -133,40 +134,5 @@ const datos = getExpenseAndIncome(transactions2);
 // retorna un cofig y llamo una funcion que actualiza la grafica
 
 // el razonamiento es similar para el setup de la grafica por categorias
-// le necesito pasar username transaciones.
-
-const data = {
-  // Aca van los labels de las categorias
-  labels: [
-    'Gastos',
-    'Ingresos',
-  ],
-  datasets: [{
-    label: 'Balance',
-    // Aca van los valores de
-    data: [datos[0], datos[1]],
-    backgroundColor: [
-      'rgb(255, 99, 132)',
-      'rgb(46,139,87)',
-    ],
-    hoverOffset: 0,
-  }],
-};
-// para home usar doughnut | para reporte por categoria y fecha 
-const config = {
-  type: 'doughnut',
-  data: data,
-  options: {
-    plugins: {
-      title: {
-        display: true,
-        text: 'Balance {username}',
-      },
-    },
-  },
-};
-
-const balanceHome = new Chart(
-    document.getElementById('balanceHome'),
-    config,
-);
+// le necesito pasar username transaciones. la fecha viene //Dd/Mm/Yyyy
+drawBalanceChart('Test User', datos[0], datos[1]);
