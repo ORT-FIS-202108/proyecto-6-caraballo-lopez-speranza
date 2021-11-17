@@ -4,9 +4,9 @@ import {MDCTabBar} from '@material/tab-bar';
 import {MDCTextField} from '@material/textfield';
 import {MDCSelect} from '@material/select';
 import {MDCSnackbar} from '@material/snackbar';
-import Handler from '../../dominio/objects/handler';
-import Transaction from '../../dominio/objects/transaction';
-import User from '../../dominio/objects/user';
+import Handler from '../../dominio/objects/handler.mjs';
+import Transaction from '../../dominio/objects/transaction.mjs';
+import User from '../../dominio/objects/user.mjs';
 import {INCOME_TYPE, EXPENSE_TYPE} from './constants';
 
 const handler = new Handler();
@@ -81,8 +81,7 @@ addIncomeButton.listen('click', () => {
 });
 
 // Funciones Auxiliares //
-retornaTitleSegunIndex(index) 
-{ 
+function retornaTitleSegunIndex(index) {
   let title = '';
   switch (index) {
     case 0:
