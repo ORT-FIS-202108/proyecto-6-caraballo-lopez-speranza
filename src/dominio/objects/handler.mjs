@@ -48,7 +48,7 @@ export default class Handler {
 
   createUser(name, age, email, password) {
     try {
-      verifyUser(name, age, email, password);
+      User.verifyUser(name, age, email, password);
       const user = new User(name, age, email, password);
       this.addUser(user);
       return 'El usuario ha sido registrado con exito';
