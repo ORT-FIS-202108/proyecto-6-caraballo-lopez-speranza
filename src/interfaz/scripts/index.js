@@ -20,11 +20,14 @@ tabBar.listen('MDCTabBar:activated', (activatedEvent) => {
     if (index === activatedEvent.detail.index) {
       element.classList.remove('content--hidden');
     } else {
-      document.getElementById('spanGastos').innerHTML = retornaTitleSegunIndex(activatedEvent.detail.index);
+      document.getElementById('spanGastos').innerHTML = getTitleByIndex(activatedEvent.detail.index);
       element.classList.add('content--hidden');
     }
   });
 });
+
+const textFieldUserEmail = new MDCTextField(document.getElementById('userEmail'));
+const textFieldUserPassword = new MDCTextField(document.getElementById('userPassword'));
 
 const textFieldExpenseName = new MDCTextField(document.getElementById('expenseName'));
 const textFieldExpenseCategory = new MDCTextField(document.getElementById('expenseCategory'));
@@ -36,6 +39,7 @@ const textFieldIncomeCategory = new MDCTextField(document.getElementById('income
 const textFieldIncomeAmount = new MDCTextField(document.getElementById('incomeAmount'));
 const textFieldIncomeDate = new MDCTextField(document.getElementById('incomeDate'));
 
+const loginButton = new MDCRipple(document.getElementById('loginButton'));
 const addExpenseButton = new MDCRipple(document.getElementById('addExpenseButton'));
 const addIncomeButton = new MDCRipple(document.getElementById('addIncomeButton'));
 
@@ -80,8 +84,17 @@ addIncomeButton.listen('click', () => {
   }
 });
 
+loginButton.listen('click', () => {
+  document.querySelectorAll('.main-hidden').forEach((element, index) => {
+    element.classList.remove('main-hidden');
+  });
+  document.querySelectorAll('.login').forEach((element, index) => {
+    element.classList.add('login-hidden');
+  });
+});
+
 // Funciones Auxiliares //
-function retornaTitleSegunIndex(index) {
+function getTitleByIndex(index) {
   let title = '';
   switch (index) {
     case 0:
