@@ -19,6 +19,10 @@ export default class Handler {
     this.users[index] = user;
   }
 
+  existsUser(email) {
+    return this.users.findIndex((u) => u.email === email) !== -1;
+  }
+
   addTransaction(transaction) {
     this.transactions.push(transaction);
   }
@@ -47,13 +51,16 @@ export default class Handler {
   }
 
   createUser(name, age, email, password) {
-    try {
-      User.verifyUser(name, age, email, password);
+    const validationMsg = User.validateUser(name, age, email, password);
+    if (!!validationMsg) {
+      throw new Error(validationMsg);
+    }
+
+    if (this.existsUser(email)) {
+      throw new Error('El usuario ya existe con ese email');
+    } else {
       const user = new User(name, age, email, password);
       this.addUser(user);
-      return 'El usuario ha sido registrado con exito';
-    } catch (err) {
-      return err;
     }
   }
 
