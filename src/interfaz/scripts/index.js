@@ -95,12 +95,15 @@ addIncomeButton.listen('click', () => {
 });
 
 loginButton.listen('click', () => {
-  document.querySelectorAll('.main-hidden').forEach((element) => {
-    element.classList.remove('main-hidden');
-  });
-  document.querySelectorAll('.login').forEach((element) => {
-    element.classList.add('initial-content-hidden');
-  });
+  try {
+    const userEmail = textFieldUserEmail.value;
+    const userPassword = textFieldUserPassword.value;
+
+    handler.loginUser(userEmail, userPassword);
+    displayMainContentAfterLogin();
+  } catch (error) {
+    showMessage(error.message);
+  }
 });
 
 signupButton.listen('click', () => {
@@ -170,6 +173,15 @@ function displayMainContent() {
     element.classList.remove('main-hidden');
   });
   document.querySelectorAll('.signup').forEach((element) => {
+    element.classList.add('initial-content-hidden');
+  });
+}
+
+function displayMainContentAfterLogin() {
+  document.querySelectorAll('.main-hidden').forEach((element) => {
+    element.classList.remove('main-hidden');
+  });
+  document.querySelectorAll('.login').forEach((element) => {
     element.classList.add('initial-content-hidden');
   });
 }

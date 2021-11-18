@@ -64,6 +64,15 @@ export default class Handler {
     }
   }
 
+  loginUser(email, password) {
+    const user = this.users.find((u) => u.email === email);
+    if (!!user && user.password === password) {
+      return user;
+    } else {
+      throw new Error('El usuario no existe o la contraseña es incorrecta');
+    }
+  }
+
   // es metodo devuelve una lista de cuanto se gasto por categoria
   getCategories(user) {
     const transactionList = getTransactionsByUser(user);
