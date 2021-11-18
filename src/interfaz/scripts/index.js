@@ -104,14 +104,23 @@ loginButton.listen('click', () => {
 });
 
 signupButton.listen('click', () => {
-  document.querySelectorAll('.main-hidden').forEach((element) => {
-    element.classList.remove('main-hidden');
-  });
-  document.querySelectorAll('.signup').forEach((element) => {
-    element.classList.add('initial-content-hidden');
-  });
-});
+  try {
+    const userName = textFieldUserSignupName.value;
+    const userAge = textFieldUserSignupAge.value;
+    const userEmail = textFieldUserSignupEmail.value;
+    const userEmailConfirmation = textFieldUserSignupEmailConfirmation.value;
+    const userPassword = textFieldUserSignupPassword.value;
+    const userPasswordConfirmation = textFieldUseSignuprPasswordConfirmation.value;
 
+    validEmailConfirmation(userEmail, userEmailConfirmation);
+    validPasswordConfirmation(userPassword, userPasswordConfirmation);
+
+    handler.createUser(userName, userAge, userEmail, userPassword);
+    displayMainContent();
+  } catch (error) {
+    showMessage(error.message);
+  }
+});
 
 signupLink.listen('click', () => {
   document.querySelectorAll('.login').forEach((element) => {
@@ -142,4 +151,31 @@ function getTitleByIndex(index) {
       title = 'Mis Gastos';
   }
   return title;
+}
+
+function validEmailConfirmation(email, emailConfirmation) {
+  if (email !== emailConfirmation) {
+    throw new Error('Los emails no coinciden. Por favor intenta nuevamente');
+  }
+}
+
+function validPasswordConfirmation(password, passwordConfirmation) {
+  if (password !== passwordConfirmation) {
+    throw new Error('Las contraseñas no coinciden. Por favor intenta nuevamente');
+  }
+}
+
+function displayMainContent() {
+  document.querySelectorAll('.main-hidden').forEach((element) => {
+    element.classList.remove('main-hidden');
+  });
+  document.querySelectorAll('.signup').forEach((element) => {
+    element.classList.add('initial-content-hidden');
+  });
+}
+
+function showMessage(message) {
+  const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
+  snackbar.labelText = message;
+  snackbar.open();
 }
