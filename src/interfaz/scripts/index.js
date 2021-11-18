@@ -4,9 +4,9 @@ import {MDCTopAppBar} from '@material/top-app-bar';
 import {MDCTabBar} from '@material/tab-bar';
 import {MDCTextField} from '@material/textfield';
 import {MDCSnackbar} from '@material/snackbar';
-import Handler from '../../dominio/objects/handler';
-import Transaction from '../../dominio/objects/transaction';
-import User from '../../dominio/objects/user';
+import Handler from '../../dominio/objects/handler.mjs';
+import Transaction from '../../dominio/objects/transaction.mjs';
+import User from '../../dominio/objects/user.mjs';
 import {INCOME_TYPE, EXPENSE_TYPE} from './constants';
 import {drawBalanceChart, drawCategoryChart} from './charts';
 
@@ -28,11 +28,21 @@ tabBar.listen('MDCTabBar:activated', (activatedEvent) => {
     if (index === activatedEvent.detail.index) {
       element.classList.remove('content--hidden');
     } else {
-      document.getElementById('spanGastos').innerHTML = returnTitleNameIndex(activatedEvent.detail.index);
+      document.getElementById('spanGastos').innerHTML = getTitleByIndex(activatedEvent.detail.index);
       element.classList.add('content--hidden');
     }
   });
 });
+
+const textFieldUserEmail = new MDCTextField(document.getElementById('userEmail'));
+const textFieldUserPassword = new MDCTextField(document.getElementById('userPassword'));
+
+const textFieldUserSignupName = new MDCTextField(document.getElementById('userSignupName'));
+const textFieldUserSignupAge = new MDCTextField(document.getElementById('userSignupAge'));
+const textFieldUserSignupEmail = new MDCTextField(document.getElementById('userSignupEmail'));
+const textFieldUserSignupEmailConfirmation = new MDCTextField(document.getElementById('userSignupEmailConfirmation'));
+const textFieldUserSignupPassword = new MDCTextField(document.getElementById('userSignupPassword'));
+const textFieldUseSignuprPasswordConfirmation = new MDCTextField(document.getElementById('userSignupPasswordConfirmation'));
 
 const textFieldExpenseName = new MDCTextField(document.getElementById('expenseName'));
 const textFieldExpenseCategory = new MDCTextField(document.getElementById('expenseCategory'));
@@ -44,8 +54,13 @@ const textFieldIncomeCategory = new MDCTextField(document.getElementById('income
 const textFieldIncomeAmount = new MDCTextField(document.getElementById('incomeAmount'));
 const textFieldIncomeDate = new MDCTextField(document.getElementById('incomeDate'));
 
+const loginButton = new MDCRipple(document.getElementById('loginButton'));
+const signupButton = new MDCRipple(document.getElementById('signupButton'));
 const addExpenseButton = new MDCRipple(document.getElementById('addExpenseButton'));
 const addIncomeButton = new MDCRipple(document.getElementById('addIncomeButton'));
+
+
+const signupLink = new MDCRipple(document.getElementById('signupLink'));
 
 // Agregar gasto //
 addExpenseButton.listen('click', () => {
@@ -90,9 +105,45 @@ addIncomeButton.listen('click', () => {
   }
 });
 
+loginButton.listen('click', () => {
+  document.querySelectorAll('.main-hidden').forEach((element) => {
+    element.classList.remove('main-hidden');
+  });
+  document.querySelectorAll('.login').forEach((element) => {
+    element.classList.add('initial-content-hidden');
+  });
+});
+
+signupButton.listen('click', () => {
+  try {
+    const userName = textFieldUserSignupName.value;
+    const userAge = textFieldUserSignupAge.value;
+    const userEmail = textFieldUserSignupEmail.value;
+    const userEmailConfirmation = textFieldUserSignupEmailConfirmation.value;
+    const userPassword = textFieldUserSignupPassword.value;
+    const userPasswordConfirmation = textFieldUseSignuprPasswordConfirmation.value;
+
+    validEmailConfirmation(userEmail, userEmailConfirmation);
+    validPasswordConfirmation(userPassword, userPasswordConfirmation);
+
+    handler.createUser(userName, userAge, userEmail, userPassword);
+    displayMainContent();
+  } catch (error) {
+    showMessage(error.message);
+  }
+});
+
+signupLink.listen('click', () => {
+  document.querySelectorAll('.login').forEach((element) => {
+    element.classList.add('initial-content-hidden');
+  });
+  document.querySelectorAll('.signup').forEach((element) => {
+    element.classList.remove('initial-content-hidden');
+  });
+});
+
 // Funciones Auxiliares //
-// eslint-disable-next-line require-jsdoc
-function returnTitleNameIndex(index) {
+function getTitleByIndex(index) {
   switch (index) {
     case 0:
       return 'Mis Gastos';
@@ -127,6 +178,34 @@ function getExpenseAndIncome(userTransactions) {
   const data = [userExpense, userIncome];
   return data;
 }
+
+function validEmailConfirmation(email, emailConfirmation) {
+  if (email !== emailConfirmation) {
+    throw new Error('Los emails no coinciden. Por favor intenta nuevamente');
+  }
+}
+
+function validPasswordConfirmation(password, passwordConfirmation) {
+  if (password !== passwordConfirmation) {
+    throw new Error('Las contraseñas no coinciden. Por favor intenta nuevamente');
+  }
+}
+
+function displayMainContent() {
+  document.querySelectorAll('.main-hidden').forEach((element) => {
+    element.classList.remove('main-hidden');
+  });
+  document.querySelectorAll('.signup').forEach((element) => {
+    element.classList.add('initial-content-hidden');
+  });
+}
+
+function showMessage(message) {
+  const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
+  snackbar.labelText = message;
+  snackbar.open();
+}
+
 
 const datos = getExpenseAndIncome(transactions2);
 // Tengo que armar una funcion para el setup de la grafica

@@ -75,6 +75,39 @@ section {
   text-align: center;
 }
 
+.initial-content {
+  margin: 10rem auto;
+  padding-bottom: 20rem;
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-links {
+  font-size: 12px;
+  color: grey;
+  text-decoration: none;
+}
+
+.actions {
+  margin: 5rem 0 2rem 0;
+}
+
+.main-hidden {
+  display: none;
+}
+
+.initial-content-hidden {
+  display: none;
+}
+
+.initial-content-hidden {
+  display: none;
+}
+
 .content--hidden {
   display: none;
 }
@@ -84,11 +117,11 @@ section {
 }
 
 .mdc-tab__content .mdc-tab__text-label {
-    color: black;
+  color: black;
 }
 
 .mdc-text-field {
-    margin: 1rem auto;
+  margin: 1rem auto;
 }
 
 .button {
