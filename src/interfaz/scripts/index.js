@@ -5,7 +5,6 @@ import {MDCTextField} from '@material/textfield';
 import {MDCSelect} from '@material/select';
 import {MDCSnackbar} from '@material/snackbar';
 import Handler from '../../dominio/objects/handler.mjs';
-import Transaction from '../../dominio/objects/transaction.mjs';
 import User from '../../dominio/objects/user.mjs';
 import {INCOME_TYPE, EXPENSE_TYPE} from './constants';
 
@@ -54,23 +53,16 @@ const addIncomeButton = new MDCRipple(document.getElementById('addIncomeButton')
 const signupLink = new MDCRipple(document.getElementById('signupLink'));
 
 addExpenseButton.listen('click', () => {
-  // TODO: hacer funcion para el add de expense
   const expenseName = textFieldExpenseName.value;
   const expenseCategory = textFieldExpenseCategory.value;
   const expenseAmount = textFieldExpenseAmount.value;
   const expenseDate = textFieldExpenseDate.value;
-  const newUser = new User(1, 'test', 20, 'email', 'password', 100);
+  const newUser = new User(1, 'test', 20, 'email', 'password', 100);// TODO: ver current user
 
   try {
-    const newTransaction = new Transaction(1, newUser, expenseName, expenseCategory, expenseAmount, expenseDate, EXPENSE_TYPE);
-    handler.addTransaction(newTransaction);
+    handler.createTransaction(newUser, expenseName, expenseCategory, expenseAmount, expenseDate, EXPENSE_TYPE);
   } catch (error) {
-    const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
-    snackbar.labelText = error.message;
-    snackbar.open();
-  } finally {
-    const transactions = handler.getTransactionsByUser(newUser);
-    console.log(transactions);
+    showMessage(error.message);
   }
 });
 
@@ -79,18 +71,12 @@ addIncomeButton.listen('click', () => {
   const incomeCategory = textFieldIncomeCategory.value;
   const incomeAmount = textFieldIncomeAmount.value;
   const incomeDate = textFieldIncomeDate.value;
-  const newUser = new User(1, 'income user', 20, 'email', 'password', 100);
+  const newUser = new User(1, 'income user', 20, 'email', 'password', 100);// TODO: ver current user
 
   try {
-    const newTransaction = new Transaction(1, newUser, incomeName, incomeCategory, incomeAmount, incomeDate, INCOME_TYPE);
-    handler.addTransaction(newTransaction);
+    handler.createTransaction(newUser, incomeName, incomeCategory, incomeAmount, incomeDate, INCOME_TYPE);
   } catch (error) {
-    const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
-    snackbar.labelText = error.message;
-    snackbar.open();
-  } finally {
-    const transactions = handler.getTransactionsByUser(newUser);
-    console.log(transactions);
+    showMessage(error.message);
   }
 });
 
