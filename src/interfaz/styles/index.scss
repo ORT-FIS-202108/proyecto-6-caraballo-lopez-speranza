@@ -51,7 +51,11 @@ body {
   align-items: center;
   padding-left: 0px;
 }
-
+@media screen and (max-width:800px){
+	body {
+		font: size 500%; // achicamos la fuente en pantallas pequeñas 
+	} 
+}
 
 .mdc-top-app-bar {
 
@@ -59,11 +63,13 @@ body {
   @include icon-button.core-styles;
 }
 
+
 .tab-bar-botom {
   position: fixed;
   bottom: -0.5em;
   width: 100%;
 }
+
 
 section {
   text-align: center;
