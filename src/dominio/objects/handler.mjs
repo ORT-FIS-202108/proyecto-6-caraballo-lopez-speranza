@@ -1,3 +1,4 @@
+import Transaction from './transaction.mjs';
 import User from './user.mjs';
 
 export default class Handler {
@@ -71,6 +72,16 @@ export default class Handler {
     } else {
       throw new Error('El usuario no existe o la contraseña es incorrecta');
     }
+  }
+
+  createTransaction(currentUser, name, category, amount, expenseDate, type) {
+    const validationMsg = Transaction.validateTransaction(name, category, amount, expenseDate);
+    if (!!validationMsg) {
+      throw new Error(validationMsg);
+    }
+
+    const transaction = new Transaction(currentUser, name, category, amount, expenseDate, type);
+    this.addTransaction(transaction);
   }
 
   // es metodo devuelve una lista de cuanto se gasto por categoria
