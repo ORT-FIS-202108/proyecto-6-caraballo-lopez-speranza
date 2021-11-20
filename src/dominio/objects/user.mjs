@@ -1,4 +1,4 @@
-const MIN_AGE = 1;
+const MIN_AGE = 12;
 const MAX_AGE = 99;
 
 export default class User {

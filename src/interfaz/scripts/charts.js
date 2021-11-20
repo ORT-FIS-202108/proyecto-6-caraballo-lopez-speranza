@@ -3,6 +3,7 @@
 // TODO: agregar funcion que maneja historial
 
 // Manejar la grafica del reporte por categorias
+/*
 export function drawCategoryChart(username, expenses, incomes) {
   const data = {
     // Aca van los labels de las categorias
@@ -37,7 +38,7 @@ export function drawCategoryChart(username, expenses, incomes) {
     document.getElementById('categoryReport'),
     config,
     );
-}
+} */
 
 // Funcion para graficar el reporte de balance
 export function drawBalanceChart(username, expenses, incomes) {
