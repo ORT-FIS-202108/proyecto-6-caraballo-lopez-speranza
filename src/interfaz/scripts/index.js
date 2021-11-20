@@ -4,9 +4,8 @@ import {MDCTopAppBar} from '@material/top-app-bar';
 import {MDCTabBar} from '@material/tab-bar';
 import {MDCTextField} from '@material/textfield';
 import {MDCSnackbar} from '@material/snackbar';
+import {MDCMenu} from '@material/menu';
 import Handler from '../../dominio/objects/handler.mjs';
-import Transaction from '../../dominio/objects/transaction.mjs';
-import User from '../../dominio/objects/user.mjs';
 import {INCOME_TYPE, EXPENSE_TYPE} from './constants';
 import {drawBalanceChart, drawCategoryChart} from './charts';
 
@@ -28,7 +27,7 @@ tabBar.listen('MDCTabBar:activated', (activatedEvent) => {
     if (index === activatedEvent.detail.index) {
       element.classList.remove('content--hidden');
     } else {
-      document.getElementById('spanGastos').innerHTML = getTitleByIndex(activatedEvent.detail.index);
+      document.getElementById('title').innerHTML = getTitleByIndex(activatedEvent.detail.index);
       element.classList.add('content--hidden');
     }
   });
@@ -58,29 +57,34 @@ const loginButton = new MDCRipple(document.getElementById('loginButton'));
 const signupButton = new MDCRipple(document.getElementById('signupButton'));
 const addExpenseButton = new MDCRipple(document.getElementById('addExpenseButton'));
 const addIncomeButton = new MDCRipple(document.getElementById('addIncomeButton'));
+const userMenuButton = new MDCRipple(document.getElementById('user-menu'));
 
-
+const logoutSpan = new MDCRipple(document.getElementById('logout'));
 const signupLink = new MDCRipple(document.getElementById('signupLink'));
 
-// Agregar gasto //
+userMenuButton.listen('click', () => {
+  const menu = new MDCMenu(document.querySelector('.mdc-menu'));
+  menu.open = true;
+});
+
+logoutSpan.listen('click', () => {
+  hideMainContent();
+  handler.logoutUser();
+  resetApp();
+});
+
 addExpenseButton.listen('click', () => {
-  // TODO: hacer funcion para el add de expense
   const expenseName = textFieldExpenseName.value;
   const expenseCategory = textFieldExpenseCategory.value;
   const expenseAmount = textFieldExpenseAmount.value;
   const expenseDate = textFieldExpenseDate.value;
-  const newUser = new User(1, 'test', 20, 'email', 'password', 100);
 
   try {
-    const newTransaction = new Transaction(1, newUser, expenseName, expenseCategory, expenseAmount, expenseDate, EXPENSE_TYPE);
-    handler.addTransaction(newTransaction);
+    handler.createTransaction(expenseName, expenseCategory, expenseAmount, expenseDate, EXPENSE_TYPE);
+    clearExpenseFormFields();
+    showMessage('Gasto agregado exitosamente');
   } catch (error) {
-    const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
-    snackbar.labelText = error.message;
-    snackbar.open();
-  } finally {
-    const transactions = handler.getTransactionsByUser(newUser);
-    console.log(transactions);
+    showMessage(error.message);
   }
 });
 
@@ -90,28 +94,26 @@ addIncomeButton.listen('click', () => {
   const incomeCategory = textFieldIncomeCategory.value;
   const incomeAmount = textFieldIncomeAmount.value;
   const incomeDate = textFieldIncomeDate.value;
-  const newUser = new User(1, 'income user', 20, 'email', 'password', 100);
 
   try {
-    const newTransaction = new Transaction(1, newUser, incomeName, incomeCategory, incomeAmount, incomeDate, INCOME_TYPE);
-    handler.addTransaction(newTransaction);
+    handler.createTransaction(incomeName, incomeCategory, incomeAmount, incomeDate, INCOME_TYPE);
+    clearIncomeFormFields();
+    showMessage('Ingreso agregado exitosamente');
   } catch (error) {
-    const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
-    snackbar.labelText = error.message;
-    snackbar.open();
-  } finally {
-    const transactions = handler.getTransactionsByUser(newUser);
-    console.log(transactions);
+    showMessage(error.message);
   }
 });
 
 loginButton.listen('click', () => {
-  document.querySelectorAll('.main-hidden').forEach((element) => {
-    element.classList.remove('main-hidden');
-  });
-  document.querySelectorAll('.login').forEach((element) => {
-    element.classList.add('initial-content-hidden');
-  });
+  try {
+    const userEmail = textFieldUserEmail.value;
+    const userPassword = textFieldUserPassword.value;
+
+    handler.loginUser(userEmail, userPassword);
+    displayMainContentAfterLogin();
+  } catch (error) {
+    showMessage(error.message);
+  }
 });
 
 signupButton.listen('click', () => {
@@ -200,6 +202,32 @@ function displayMainContent() {
   });
 }
 
+function displayMainContentAfterLogin() {
+  document.querySelectorAll('.main-hidden').forEach((element) => {
+    element.classList.remove('main-hidden');
+  });
+  document.querySelectorAll('.login').forEach((element) => {
+    element.classList.add('initial-content-hidden');
+  });
+}
+
+function hideMainContent() {
+  document.querySelectorAll('.main').forEach((element) => {
+    element.classList.add('main-hidden');
+  });
+  document.querySelectorAll('.login').forEach((element) => {
+    element.classList.remove('initial-content-hidden');
+  });
+}
+
+function resetApp() {
+  // TODO: llamar a function logout en handler que borra el current user
+  clearLoginFormFields();
+  clearSignupFormFields();
+  clearExpenseFormFields();
+  clearIncomeFormFields();
+}
+
 function showMessage(message) {
   const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
   snackbar.labelText = message;
@@ -215,3 +243,30 @@ const datos = getExpenseAndIncome(transactions2);
 // el razonamiento es similar para el setup de la grafica por categorias
 // le necesito pasar username transaciones. la fecha viene //Dd/Mm/Yyyy
 drawBalanceChart('Test User', datos[0], datos[1]);
+function clearLoginFormFields() {
+  textFieldUserEmail.value = '';
+  textFieldUserPassword.value = '';
+}
+
+function clearSignupFormFields() {
+  textFieldUserSignupName.value = '';
+  textFieldUserSignupAge.value = '';
+  textFieldUserSignupEmail.value = '';
+  textFieldUserSignupEmailConfirmation.value = '';
+  textFieldUserSignupPassword.value = '';
+  textFieldUseSignuprPasswordConfirmation.value = '';
+}
+
+function clearExpenseFormFields() {
+  textFieldExpenseName.value = '';
+  textFieldExpenseCategory.value = '';
+  textFieldExpenseAmount.value = '';
+  textFieldExpenseDate.value = '';
+}
+
+function clearIncomeFormFields() {
+  textFieldIncomeName.value = '';
+  textFieldIncomeCategory.value = '';
+  textFieldIncomeAmount.value = '';
+  textFieldIncomeDate.value = '';
+}
