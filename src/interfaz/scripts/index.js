@@ -6,7 +6,6 @@ import {MDCSelect} from '@material/select';
 import {MDCSnackbar} from '@material/snackbar';
 import {MDCMenu} from '@material/menu';
 import Handler from '../../dominio/objects/handler.mjs';
-import User from '../../dominio/objects/user.mjs';
 import {INCOME_TYPE, EXPENSE_TYPE} from './constants';
 
 const handler = new Handler();
@@ -20,7 +19,7 @@ tabBar.listen('MDCTabBar:activated', (activatedEvent) => {
     if (index === activatedEvent.detail.index) {
       element.classList.remove('content--hidden');
     } else {
-      document.getElementById('spanGastos').innerHTML = getTitleByIndex(activatedEvent.detail.index);
+      document.getElementById('title').innerHTML = getTitleByIndex(activatedEvent.detail.index);
       element.classList.add('content--hidden');
     }
   });
@@ -62,19 +61,18 @@ userMenuButton.listen('click', () => {
 
 logoutSpan.listen('click', () => {
   hideMainContent();
+  handler.logoutUser();
   resetApp();
 });
-
 
 addExpenseButton.listen('click', () => {
   const expenseName = textFieldExpenseName.value;
   const expenseCategory = textFieldExpenseCategory.value;
   const expenseAmount = textFieldExpenseAmount.value;
   const expenseDate = textFieldExpenseDate.value;
-  const newUser = new User(1, 'test', 20, 'email', 'password', 100);// TODO: ver current user
 
   try {
-    handler.createTransaction(newUser, expenseName, expenseCategory, expenseAmount, expenseDate, EXPENSE_TYPE);
+    handler.createTransaction(expenseName, expenseCategory, expenseAmount, expenseDate, EXPENSE_TYPE);
     clearExpenseFormFields();
     showMessage('Gasto agregado exitosamente');
   } catch (error) {
@@ -87,10 +85,9 @@ addIncomeButton.listen('click', () => {
   const incomeCategory = textFieldIncomeCategory.value;
   const incomeAmount = textFieldIncomeAmount.value;
   const incomeDate = textFieldIncomeDate.value;
-  const newUser = new User(1, 'income user', 20, 'email', 'password', 100);// TODO: ver current user
 
   try {
-    handler.createTransaction(newUser, incomeName, incomeCategory, incomeAmount, incomeDate, INCOME_TYPE);
+    handler.createTransaction(incomeName, incomeCategory, incomeAmount, incomeDate, INCOME_TYPE);
     clearIncomeFormFields();
     showMessage('Ingreso agregado exitosamente');
   } catch (error) {
