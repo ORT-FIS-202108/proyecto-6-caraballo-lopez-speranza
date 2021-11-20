@@ -5,6 +5,14 @@ export default class Handler {
   constructor() {
     this.users = [];
     this.transactions = [];
+    this.activeUser;
+  }
+
+  setActiveUser(user) {
+    this.activeUser = user;
+  }
+  getActiveUser() {
+    return this.activeUser;
   }
 
   addUser(user) {
@@ -64,6 +72,13 @@ export default class Handler {
       this.addUser(user);
     }
   }
+  // es metodo devuelve una lista de cuanto se gasto por categoria
+  getCategories(user) {
+    const transactionList = getTransactionsByUser(user);
+    let categories = [];
+    for (let i = 0; i < transactionList.length()-1; i++) {
+      categories = addTransactionToCategory(transactionList[i], categories);
+    }
 
   loginUser(email, password) {
     const user = this.users.find((u) => u.email === email);

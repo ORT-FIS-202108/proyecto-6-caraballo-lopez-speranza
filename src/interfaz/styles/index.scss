@@ -52,18 +52,19 @@ body {
   padding-left: 0px;
 }
 
-
 .mdc-top-app-bar {
 
   z-index: 7;
   @include icon-button.core-styles;
 }
 
+
 .tab-bar-botom {
   position: fixed;
   bottom: -0.5em;
   width: 100%;
 }
+
 
 section {
   text-align: center;
