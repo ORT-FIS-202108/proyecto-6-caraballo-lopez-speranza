@@ -11,6 +11,7 @@ export default class Handler {
   setActiveUser(user) {
     this.activeUser = user;
   }
+
   getActiveUser() {
     return this.activeUser;
   }
@@ -70,8 +71,23 @@ export default class Handler {
     } else {
       const user = new User(name, age, email, password);
       this.addUser(user);
+      this.setActiveUser(user);
     }
   }
+
+  loginUser(email, password) {
+    const user = this.users.find((u) => u.email === email);
+    if (!!user && user.password === password) {
+      this.setActiveUser(user);
+    } else {
+      throw new Error('El usuario no existe o la contraseña es incorrecta');
+    }
+  }
+
+  logoutUser() {
+    this.setActiveUser(null);
+  }
+
   // es metodo devuelve una lista de cuanto se gasto por categoria
   getCategories(user) {
     const transactionList = getTransactionsByUser(user);
@@ -79,23 +95,15 @@ export default class Handler {
     for (let i = 0; i < transactionList.length()-1; i++) {
       categories = addTransactionToCategory(transactionList[i], categories);
     }
-
-  loginUser(email, password) {
-    const user = this.users.find((u) => u.email === email);
-    if (!!user && user.password === password) {
-      return user;
-    } else {
-      throw new Error('El usuario no existe o la contraseña es incorrecta');
-    }
   }
 
-  createTransaction(currentUser, name, category, amount, expenseDate, type) {
+  createTransaction(name, category, amount, expenseDate, type) {
     const validationMsg = Transaction.validateTransaction(name, category, amount, expenseDate);
     if (!!validationMsg) {
       throw new Error(validationMsg);
     }
 
-    const transaction = new Transaction(currentUser, name, category, amount, expenseDate, type);
+    const transaction = new Transaction(this.getActiveUser(), name, category, amount, expenseDate, type);
     this.addTransaction(transaction);
   }
 
