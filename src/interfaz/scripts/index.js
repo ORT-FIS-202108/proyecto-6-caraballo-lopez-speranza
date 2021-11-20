@@ -5,7 +5,6 @@ import {MDCTextField} from '@material/textfield';
 import {MDCSelect} from '@material/select';
 import {MDCSnackbar} from '@material/snackbar';
 import Handler from '../../dominio/objects/handler.mjs';
-import Transaction from '../../dominio/objects/transaction.mjs';
 import User from '../../dominio/objects/user.mjs';
 import {INCOME_TYPE, EXPENSE_TYPE} from './constants';
 
@@ -29,6 +28,13 @@ tabBar.listen('MDCTabBar:activated', (activatedEvent) => {
 const textFieldUserEmail = new MDCTextField(document.getElementById('userEmail'));
 const textFieldUserPassword = new MDCTextField(document.getElementById('userPassword'));
 
+const textFieldUserSignupName = new MDCTextField(document.getElementById('userSignupName'));
+const textFieldUserSignupAge = new MDCTextField(document.getElementById('userSignupAge'));
+const textFieldUserSignupEmail = new MDCTextField(document.getElementById('userSignupEmail'));
+const textFieldUserSignupEmailConfirmation = new MDCTextField(document.getElementById('userSignupEmailConfirmation'));
+const textFieldUserSignupPassword = new MDCTextField(document.getElementById('userSignupPassword'));
+const textFieldUseSignuprPasswordConfirmation = new MDCTextField(document.getElementById('userSignupPasswordConfirmation'));
+
 const textFieldExpenseName = new MDCTextField(document.getElementById('expenseName'));
 const textFieldExpenseCategory = new MDCTextField(document.getElementById('expenseCategory'));
 const textFieldExpenseAmount = new MDCTextField(document.getElementById('expenseAmount'));
@@ -40,27 +46,25 @@ const textFieldIncomeAmount = new MDCTextField(document.getElementById('incomeAm
 const textFieldIncomeDate = new MDCTextField(document.getElementById('incomeDate'));
 
 const loginButton = new MDCRipple(document.getElementById('loginButton'));
+const signupButton = new MDCRipple(document.getElementById('signupButton'));
 const addExpenseButton = new MDCRipple(document.getElementById('addExpenseButton'));
 const addIncomeButton = new MDCRipple(document.getElementById('addIncomeButton'));
 
+const signupLink = new MDCRipple(document.getElementById('signupLink'));
+
 addExpenseButton.listen('click', () => {
-  // TODO: hacer funcion para el add de expense
   const expenseName = textFieldExpenseName.value;
   const expenseCategory = textFieldExpenseCategory.value;
   const expenseAmount = textFieldExpenseAmount.value;
   const expenseDate = textFieldExpenseDate.value;
-  const newUser = new User(1, 'test', 20, 'email', 'password', 100);
+  const newUser = new User(1, 'test', 20, 'email', 'password', 100);// TODO: ver current user
 
   try {
-    const newTransaction = new Transaction(1, newUser, expenseName, expenseCategory, expenseAmount, expenseDate, EXPENSE_TYPE);
-    handler.addTransaction(newTransaction);
+    handler.createTransaction(newUser, expenseName, expenseCategory, expenseAmount, expenseDate, EXPENSE_TYPE);
+    clearExpenseFormFields();
+    showMessage('Gasto agregado exitosamente');
   } catch (error) {
-    const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
-    snackbar.labelText = error.message;
-    snackbar.open();
-  } finally {
-    const transactions = handler.getTransactionsByUser(newUser);
-    console.log(transactions);
+    showMessage(error.message);
   }
 });
 
@@ -69,27 +73,54 @@ addIncomeButton.listen('click', () => {
   const incomeCategory = textFieldIncomeCategory.value;
   const incomeAmount = textFieldIncomeAmount.value;
   const incomeDate = textFieldIncomeDate.value;
-  const newUser = new User(1, 'income user', 20, 'email', 'password', 100);
+  const newUser = new User(1, 'income user', 20, 'email', 'password', 100);// TODO: ver current user
 
   try {
-    const newTransaction = new Transaction(1, newUser, incomeName, incomeCategory, incomeAmount, incomeDate, INCOME_TYPE);
-    handler.addTransaction(newTransaction);
+    handler.createTransaction(newUser, incomeName, incomeCategory, incomeAmount, incomeDate, INCOME_TYPE);
+    clearIncomeFormFields();
+    showMessage('Ingreso agregado exitosamente');
   } catch (error) {
-    const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
-    snackbar.labelText = error.message;
-    snackbar.open();
-  } finally {
-    const transactions = handler.getTransactionsByUser(newUser);
-    console.log(transactions);
+    showMessage(error.message);
   }
 });
 
 loginButton.listen('click', () => {
-  document.querySelectorAll('.main-hidden').forEach((element, index) => {
-    element.classList.remove('main-hidden');
+  try {
+    const userEmail = textFieldUserEmail.value;
+    const userPassword = textFieldUserPassword.value;
+
+    handler.loginUser(userEmail, userPassword);
+    displayMainContentAfterLogin();
+  } catch (error) {
+    showMessage(error.message);
+  }
+});
+
+signupButton.listen('click', () => {
+  try {
+    const userName = textFieldUserSignupName.value;
+    const userAge = textFieldUserSignupAge.value;
+    const userEmail = textFieldUserSignupEmail.value;
+    const userEmailConfirmation = textFieldUserSignupEmailConfirmation.value;
+    const userPassword = textFieldUserSignupPassword.value;
+    const userPasswordConfirmation = textFieldUseSignuprPasswordConfirmation.value;
+
+    validEmailConfirmation(userEmail, userEmailConfirmation);
+    validPasswordConfirmation(userPassword, userPasswordConfirmation);
+
+    handler.createUser(userName, userAge, userEmail, userPassword);
+    displayMainContent();
+  } catch (error) {
+    showMessage(error.message);
+  }
+});
+
+signupLink.listen('click', () => {
+  document.querySelectorAll('.login').forEach((element) => {
+    element.classList.add('initial-content-hidden');
   });
-  document.querySelectorAll('.login').forEach((element, index) => {
-    element.classList.add('login-hidden');
+  document.querySelectorAll('.signup').forEach((element) => {
+    element.classList.remove('initial-content-hidden');
   });
 });
 
@@ -113,4 +144,54 @@ function getTitleByIndex(index) {
       title = 'Mis Gastos';
   }
   return title;
+}
+
+function validEmailConfirmation(email, emailConfirmation) {
+  if (email !== emailConfirmation) {
+    throw new Error('Los emails no coinciden. Por favor intenta nuevamente');
+  }
+}
+
+function validPasswordConfirmation(password, passwordConfirmation) {
+  if (password !== passwordConfirmation) {
+    throw new Error('Las contraseñas no coinciden. Por favor intenta nuevamente');
+  }
+}
+
+function displayMainContent() {
+  document.querySelectorAll('.main-hidden').forEach((element) => {
+    element.classList.remove('main-hidden');
+  });
+  document.querySelectorAll('.signup').forEach((element) => {
+    element.classList.add('initial-content-hidden');
+  });
+}
+
+function displayMainContentAfterLogin() {
+  document.querySelectorAll('.main-hidden').forEach((element) => {
+    element.classList.remove('main-hidden');
+  });
+  document.querySelectorAll('.login').forEach((element) => {
+    element.classList.add('initial-content-hidden');
+  });
+}
+
+function showMessage(message) {
+  const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
+  snackbar.labelText = message;
+  snackbar.open();
+}
+
+function clearExpenseFormFields() {
+  textFieldExpenseName.value = '';
+  textFieldExpenseCategory.value = '';
+  textFieldExpenseAmount.value = '';
+  textFieldExpenseDate.value = '';
+}
+
+function clearIncomeFormFields() {
+  textFieldIncomeName.value = '';
+  textFieldIncomeCategory.value = '';
+  textFieldIncomeAmount.value = '';
+  textFieldIncomeDate.value = '';
 }
