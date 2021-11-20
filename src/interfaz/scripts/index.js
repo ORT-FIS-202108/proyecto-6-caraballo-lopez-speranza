@@ -1,14 +1,22 @@
+/* eslint-disable require-jsdoc */
 import {MDCRipple} from '@material/ripple';
 import {MDCTopAppBar} from '@material/top-app-bar';
 import {MDCTabBar} from '@material/tab-bar';
 import {MDCTextField} from '@material/textfield';
-import {MDCSelect} from '@material/select';
 import {MDCSnackbar} from '@material/snackbar';
 import {MDCMenu} from '@material/menu';
 import Handler from '../../dominio/objects/handler.mjs';
 import {INCOME_TYPE, EXPENSE_TYPE} from './constants';
+import {drawBalanceChart, drawCategoryChart} from './charts';
 
 const handler = new Handler();
+
+// Dummy data // TODO: Eliminar al finalizar el proyecto
+const testUser = new User(2, 'test', 20, 'email@emnail.com', 'password**', 100);
+handler.addTransaction(new Transaction(2, testUser, 'Ingres', 'Categoria 1', 1000, 'Hoy', INCOME_TYPE));
+handler.addTransaction(new Transaction(2, testUser, 'Ingreso dos', 'Categoria 4', 3000, 'Ayer', INCOME_TYPE));
+handler.addTransaction(new Transaction(2, testUser, 'Ingreso tres', 'Categoria 2', 2000, 'Anted de ayer', INCOME_TYPE));
+handler.addTransaction(new Transaction(2, testUser, 'Gasto', 'Categoria 1', 2300, 'Hoy', EXPENSE_TYPE));
 
 const topAppBarElement = document.querySelector('.mdc-top-app-bar');
 const topAppBar = new MDCTopAppBar(topAppBarElement);
@@ -80,6 +88,7 @@ addExpenseButton.listen('click', () => {
   }
 });
 
+// Agregar Ingreso //
 addIncomeButton.listen('click', () => {
   const incomeName = textFieldIncomeName.value;
   const incomeCategory = textFieldIncomeCategory.value;
@@ -137,24 +146,39 @@ signupLink.listen('click', () => {
 
 // Funciones Auxiliares //
 function getTitleByIndex(index) {
-  let title = '';
   switch (index) {
     case 0:
-      title = 'Mis Gastos';
-      break;
+      return 'Mis Gastos';
     case 1:
-      title = 'Agregar Gasto';
-      break;
+      return 'Agregar Gasto';
     case 2:
-      title = 'Agregar Ingreso';
-      break;
+      return 'Agregar Ingreso';
     case 3:
-      title = 'Ver Reporte';
-      break;
+      return 'Ver Reporte';
     default:
-      title = 'Mis Gastos';
+      return 'Mis Gastos';
   }
-  return title;
+}
+
+// Testin graficas//
+const transactions2 = handler.getTransactionsByUser(testUser);
+console.log('Aca van las del test user');
+// new Transaction(2, testUser, 'Ingreso tres', 'Categoria 2', 2000, 'Anted de ayer', INCOME_TYPE);
+
+function getExpenseAndIncome(userTransactions) {
+  // recibe un array con las trasnaciones del usuario
+  // retorna un array con los gastos y ingresos para eleborar el grafico
+  let userIncome = 0;
+  let userExpense = 0;
+  for (const elem of transactions2) {
+    if (elem.type === INCOME_TYPE) {
+      userIncome += elem.amount;
+    } else if (elem.type === EXPENSE_TYPE) {
+      userExpense += elem.amount;
+    }
+  }
+  const data = [userExpense, userIncome];
+  return data;
 }
 
 function validEmailConfirmation(email, emailConfirmation) {
@@ -210,6 +234,15 @@ function showMessage(message) {
   snackbar.open();
 }
 
+
+const datos = getExpenseAndIncome(transactions2);
+// Tengo que armar una funcion para el setup de la grafica
+// le necesito pasar, username, expenses, incomes.
+// retorna un cofig y llamo una funcion que actualiza la grafica
+
+// el razonamiento es similar para el setup de la grafica por categorias
+// le necesito pasar username transaciones. la fecha viene //Dd/Mm/Yyyy
+drawBalanceChart('Test User', datos[0], datos[1]);
 function clearLoginFormFields() {
   textFieldUserEmail.value = '';
   textFieldUserPassword.value = '';
