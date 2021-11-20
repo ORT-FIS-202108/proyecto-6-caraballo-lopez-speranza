@@ -61,6 +61,8 @@ addExpenseButton.listen('click', () => {
 
   try {
     handler.createTransaction(newUser, expenseName, expenseCategory, expenseAmount, expenseDate, EXPENSE_TYPE);
+    clearExpenseFormFields();
+    showMessage('Gasto agregado exitosamente');
   } catch (error) {
     showMessage(error.message);
   }
@@ -75,6 +77,8 @@ addIncomeButton.listen('click', () => {
 
   try {
     handler.createTransaction(newUser, incomeName, incomeCategory, incomeAmount, incomeDate, INCOME_TYPE);
+    clearIncomeFormFields();
+    showMessage('Ingreso agregado exitosamente');
   } catch (error) {
     showMessage(error.message);
   }
@@ -176,4 +180,18 @@ function showMessage(message) {
   const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
   snackbar.labelText = message;
   snackbar.open();
+}
+
+function clearExpenseFormFields() {
+  textFieldExpenseName.value = '';
+  textFieldExpenseCategory.value = '';
+  textFieldExpenseAmount.value = '';
+  textFieldExpenseDate.value = '';
+}
+
+function clearIncomeFormFields() {
+  textFieldIncomeName.value = '';
+  textFieldIncomeCategory.value = '';
+  textFieldIncomeAmount.value = '';
+  textFieldIncomeDate.value = '';
 }
