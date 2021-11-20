@@ -4,6 +4,7 @@ import {MDCTabBar} from '@material/tab-bar';
 import {MDCTextField} from '@material/textfield';
 import {MDCSelect} from '@material/select';
 import {MDCSnackbar} from '@material/snackbar';
+import {MDCMenu} from '@material/menu';
 import Handler from '../../dominio/objects/handler.mjs';
 import User from '../../dominio/objects/user.mjs';
 import {INCOME_TYPE, EXPENSE_TYPE} from './constants';
@@ -49,8 +50,21 @@ const loginButton = new MDCRipple(document.getElementById('loginButton'));
 const signupButton = new MDCRipple(document.getElementById('signupButton'));
 const addExpenseButton = new MDCRipple(document.getElementById('addExpenseButton'));
 const addIncomeButton = new MDCRipple(document.getElementById('addIncomeButton'));
+const userMenuButton = new MDCRipple(document.getElementById('user-menu'));
 
+const logoutSpan = new MDCRipple(document.getElementById('logout'));
 const signupLink = new MDCRipple(document.getElementById('signupLink'));
+
+userMenuButton.listen('click', () => {
+  const menu = new MDCMenu(document.querySelector('.mdc-menu'));
+  menu.open = true;
+});
+
+logoutSpan.listen('click', () => {
+  hideMainContent();
+  resetApp();
+});
+
 
 addExpenseButton.listen('click', () => {
   const expenseName = textFieldExpenseName.value;
@@ -176,10 +190,41 @@ function displayMainContentAfterLogin() {
   });
 }
 
+function hideMainContent() {
+  document.querySelectorAll('.main').forEach((element) => {
+    element.classList.add('main-hidden');
+  });
+  document.querySelectorAll('.login').forEach((element) => {
+    element.classList.remove('initial-content-hidden');
+  });
+}
+
+function resetApp() {
+  // TODO: llamar a function logout en handler que borra el current user
+  clearLoginFormFields();
+  clearSignupFormFields();
+  clearExpenseFormFields();
+  clearIncomeFormFields();
+}
+
 function showMessage(message) {
   const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
   snackbar.labelText = message;
   snackbar.open();
+}
+
+function clearLoginFormFields() {
+  textFieldUserEmail.value = '';
+  textFieldUserPassword.value = '';
+}
+
+function clearSignupFormFields() {
+  textFieldUserSignupName.value = '';
+  textFieldUserSignupAge.value = '';
+  textFieldUserSignupEmail.value = '';
+  textFieldUserSignupEmailConfirmation.value = '';
+  textFieldUserSignupPassword.value = '';
+  textFieldUseSignuprPasswordConfirmation.value = '';
 }
 
 function clearExpenseFormFields() {

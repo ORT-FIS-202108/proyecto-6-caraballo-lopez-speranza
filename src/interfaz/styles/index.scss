@@ -103,10 +103,6 @@ section {
   display: none;
 }
 
-.initial-content-hidden {
-  display: none;
-}
-
 .content--hidden {
   display: none;
 }
@@ -130,4 +126,12 @@ section {
 .add-form {
   display: flex;
   flex-direction: column;
+}
+
+.menu {
+  min-width: 200px;
+}
+
+.user {
+  color: white;
 }
