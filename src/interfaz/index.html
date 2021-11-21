@@ -21,7 +21,7 @@
             </button>
             <div class="mdc-menu mdc-menu-surface menu">
               <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
-                <li class="mdc-list-item" role="menuitem">
+                <li class="mdc-list-item" role="menuitem" id="edit-password">
                   <span class="mdc-list-item__ripple"></span>
                   <span class="mdc-list-item__text">Cambiar contraseña</span>
                 </li>
@@ -42,7 +42,8 @@
 
             <button class="mdc-tab mdc-tab--active sample-content-tab" role="tab" aria-selected="true" tabindex="0">
               <span class="mdc-tab__content">
-                <span class="mdc-tab__text-label">Home</span>
+                <span class="mdc-tab__text-label menu-text">Home</span>
+                <span class="material-icons menu-icon">home</span>
               </span>
               <span class="mdc-tab-indicator mdc-tab-indicator--active">
                 <span
@@ -53,7 +54,8 @@
 
             <button class="mdc-tab sample-content-tab" role="tab" aria-selected="false" tabindex="1">
               <span class="mdc-tab__content">
-                <span class="mdc-tab__text-label">Agregar gasto</span>
+                <span class="mdc-tab__text-label menu-text">Agregar gasto</span>
+                <span class="material-icons menu-icon">remove_circle</span>
               </span>
               <span class="mdc-tab-indicator">
                 <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
@@ -63,7 +65,8 @@
 
             <button class="mdc-tab sample-content-tab" role="tab" aria-selected="false" tabindex="2">
               <span class="mdc-tab__content">
-                <span class="mdc-tab__text-label">Agregar ingreso</span>
+                <span class="mdc-tab__text-label menu-text">Agregar ingreso</span>
+                <span class="material-icons menu-icon">add_circle</span>
               </span>
               <span class="mdc-tab-indicator">
                 <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
@@ -73,7 +76,8 @@
 
             <button class="mdc-tab sample-content-tab" role="tab" aria-selected="false" tabindex="3">
               <span class="mdc-tab__content">
-                <span class="mdc-tab__text-label">Ver reporte</span>
+                <span class="mdc-tab__text-label menu-text">Ver reporte</span>
+                <span class="material-icons menu-icon">analytics</span>
               </span>
               <span class="mdc-tab-indicator">
                 <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
@@ -202,12 +206,12 @@
   </main>
 
   <main class="mdc-top-app-bar--fixed-adjust main main-hidden">
-    <section class="content">
+    <section class="content home">
       <div class="active-report">
-        <div class="chart-container">
-         <canvas id="balanceHome"></canvas>
+        <div class="chart-container home-chart">
+          <canvas id="balanceHome"></canvas>
         </div>
-    </div>
+      </div>
     </section>
 
     <section class="content content--hidden">
@@ -343,7 +347,26 @@
       </div>
     </div>
     </section>
+  </main>
 
+  <main class="mdc-top-app-bar--fixed-adjust main main-hidden">
+    <section class="edit-password--hidden edit-password">
+      <label class="mdc-text-field mdc-text-field--outlined" id="userNewPassword">
+        <span class="mdc-notched-outline">
+          <span class="mdc-notched-outline__leading"></span>
+          <span class="mdc-notched-outline__notch">
+            <span class="mdc-floating-label">Nueva contraseña</span>
+          </span>
+          <span class="mdc-notched-outline__trailing"></span>
+        </span>
+        <input type="password" class="mdc-text-field__input" aria-labelledby="userNewPassword">
+      </label>
+      <div class="actions">
+        <button class="mdc-button mdc-button--raised" id="addNewPasswordButton">
+          Agregar
+        </button>
+      </div>
+    </section>
   </main>
 
   <aside class="mdc-snackbar">

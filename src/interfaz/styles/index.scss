@@ -70,7 +70,6 @@ section {
 }
 
 .content {
-  margin: 2rem auto;
   text-align: center; 
 }
 
@@ -103,6 +102,15 @@ section {
 }
 
 .content--hidden {
+  display: none;
+}
+
+.edit-password {
+  margin: 2rem auto;
+  text-align: center; 
+}
+
+.edit-password--hidden {
   display: none;
 }
 
@@ -147,11 +155,16 @@ section {
   align-items: center;
 }
 
-@media only screen and (min-width: 1441px) {
+.menu-icon {
+  display: none;
+  color: white;
+}
 
+@media only screen and (min-width: 1441px) {
   .chart-container {
     width: 55%;
   }
+
   .home-chart {
     width: 38%;
   }
@@ -159,15 +172,19 @@ section {
 
 
 @media only screen and (max-width: 1440px) {
-
   .chart-container {
     width: 70%;
   }
 }
 
 @media only screen and (max-width: 768px ) {
-
   .chart-container {
     width: 90%;
+  }
+  .menu-icon{
+    display: block;
+  }
+  .menu-text{
+    display: none;
   }
 }
