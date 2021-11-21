@@ -1,25 +1,26 @@
 /* eslint-disable require-jsdoc */
 import {MDCRipple} from '@material/ripple';
-import {MDCTopAppBar} from '@material/top-app-bar';
 import {MDCTabBar} from '@material/tab-bar';
 import {MDCTextField} from '@material/textfield';
 import {MDCSnackbar} from '@material/snackbar';
 import {MDCMenu} from '@material/menu';
 import Handler from '../../dominio/objects/handler.mjs';
 import {INCOME_TYPE, EXPENSE_TYPE} from './constants';
-import {drawBalanceChart, drawCategoryChart} from './charts';
+import {drawBalanceChart, drawChartBarCategory, drawCharByDate} from './charts';
+import User from '../../dominio/objects/user.mjs';
+import Transaction from '../../dominio/objects/transaction.mjs';
 
 const handler = new Handler();
 
 // Dummy data // TODO: Eliminar al finalizar el proyecto
-const testUser = new User(2, 'test', 20, 'email@emnail.com', 'password**', 100);
-handler.addTransaction(new Transaction(2, testUser, 'Ingres', 'Categoria 1', 1000, 'Hoy', INCOME_TYPE));
-handler.addTransaction(new Transaction(2, testUser, 'Ingreso dos', 'Categoria 4', 3000, 'Ayer', INCOME_TYPE));
-handler.addTransaction(new Transaction(2, testUser, 'Ingreso tres', 'Categoria 2', 2000, 'Anted de ayer', INCOME_TYPE));
-handler.addTransaction(new Transaction(2, testUser, 'Gasto', 'Categoria 1', 2300, 'Hoy', EXPENSE_TYPE));
-
-const topAppBarElement = document.querySelector('.mdc-top-app-bar');
-const topAppBar = new MDCTopAppBar(topAppBarElement);
+const testUser = new User('test', 20, 'test@test.com', '12345678', 100);
+handler.addTransaction(new Transaction(testUser, 'Ingres', 'Categoria 1', 1000, '01/11/2021', INCOME_TYPE));
+handler.addTransaction(new Transaction(testUser, 'Ingreso dos', 'Categoria 4', 3000, '21/11/2021', INCOME_TYPE));
+handler.addTransaction(new Transaction(testUser, 'Ingreso tres', 'Categoria 2', 2000, '20/11/2021', INCOME_TYPE));
+handler.addTransaction(new Transaction(testUser, 'Gasto', 'Categoria 1', 2300, '21/11/2021', EXPENSE_TYPE));
+handler.addTransaction(new Transaction(testUser, 'Gasto', 'Categoria 5', 1000, '21/11/2021', INCOME_TYPE));
+handler.addTransaction(new Transaction(testUser, 'Gasto', 'Categoria 3', 1300, '05/11/2021', EXPENSE_TYPE));
+handler.addUser(testUser);
 
 const tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
 tabBar.listen('MDCTabBar:activated', (activatedEvent) => {
@@ -104,6 +105,7 @@ addIncomeButton.listen('click', () => {
   }
 });
 
+// LOG IN
 loginButton.listen('click', () => {
   try {
     const userEmail = textFieldUserEmail.value;
@@ -111,6 +113,11 @@ loginButton.listen('click', () => {
 
     handler.loginUser(userEmail, userPassword);
     displayMainContentAfterLogin();
+
+    // Dibujar el chart de balance de usuario activo
+    drawBalanceChart(handler.getActiveUser(), handler.getExpenseAndIncome());
+    drawChartBarCategory(handler.getActiveUser(), handler.getTransactionsByCategory());
+    drawCharByDate(handler.getActiveUser(), handler.getTransactionsByDate());
   } catch (error) {
     showMessage(error.message);
   }
@@ -158,27 +165,6 @@ function getTitleByIndex(index) {
     default:
       return 'Mis Gastos';
   }
-}
-
-// Testin graficas//
-const transactions2 = handler.getTransactionsByUser(testUser);
-console.log('Aca van las del test user');
-// new Transaction(2, testUser, 'Ingreso tres', 'Categoria 2', 2000, 'Anted de ayer', INCOME_TYPE);
-
-function getExpenseAndIncome(userTransactions) {
-  // recibe un array con las trasnaciones del usuario
-  // retorna un array con los gastos y ingresos para eleborar el grafico
-  let userIncome = 0;
-  let userExpense = 0;
-  for (const elem of transactions2) {
-    if (elem.type === INCOME_TYPE) {
-      userIncome += elem.amount;
-    } else if (elem.type === EXPENSE_TYPE) {
-      userExpense += elem.amount;
-    }
-  }
-  const data = [userExpense, userIncome];
-  return data;
 }
 
 function validEmailConfirmation(email, emailConfirmation) {
@@ -234,15 +220,6 @@ function showMessage(message) {
   snackbar.open();
 }
 
-
-const datos = getExpenseAndIncome(transactions2);
-// Tengo que armar una funcion para el setup de la grafica
-// le necesito pasar, username, expenses, incomes.
-// retorna un cofig y llamo una funcion que actualiza la grafica
-
-// el razonamiento es similar para el setup de la grafica por categorias
-// le necesito pasar username transaciones. la fecha viene //Dd/Mm/Yyyy
-drawBalanceChart('Test User', datos[0], datos[1]);
 function clearLoginFormFields() {
   textFieldUserEmail.value = '';
   textFieldUserPassword.value = '';
