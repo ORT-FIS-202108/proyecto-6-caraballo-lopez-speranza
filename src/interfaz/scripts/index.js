@@ -33,7 +33,6 @@ tabBar.listen('MDCTabBar:activated', (activatedEvent) => {
     if (index === activatedEvent.detail.index) {
       element.classList.remove('content--hidden');
     } else {
-      document.getElementById('title').innerHTML = getTitleByIndex(activatedEvent.detail.index);
       element.classList.add('content--hidden');
     }
   });
@@ -205,21 +204,6 @@ signupLink.listen('click', () => {
 });
 
 // Funciones Auxiliares //
-function getTitleByIndex(index) {
-  switch (index) {
-    case 0:
-      return 'Mis Gastos';
-    case 1:
-      return 'Agregar Gasto';
-    case 2:
-      return 'Agregar Ingreso';
-    case 3:
-      return 'Ver Reporte';
-    default:
-      return 'Mis Gastos';
-  }
-}
-
 function drawAllCharts() {
   drawBalanceChart(handler.getActiveUser(), handler.getExpenseAndIncome());
   drawChartBarCategory(handler.getTransactionsByCategory());

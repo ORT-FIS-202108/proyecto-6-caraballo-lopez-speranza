@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="ES">
 
 <head>
+  <title>Mis Gastos</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="bundle.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -9,29 +10,28 @@
 </head>
 
 <body>
-
   <header class="mdc-top-app-bar">
     <div class="mdc-top-app-bar__row">
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start header">
-        <span class="mdc-top-app-bar__title" id="title">Mis Gastos</span>
+        <h6 class="mdc-top-app-bar__title title">Mis Gastos</h6>
 
-          <div class="mdc-menu-surface--anchor main-hidden">
-            <button id="user-menu" class="mdc-button mdc-button--icon-leading">
-              <span class="material-icons user" id="user-menu">person</span>
-            </button>
-            <div class="mdc-menu mdc-menu-surface menu">
-              <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
-                <li class="mdc-list-item" role="menuitem" id="edit-password">
-                  <span class="mdc-list-item__ripple"></span>
-                  <span class="mdc-list-item__text">Cambiar contraseña</span>
-                </li>
-                <li class="mdc-list-item" role="menuitem" id="logout">
-                  <span class="mdc-list-item__ripple"></span>
-                  <span class="mdc-list-item__text">Cerrar sesion</span>
-                </li>
-              </ul>
-            </div>
+        <div class="mdc-menu-surface--anchor main-hidden">
+          <button id="user-menu" class="mdc-button mdc-button--icon-leading">
+            <span class="material-icons user">person</span>
+          </button>
+          <div class="mdc-menu mdc-menu-surface menu">
+            <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+              <li class="mdc-list-item" role="menuitem" id="edit-password">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__text">Cambiar contraseña</span>
+              </li>
+              <li class="mdc-list-item" role="menuitem" id="logout">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__text">Cerrar sesion</span>
+              </li>
+            </ul>
           </div>
+        </div>
       </section>
     </div>
 
@@ -91,8 +91,10 @@
     </div>
   </header>
 
-  <main class="mdc-top-app-bar--fixed-adjust">
+  <div class="mdc-top-app-bar--fixed-adjust">
+
     <section class="initial-content login">
+      <h6 class="mdc-top-app-bar__title title sub-title">Ingresar a Mis Gastos</h6>
       <div class="login-form">
         <label class="mdc-text-field mdc-text-field--outlined" id="userEmail">
           <span class="mdc-notched-outline">
@@ -125,9 +127,11 @@
         </div>
 
         <a href="javascript:void(0)" id="signupLink" class="user-links">No tengo cuenta. Registrarme</a>
+      </div>
     </section>
 
     <section class="initial-content signup initial-content-hidden">
+      <h6 class="mdc-top-app-bar__title title sub-title">Registrate en Mis Gastos</h6>
       <div class="login-form">
         <label class="mdc-text-field mdc-text-field--outlined" id="userSignupName">
           <span class="mdc-notched-outline">
@@ -202,11 +206,13 @@
         </div>
 
         <a href="/" class="user-links">Tengo cuenta. Iniciar sesión</a>
+      </div>
     </section>
-  </main>
+  </div>
 
-  <main class="mdc-top-app-bar--fixed-adjust main main-hidden">
+  <div class="mdc-top-app-bar--fixed-adjust main main-hidden">
     <section class="content home">
+      <h6 class="mdc-top-app-bar__title title sub-title">Balance Total</h6>
       <div class="active-report">
         <div class="chart-container home-chart">
           <canvas id="balanceHome"></canvas>
@@ -215,6 +221,7 @@
     </section>
 
     <section class="content content--hidden">
+      <h6 class="mdc-top-app-bar__title sub-title">Agregar Gasto</h6>
       <div class="add-form">
         <label class="mdc-text-field mdc-text-field--outlined" id="expenseName">
           <span class="mdc-notched-outline">
@@ -264,11 +271,13 @@
           <button class="mdc-button mdc-button--raised" id="addExpenseButton">
             Agregar
           </button>
+        </div>
       </div>
     </section>
 
     <section class="content content--hidden">
       <div class="add-form">
+        <h6 class="mdc-top-app-bar__title sub-title">Agregar Ingreso</h6>
         <label class="mdc-text-field mdc-text-field--outlined" id="incomeName">
           <span class="mdc-notched-outline">
             <span class="mdc-notched-outline__leading"></span>
@@ -322,9 +331,10 @@
     </section>
 
     <section class="content content--hidden" id="section-category-report">
+      <h6 class="mdc-top-app-bar__title title sub-title">Mis Reportes</h6>
       <div class="active-report">
         <div class="chart-container">
-         <canvas id="categoryReport"></canvas>
+          <canvas id="categoryReport"></canvas>
         </div>
         <div class="actions">
           <button class="mdc-button mdc-button--raised" id="byDateReportButton">
@@ -335,9 +345,10 @@
     </section>
 
     <section class="content content--hidden" id="section-by-date-report">
+      <h6 class="mdc-top-app-bar__title title sub-title">Mis Reportes</h6>
       <div class="active-report">
         <div class="chart-container">
-         <canvas id="byDateReport"></canvas>
+          <canvas id="byDateReport"></canvas>
         </div>
       </div>
       <div class="actions">
@@ -345,12 +356,12 @@
           Ver por categorias
         </button>
       </div>
-    </div>
     </section>
-  </main>
+  </div>
 
-  <main class="mdc-top-app-bar--fixed-adjust main main-hidden">
+  <div class="mdc-top-app-bar--fixed-adjust main main-hidden">
     <section class="edit-password--hidden edit-password">
+      <h6 class="mdc-top-app-bar__title title sub-title">Editar Contraseña</h6>
       <label class="mdc-text-field mdc-text-field--outlined" id="userNewPassword">
         <span class="mdc-notched-outline">
           <span class="mdc-notched-outline__leading"></span>
@@ -367,7 +378,7 @@
         </button>
       </div>
     </section>
-  </main>
+  </div>
 
   <aside class="mdc-snackbar">
     <div class="mdc-snackbar__surface" role="status" aria-relevant="additions">
@@ -375,12 +386,13 @@
       </div>
       <div class="mdc-snackbar__actions" aria-atomic="true">
         <button type="button" class="mdc-button mdc-snackbar__action">
-          <div class="mdc-button__ripple"></div>
           <span class="mdc-button__label">Cerrar</span>
         </button>
       </div>
     </div>
   </aside>
+
+  <script src="bundle.js" async></script>
 </body>
-<script src="bundle.js" async></script>
+
 </html>
