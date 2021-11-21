@@ -1,5 +1,5 @@
-/* eslint-disable require-jsdoc */
 import {MDCRipple} from '@material/ripple';
+import {MDCTopAppBar} from '@material/top-app-bar';
 import {MDCTabBar} from '@material/tab-bar';
 import {MDCTextField} from '@material/textfield';
 import {MDCSnackbar} from '@material/snackbar';
@@ -22,9 +22,14 @@ handler.addTransaction(new Transaction(testUser, 'Gasto', 'Categoria 5', 1000, '
 handler.addTransaction(new Transaction(testUser, 'Gasto', 'Categoria 3', 1300, '05/11/2021', EXPENSE_TYPE));
 handler.addUser(testUser);
 
+const topAppBarElement = document.querySelector('.mdc-top-app-bar');
+const topAppBar = new MDCTopAppBar(topAppBarElement);
+let activeIndexTab = 0;
+
 const tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
 tabBar.listen('MDCTabBar:activated', (activatedEvent) => {
   document.querySelectorAll('.content').forEach((element, index) => {
+    activeIndexTab = index;
     if (index === activatedEvent.detail.index) {
       element.classList.remove('content--hidden');
     } else {
@@ -44,6 +49,7 @@ const textFieldUserSignupEmailConfirmation = new MDCTextField(document.getElemen
 const textFieldUserSignupPassword = new MDCTextField(document.getElementById('userSignupPassword'));
 const textFieldUseSignuprPasswordConfirmation = new MDCTextField(document.getElementById('userSignupPasswordConfirmation'));
 
+
 const textFieldExpenseName = new MDCTextField(document.getElementById('expenseName'));
 const textFieldExpenseCategory = new MDCTextField(document.getElementById('expenseCategory'));
 const textFieldExpenseAmount = new MDCTextField(document.getElementById('expenseAmount'));
@@ -54,6 +60,9 @@ const textFieldIncomeCategory = new MDCTextField(document.getElementById('income
 const textFieldIncomeAmount = new MDCTextField(document.getElementById('incomeAmount'));
 const textFieldIncomeDate = new MDCTextField(document.getElementById('incomeDate'));
 
+const textFieldUserNewPassword = new MDCTextField(document.getElementById('userNewPassword'));
+
+const addNewPasswordButton = new MDCRipple(document.getElementById('addNewPasswordButton'));
 const loginButton = new MDCRipple(document.getElementById('loginButton'));
 const signupButton = new MDCRipple(document.getElementById('signupButton'));
 const addExpenseButton = new MDCRipple(document.getElementById('addExpenseButton'));
@@ -61,6 +70,8 @@ const addIncomeButton = new MDCRipple(document.getElementById('addIncomeButton')
 const userMenuButton = new MDCRipple(document.getElementById('user-menu'));
 
 const logoutSpan = new MDCRipple(document.getElementById('logout'));
+const editPasswordSpan = new MDCRipple(document.getElementById('edit-password'));
+
 const signupLink = new MDCRipple(document.getElementById('signupLink'));
 
 const byCategoryReportButton = new MDCRipple(document.getElementById('byCategoryReportButton'));
@@ -85,6 +96,36 @@ logoutSpan.listen('click', () => {
   hideMainContent();
   handler.logoutUser();
   resetApp();
+});
+
+editPasswordSpan.listen('click', () => {
+  // TODO: vaciar campos, ver issue
+  document.querySelectorAll('.content').forEach((element) => {
+    element.classList.add('content--hidden');
+  });
+  document.querySelectorAll('.edit-password').forEach((element) => {
+    element.classList.remove('edit-password--hidden');
+  });
+});
+
+addNewPasswordButton.listen('click', () => {
+  const userNewPassword = textFieldUserNewPassword.value;
+
+  try {
+    handler.editUserPassword(userNewPassword);
+    clearEditPasswordFormFields();
+    showMessage('Contraseña modificada exitosamente');
+
+    document.querySelectorAll('.home').forEach((element) => {
+      element.classList.remove('content--hidden');
+    });
+    // TODO: ver que tab esta activa usando activeIndexTab
+    document.querySelectorAll('.edit-password').forEach((element) => {
+      element.classList.add('edit-password--hidden');
+    });
+  } catch (error) {
+    showMessage(error.message);
+  }
 });
 
 addExpenseButton.listen('click', () => {
@@ -120,7 +161,6 @@ addIncomeButton.listen('click', () => {
   }
 });
 
-// LOG IN
 loginButton.listen('click', () => {
   try {
     const userEmail = textFieldUserEmail.value;
@@ -265,4 +305,8 @@ function clearIncomeFormFields() {
   textFieldIncomeCategory.value = '';
   textFieldIncomeAmount.value = '';
   textFieldIncomeDate.value = '';
+}
+
+function clearEditPasswordFormFields() {
+  userNewPassword.value = '';
 }
