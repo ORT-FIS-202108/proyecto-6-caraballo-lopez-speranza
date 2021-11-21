@@ -1,9 +1,11 @@
 import User from '../objects/user.mjs';
+import moment from 'moment';
 import Transaction from '../objects/transaction.mjs';
 const correctName = 'name';
 const correctCategory = 'category';
 const correctAmount = 1000;
-const correctDate = '20/11/2021';
+const date = moment();
+const correctDate = moment(date, 'DD/MM/YYYY', true);
 const correctType = 'expense';
 
 describe('contructor Transaction tests', () => {
@@ -49,10 +51,10 @@ describe('validateTransaction tests', () => {
     expect(Transaction.validateTransaction(correctName, correctCategory, correctAmount, 'dsfse')).toEqual('La fecha ingresada no es valida');
   });
   test('unvalidMonth', () => {
-    expect(Transaction.validateTransaction(correctName, correctCategory, correctAmount, '07/06/2021')).toEqual('La fecha ingresada no se encuentra en el mes y año actual');
+    expect(Transaction.validateTransaction(correctName, correctCategory, correctAmount, correctDate.clone().add(1, 'month'))).toEqual('La fecha ingresada no se encuentra en el mes y año actual');
   });
   test('unvalidYear', () => {
-    expect(Transaction.validateTransaction(correctName, correctCategory, correctAmount, '07/11/2020')).toEqual('La fecha ingresada no se encuentra en el mes y año actual');
+    expect(Transaction.validateTransaction(correctName, correctCategory, correctAmount, correctDate.clone().add(1, 'year'))).toEqual('La fecha ingresada no se encuentra en el mes y año actual');
   });
   test('allValid', () => {
     expect(Transaction.validateTransaction(correctName, correctCategory, correctAmount, correctDate)).toEqual(undefined);
