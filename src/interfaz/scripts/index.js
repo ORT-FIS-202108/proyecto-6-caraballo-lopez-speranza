@@ -90,7 +90,7 @@ logoutSpan.listen('click', () => {
 addExpenseButton.listen('click', () => {
   const expenseName = textFieldExpenseName.value;
   const expenseCategory = textFieldExpenseCategory.value;
-  const expenseAmount = textFieldExpenseAmount.value;
+  const expenseAmount = parseInt(textFieldExpenseAmount.value);
   const expenseDate = textFieldExpenseDate.value;
 
   try {
@@ -107,7 +107,7 @@ addExpenseButton.listen('click', () => {
 addIncomeButton.listen('click', () => {
   const incomeName = textFieldIncomeName.value;
   const incomeCategory = textFieldIncomeCategory.value;
-  const incomeAmount = textFieldIncomeAmount.value;
+  const incomeAmount = parseInt(textFieldIncomeAmount.value);
   const incomeDate = textFieldIncomeDate.value;
 
   try {
@@ -182,8 +182,9 @@ function getTitleByIndex(index) {
 
 function drawAllCharts() {
   drawBalanceChart(handler.getActiveUser(), handler.getExpenseAndIncome());
-  drawChartBarCategory(handler.getActiveUser(), handler.getTransactionsByCategory());
-  drawCharByDate(handler.getActiveUser(), handler.getTransactionsByDate());
+  drawChartBarCategory(handler.getTransactionsByCategory());
+  drawCharByDate(handler.getTransactionsByDate());
+  console.log(handler.getTransactionsByDate());
 }
 
 function validEmailConfirmation(email, emailConfirmation) {
