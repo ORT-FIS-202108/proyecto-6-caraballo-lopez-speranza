@@ -27,6 +27,7 @@ describe('contructor User tests', () => {
 });
 
 describe('validateUser tests', () => {
+  //before each
   const correctName = 'Francisco';
   const correctAge = '38';
   const correctEmail= 'unmail@mail.com';

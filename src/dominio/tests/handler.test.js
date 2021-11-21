@@ -8,7 +8,7 @@ let handler;
 beforeEach(() => {
   handler = new Handler();
 });
-
+//decribe aca, constructor
 test('create handler variable users', () => {
   expect(handler.users).toEqual([]);
 });
@@ -85,3 +85,16 @@ describe('ABM User tests', () => {
     expect(handler.getTransactionsByUser()).toEqual([testTransaction]);
   });
 });
+
+/* describe('metodos para interactuar con los charts tests', () => {
+  let testUser;
+  let testTransaction;
+  let testTransaction2;
+  beforeEach(() => {
+    testUser = new User('Fran', 16, 'unMail@mail.com', 'sads32sasdwasdwe');
+    testTransaction = new Transaction(testUser, 'transaccion prueba', 'unaCategoria', 1000, '10/11/2021', 'expense');
+    testTransaction2 = new Transaction(testUser, 'transaccion prueba2', 'otraCategoria', 5000, '10/11/2021', 'expense');
+    handler.addTransaction(testTransaction);
+    handler.addTransaction(testTransaction2);
+  });
+}); */

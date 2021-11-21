@@ -9,6 +9,7 @@ const correctDate = moment(date, 'DD/MM/YYYY', true);
 const correctType = 'expense';
 
 describe('contructor Transaction tests', () => {
+  //before each
   const testUser1 = new User('Francisco', 34, 'unmail@mail.com', 'contraseña123');
   const testTransaction = new Transaction(testUser1, correctName, correctCategory, correctAmount, correctDate, correctType);
   test('constructor id', () => {
@@ -53,9 +54,11 @@ describe('validateTransaction tests', () => {
   test('unvalidMonth', () => {
     expect(Transaction.validateTransaction(correctName, correctCategory, correctAmount, correctDate.clone().add(1, 'month'))).toEqual('La fecha ingresada no se encuentra en el mes y año actual');
   });
+  //agregar mes menos
   test('unvalidYear', () => {
     expect(Transaction.validateTransaction(correctName, correctCategory, correctAmount, correctDate.clone().add(1, 'year'))).toEqual('La fecha ingresada no se encuentra en el mes y año actual');
   });
+  //agregar año menos
   test('allValid', () => {
     expect(Transaction.validateTransaction(correctName, correctCategory, correctAmount, correctDate)).toEqual(undefined);
   });
