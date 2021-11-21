@@ -1,9 +1,9 @@
 // Funcion de grafica por dates
-export function drawCharByDate(user, userData) {
+export function drawCharByDate(userData) {
   const lineData = {
     labels: userData[0],
     datasets: [{
-      label: 'Gastos por fecha',
+      label: 'Movimientos por fecha',
       data: userData[1],
       fill: false,
       borderColor: 'rgb(75, 192, 192)',
@@ -14,6 +14,10 @@ export function drawCharByDate(user, userData) {
     type: 'line',
     data: lineData,
   };
+  const chartStatus = Chart.getChart('byDateReport'); // <canvas> id
+  if (chartStatus != undefined) {
+    chartStatus.destroy();
+  }
   new Chart(
       document.getElementById('byDateReport'),
       lineConfig,
@@ -21,7 +25,7 @@ export function drawCharByDate(user, userData) {
 }
 
 // Manejar la grafica del reporte por categorias
-export function drawChartBarCategory(user, userData) {
+export function drawChartBarCategory(userData) {
   const barData = {
     // Aca van los labels de las categorias
     labels: userData[0],
@@ -61,11 +65,15 @@ export function drawChartBarCategory(user, userData) {
       },
     },
   };
+  const chartStatus = Chart.getChart('categoryReport'); // <canvas> id
+  if (chartStatus != undefined) {
+    chartStatus.destroy();
+  }
   new Chart(
       document.getElementById('categoryReport'),
       barConfig,
   );
-} 
+}
 
 // Funcion para graficar el reporte de balance
 export function drawBalanceChart(user, userData) {
@@ -99,6 +107,10 @@ export function drawBalanceChart(user, userData) {
       },
     },
   };
+  const chartStatus = Chart.getChart('balanceHome'); // <canvas> id
+  if (chartStatus != undefined) {
+    chartStatus.destroy();
+  }
   new Chart(
       document.getElementById('balanceHome'),
       config,
