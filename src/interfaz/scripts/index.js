@@ -184,7 +184,6 @@ function drawAllCharts() {
   drawBalanceChart(handler.getActiveUser(), handler.getExpenseAndIncome());
   drawChartBarCategory(handler.getTransactionsByCategory());
   drawCharByDate(handler.getTransactionsByDate());
-  console.log(handler.getTransactionsByDate());
 }
 
 function validEmailConfirmation(email, emailConfirmation) {
