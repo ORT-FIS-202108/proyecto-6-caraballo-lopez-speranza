@@ -147,6 +147,11 @@ section {
   align-items: center;
 }
 
+.menu-icon {
+  display: none;
+  color: white;
+}
+
 @media only screen and (min-width: 1441px) {
 
   .chart-container {
@@ -169,5 +174,11 @@ section {
 
   .chart-container {
     width: 90%;
+  }
+  .menu-icon{
+    display: block;
+  }
+  .menu-text{
+    display: none;
   }
 }
