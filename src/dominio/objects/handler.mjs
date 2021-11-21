@@ -88,15 +88,6 @@ export default class Handler {
     this.setActiveUser(null);
   }
 
-  // es metodo devuelve una lista de cuanto se gasto por categoria
-  getCategories(user) {
-    const transactionList = getTransactionsByUser(user);
-    let categories = [];
-    for (let i = 0; i < transactionList.length()-1; i++) {
-      categories = addTransactionToCategory(transactionList[i], categories);
-    }
-  }
-
   createTransaction(name, category, amount, expenseDate, type) {
     const validationMsg = Transaction.validateTransaction(name, category, amount, expenseDate);
     if (!!validationMsg) {
@@ -107,38 +98,71 @@ export default class Handler {
     this.addTransaction(transaction);
   }
 
-  // es metodo devuelve una lista de cuanto se gasto por categoria
-  getCategories(user) {
-    const transactionList = getTransactionsByUser(user);
-    let categories = [];
-    for (let i = 0; i < transactionList.length()-1; i++) {
-      categories = addTransactionToCategory(transactionList[i], categories);
-    }
-    return categories;
-  }
-  addTransactionToCategory(transaction, categories) {
-    if (isCategoryAlreadyOnList(transaction.category, categories)) {
-      for (let i = 0; i < categories.length()-1; i++) {
-        if (categories[i].name.toLowerCase() == category.toLowerCase()) {
-          categories[i].ammount += transaction.amount;
-          return categories;
-        }
-      }
-    } else {
-      return addTransaccionToCategory(transaction, addCategoryToList(transaction.category, categories));
-    }
-  }
-  isCategoryAlreadyOnList(category, categories) {
-    for (let i = 0; i < categories.length()-1; i++) {
-      if (categories[i].name.toLowerCase() == category.toLowerCase()) {
-        return True;
+  // ---------------  Inicio  --------------- //
+  // Metodos para interactuar con los charts  //
+  // ---------------------------------------- //
+  getExpenseAndIncome() {
+    // Usa las transacciones para obtener el gasto y el ingreso
+    // retorna un array con los gastos y ingresos para eleborar el grafico
+    const activeUser = this.getActiveUser();
+    const transaction = this.getTransactionsByUser(activeUser);
+    let userIncome = 0;
+    let userExpense = 0;
+    for (const elem of transaction) {
+      if (elem.type === 'income') {
+        userIncome += elem.amount;
+      } else if (elem.type === 'expense') {
+        userExpense += elem.amount;
       }
     }
-    return False;
+    const data = [userExpense, userIncome];
+    activeUser.balance = userIncome - userExpense;
+    return data;
   }
-  addCategoryToList(category, categories) {
-    const toAdd = new Category(category);
-    return categories.push(toAdd);
+
+  getTransactionsByCategory() {
+    const activeUser = this.getActiveUser();
+    const transaction = this.getTransactionsByUser(activeUser);
+    const data = [];
+    const categories = [];
+    for (const elem of transaction) {
+      // Armo un array con las categorias
+      if (categories.indexOf(elem.category) === -1) {
+        categories.push(elem.category);
+        data[categories.indexOf(elem.category)] = 0;
+      }
+      const categoryIndex = categories.indexOf(elem.category);
+      // Agrego la transaccion dependiendo del tipo en la posicion de la categoria
+      if (elem.type === 'expense') {
+        data[categoryIndex] -= elem.amount;
+      } else if (elem.type === 'income') {
+        data[categoryIndex] += elem.amount;
+      }
+    }
+    return [categories, data];
   }
+
+  getTransactionsByDate() {
+    const activeUser = this.getActiveUser();
+    const transaction = this.getTransactionsByUser(activeUser);
+    const data = [];
+    const dates = [];
+    for (const elem of transaction) {
+      if (dates.indexOf(elem.date) === -1) {
+        dates.push(elem.date);
+        data[dates.indexOf(elem.date)] = 0;
+      }
+      const dateIndex = dates.indexOf(elem.date);
+      if (elem.type === 'expense') {
+        data[dateIndex] -= elem.amount;
+      } else if (elem.type === 'income') {
+        data[dateIndex] += elem.amount;
+      }
+    }
+    return [dates, data];
+  }
+  // ---------------  Fin  ------------------ //
+  // Metodos para interactuar con los charts  //
+  // ---------------------------------------- //
 }
 
