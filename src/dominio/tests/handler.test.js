@@ -43,19 +43,13 @@ describe('ABM User tests', () => {
   beforeEach(() => {
     testUser = new User('Fran', 16, 'unMail@mail.com', 'sads32sasdwasdwe');
   });
-  test('addUser', () => {
+  test('test add valid user', () => {
     handler.addUser(testUser);
     expect(handler.users[0]).toEqual(testUser);
   });
   test('getUsers', () => {
     handler.addUser(testUser);
     expect(handler.users).toEqual(handler.getUsers());
-  });
-  test('editUser', () => {
-    handler.addUser(testUser);
-    testUser.name = 'francisco';
-    handler.editUser(testUser);
-    expect(handler.users[0].name).toEqual('francisco');
   });
   test('existsUser', () => {
     handler.addUser(testUser);
@@ -67,7 +61,7 @@ describe('ABM User tests', () => {
   });
 });
 
-describe('ABM User tests', () => {
+describe('ABM transaction tests', () => {
   let testUser;
   let testTransaction;
   beforeEach(() => {
