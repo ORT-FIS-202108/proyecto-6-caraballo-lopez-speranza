@@ -24,9 +24,12 @@ export default class Handler {
     return this.users;
   }
 
-  editUser(user) {
-    const index = this.users.findIndex((u) => u.id === user.id);
-    this.users[index] = user;
+  editUserPassword(newPassword) {
+    const validationMsg = User.validatePassword(newPassword);
+    if (!!validationMsg) {
+      throw new Error(validationMsg);
+    }
+    this.activeUser.password = newPassword;
   }
 
   existsUser(email) {
