@@ -63,6 +63,19 @@ const userMenuButton = new MDCRipple(document.getElementById('user-menu'));
 const logoutSpan = new MDCRipple(document.getElementById('logout'));
 const signupLink = new MDCRipple(document.getElementById('signupLink'));
 
+const byCategoryReportButton = new MDCRipple(document.getElementById('byCategoryReportButton'));
+const byDateReportButton = new MDCRipple(document.getElementById('byDateReportButton'));
+
+byCategoryReportButton.listen('click', () => {
+  document.getElementById('section-category-report').classList.remove('content--hidden');
+  document.getElementById('section-by-date-report').classList.add('content--hidden');
+});
+
+byDateReportButton.listen('click', () => {
+  document.getElementById('section-by-date-report').classList.remove('content--hidden');
+  document.getElementById('section-category-report').classList.add('content--hidden');
+});
+
 userMenuButton.listen('click', () => {
   const menu = new MDCMenu(document.querySelector('.mdc-menu'));
   menu.open = true;
@@ -83,6 +96,7 @@ addExpenseButton.listen('click', () => {
   try {
     handler.createTransaction(expenseName, expenseCategory, expenseAmount, expenseDate, EXPENSE_TYPE);
     clearExpenseFormFields();
+    drawAllCharts();
     showMessage('Gasto agregado exitosamente');
   } catch (error) {
     showMessage(error.message);
@@ -99,6 +113,7 @@ addIncomeButton.listen('click', () => {
   try {
     handler.createTransaction(incomeName, incomeCategory, incomeAmount, incomeDate, INCOME_TYPE);
     clearIncomeFormFields();
+    drawAllCharts();
     showMessage('Ingreso agregado exitosamente');
   } catch (error) {
     showMessage(error.message);
@@ -115,9 +130,7 @@ loginButton.listen('click', () => {
     displayMainContentAfterLogin();
 
     // Dibujar el chart de balance de usuario activo
-    drawBalanceChart(handler.getActiveUser(), handler.getExpenseAndIncome());
-    drawChartBarCategory(handler.getActiveUser(), handler.getTransactionsByCategory());
-    drawCharByDate(handler.getActiveUser(), handler.getTransactionsByDate());
+    drawAllCharts();
   } catch (error) {
     showMessage(error.message);
   }
@@ -165,6 +178,12 @@ function getTitleByIndex(index) {
     default:
       return 'Mis Gastos';
   }
+}
+
+function drawAllCharts() {
+  drawBalanceChart(handler.getActiveUser(), handler.getExpenseAndIncome());
+  drawChartBarCategory(handler.getActiveUser(), handler.getTransactionsByCategory());
+  drawCharByDate(handler.getActiveUser(), handler.getTransactionsByDate());
 }
 
 function validEmailConfirmation(email, emailConfirmation) {

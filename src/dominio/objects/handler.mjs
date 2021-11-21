@@ -42,8 +42,9 @@ export default class Handler {
     this.transactions.splice(index, 1);
   }
 
-  getTransactionsByUser(user) {
-    return this.transactions.filter((t) => t.user.id === user.id);
+  getTransactionsByUser() {
+    const activeUser = this.getActiveUser();
+    return this.transactions.filter((t) => t.user.id === activeUser.id);
   }
 
   getTransactionById(id) {
@@ -104,8 +105,7 @@ export default class Handler {
   getExpenseAndIncome() {
     // Usa las transacciones para obtener el gasto y el ingreso
     // retorna un array con los gastos y ingresos para eleborar el grafico
-    const activeUser = this.getActiveUser();
-    const transaction = this.getTransactionsByUser(activeUser);
+    const transaction = this.getTransactionsByUser();
     let userIncome = 0;
     let userExpense = 0;
     for (const elem of transaction) {
@@ -116,13 +116,12 @@ export default class Handler {
       }
     }
     const data = [userExpense, userIncome];
-    activeUser.balance = userIncome - userExpense;
+    this.activeUser.balance = userIncome - userExpense;
     return data;
   }
 
   getTransactionsByCategory() {
-    const activeUser = this.getActiveUser();
-    const transaction = this.getTransactionsByUser(activeUser);
+    const transaction = this.getTransactionsByUser();
     const data = [];
     const categories = [];
     for (const elem of transaction) {
@@ -143,8 +142,7 @@ export default class Handler {
   }
 
   getTransactionsByDate() {
-    const activeUser = this.getActiveUser();
-    const transaction = this.getTransactionsByUser(activeUser);
+    const transaction = this.getTransactionsByUser();
     const data = [];
     const dates = [];
     for (const elem of transaction) {

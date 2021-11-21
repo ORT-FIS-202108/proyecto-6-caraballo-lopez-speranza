@@ -202,9 +202,11 @@
 
   <main class="mdc-top-app-bar--fixed-adjust main main-hidden">
     <section class="content">
-      <div class="chart-container" style="position: relative;">
-        <canvas id="balanceHome"></canvas>
-      </div>
+      <div class="active-report">
+        <div class="chart-container">
+         <canvas id="balanceHome"></canvas>
+        </div>
+    </div>
     </section>
 
     <section class="content content--hidden">
@@ -314,16 +316,31 @@
       </div>
     </section>
 
-    <section class="content content--hidden">
-      <div class="chart-container" style="position: relative;">
-        <canvas id="categoryReport"></canvas>
+    <section class="content content--hidden" id="section-category-report">
+      <div class="active-report">
+        <div class="chart-container">
+         <canvas id="categoryReport"></canvas>
+        </div>
+        <div class="actions">
+          <button class="mdc-button mdc-button--raised" id="byDateReportButton">
+            Ver Historico
+          </button>
+        </div>
       </div>
-
     </section>
-    <section class="content content--hidden">
-      <div class="chart-container" style="position: relative;">
-        <canvas id="byDateReport"></canvas>
+
+    <section class="content content--hidden" id="section-by-date-report">
+      <div class="active-report">
+        <div class="chart-container">
+         <canvas id="byDateReport"></canvas>
+        </div>
       </div>
+      <div class="actions">
+        <button class="mdc-button mdc-button--raised" id="byCategoryReportButton">
+          Ver por categorias
+        </button>
+      </div>
+    </div>
     </section>
 
   </main>
