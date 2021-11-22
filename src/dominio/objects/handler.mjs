@@ -1,3 +1,4 @@
+import moment from 'moment';
 import Transaction from './transaction.mjs';
 import User from './user.mjs';
 
@@ -82,14 +83,19 @@ export default class Handler {
     this.setActiveUser(null);
   }
 
-  createTransaction(name, category, amount, expenseDate, type) {
-    const validationMsg = Transaction.validateTransaction(name, category, amount, expenseDate);
+  createTransaction(name, category, amount, date, type) {
+    const validationMsg = Transaction.validateTransaction(name, category, amount, date);
     if (!!validationMsg) {
       throw new Error(validationMsg);
     }
 
-    const transaction = new Transaction(this.getActiveUser(), name, category, amount, expenseDate, type);
+    const transaction = new Transaction(this.getActiveUser(), name, category, amount, date, type);
     this.addTransaction(transaction);
+  }
+
+  sortTransactionsByDate() {
+    const transactions = this.getTransactionsByUser();
+    return transactions.sort((a, b) => moment(a.date, 'DD/MM/YYYY') - moment(b.date, 'DD/MM/YYYY'));
   }
 
   // ---------------  Inicio  --------------- //
@@ -135,10 +141,11 @@ export default class Handler {
   }
 
   getTransactionsByDate() {
-    const transaction = this.getTransactionsByUser();
+    const transactions = this.getTransactionsByUser();
+    const sortedByDateTransactions = this.sortTransactionsByDate();
     const data = [];
     const dates = [];
-    for (const elem of transaction) {
+    for (const elem of sortedByDateTransactions) {
       if (dates.indexOf(elem.date) === -1) {
         dates.push(elem.date);
         data[dates.indexOf(elem.date)] = 0;
@@ -152,6 +159,7 @@ export default class Handler {
     }
     return [dates, data];
   }
+
   // ---------------  Fin  ------------------ //
   // Metodos para interactuar con los charts  //
   // ---------------------------------------- //
