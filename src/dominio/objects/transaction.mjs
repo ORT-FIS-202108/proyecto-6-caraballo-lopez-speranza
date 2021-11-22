@@ -14,22 +14,22 @@ export default class Transaction {
   }
 
   static validateTransaction(name, category, amount, date) {
-    const nameRegex = /^[a-zA-Z].*[\s\.]*$/;
+    const textRegex = /^[a-zA-Z].*[\s\.]*$/;
     const formattedDate = moment(date, 'DD/MM/YYYY', true);
 
-    if (!nameRegex.test(name)) {
+    if (name === null || !textRegex.test(name)) {
       return 'El nombre ingresado no es valido';
     }
-    if (!nameRegex.test(category)) { // TODO: ver como manejar las categorias
+    if (category === null || !textRegex.test(category)) {
       return 'La categoria ingresada no es valida';
     }
-    if (amount <= 0) {
+    if (amount === null || isNaN(amount) || amount <= 0) {
       return 'El monto ingresado no es valido';
     }
     if (!formattedDate.isValid()) {
-      return 'La fecha ingresada no es valida';
+      return 'La fecha ingresada no se encuentra en el formato valido DD/MM/YYYY';
     }
-    if (!moment(formattedDate).isSame(new Date(), 'month') || !moment(formattedDate).isSame(new Date(), 'year')) {
+    if (date === null || !moment(formattedDate).isSame(new Date(), 'month') || !moment(formattedDate).isSame(new Date(), 'year')) {
       return 'La fecha ingresada no se encuentra en el mes y año actual';
     }
   }
