@@ -18,13 +18,13 @@ export default class User {
     const nameRegex = /^[a-zA-Z].*[\s\.]*$/;
     const emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-    if (!nameRegex.test(name)) {
+    if (name === null || !nameRegex.test(name)) {
       return 'El nombre ingresado no es valido';
     }
-    if (!(age >= MIN_AGE && age <= MAX_AGE)) {
+    if (age === null || !(age >= MIN_AGE && age <= MAX_AGE)) {
       return 'La edad ingresada no es valida';
     }
-    if (!emailRegex.test(email)) {
+    if (email === null || !emailRegex.test(email)) {
       return 'El correo ingresado no es valido';
     }
     return User.validatePassword(password);
@@ -32,7 +32,7 @@ export default class User {
 
   static validatePassword(password) {
     const passwordRegex = /^\S{8,}$/;
-    if (!passwordRegex.test(password)) {
+    if (password === null || !passwordRegex.test(password)) {
       return 'La contraseña ingresada no es valida';
     }
   }
