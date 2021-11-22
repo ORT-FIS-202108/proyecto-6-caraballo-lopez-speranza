@@ -1,270 +1,327 @@
 import Handler from '../objects/handler.mjs';
 import User from '../objects/user.mjs';
 import Transaction from '../objects/transaction.mjs';
-import moment from 'moment';
 
 let handler;
-
-
-beforeEach(() => {
-  handler = new Handler();
-});
+let testUser;
+let testTransaction;
+let name;
+let age;
+let email;
+let password;
+let transactionName;
+let category;
+let amount;
+let date;
+let type;
+let anotherTransactionName;
+let anotherCategory;
+let anotherAmount;
+let anotherDate;
+let anotherType;
 
 describe('test constructor handler', () => {
-  test('test create handler variable users', () => {
+  beforeEach(() => {
+    handler = new Handler();
+  });
+
+  test('should create a new Handler', () => {
     expect(handler.users).toEqual([]);
-  });
-
-  test('test create handler variable transactions', () => {
     expect(handler.transactions).toEqual([]);
-  });
-
-  test('test create handler variable activeUser', () => {
     expect(handler.activeUser).toEqual(undefined);
   });
 });
 
-
-describe('Active User tests', () => {
-  let testUser;
+describe('User methods tests', () => {
   beforeEach(() => {
-    testUser = new User('Fran', 16, 'unMail@mail.com', 'sads32sasdwasdwe');
+    name = 'name';
+    age = 20;
+    email = 'test@test.com';
+    password = 'password';
+    handler = new Handler();
+    testUser = new User(name, age, email, password);
     User.USER_ID = 1;
   });
 
-  test('test set a new Active User', () => {
+  test('should return the active User', () => {
     handler.setActiveUser(testUser);
-    expect(handler.activeUser).toEqual(testUser);
-  });
 
-  test('test get the actual Active User', () => {
-    handler.setActiveUser(testUser);
     expect(handler.getActiveUser()).toEqual(testUser);
   });
-});
 
-describe('ABM User tests', () => {
-  let testUser;
-  beforeEach(() => {
-    testUser = new User('Fran', 16, 'unMail@mail.com', 'sads32sasdwasdwe');
-    User.USER_ID = 1;
+  test('should return the active User undefined', () => {
+    expect(handler.getActiveUser()).toEqual(undefined);
   });
 
-  test('test add valid user', () => {
+  test('should add new user and should be in the user lis', () => {
     handler.addUser(testUser);
+
     expect(handler.users[0]).toEqual(testUser);
   });
 
-  test('get Users list from handler', () => {
+  test('should add new user list should have one item', () => {
     handler.addUser(testUser);
-    expect(handler.users).toEqual(handler.getUsers());
+
+    expect(handler.getUsers().length).toEqual(1);
   });
 
-  test('test existsUser function with existing user', () => {
+  test('checks if added user exists, checking by email', () => {
     handler.addUser(testUser);
-    expect(handler.existsUser('unMail@mail.com')).toEqual(true);
+
+    expect(handler.existsUser(email)).toEqual(true);
   });
 
-  test('test existsUser function without existing user', () => {
-    handler.addUser(testUser);
-    expect(handler.existsUser('unMasdasail@mail.com')).toEqual(false);
+  test('checks if not added user exists, checking by email', () => {
+    expect(handler.existsUser(email)).toEqual(false);
   });
 
-  test('test edit user with valid password', () => {
+  test('should create an User correctly and save it', () => {
+    handler.createUser(name, age, email, password);
+
+    expect(handler.getUsers().length).toEqual(1);
+    expect(handler.getActiveUser()).toEqual(testUser);
+  });
+
+  test('should try to create a User that already exists', () => {
+    handler.createUser(name, age, email, password);
+
+    expect(() => {
+      handler.createUser(name, age, email, password);
+    }).toThrow('El usuario ya existe con ese email');
+  });
+
+  test('should try to create a user that has unvalid empty name', () => {
+    expect(() => {
+      handler.createUser('', age, email, password);
+    }).toThrow('El nombre ingresado no es valido');
+  });
+
+  test('should login a user correctly', () => {
+    handler.createUser(name, age, email, password);
+    handler.loginUser(testUser.email, testUser.password);
+    expect(handler.getActiveUser()).toEqual(testUser);
+  });
+
+  test('should not login a user correctly, using wrong email', () => {
+    const wrongEmail = 'test1@test.com';
+    handler.createUser(name, age, wrongEmail, password);
+
+    expect(() => {
+      handler.loginUser(testUser.email, test.password);
+    }).toThrow('El usuario no existe o la contraseña es incorrecta');
+  });
+
+  test('should not login a user correctly, using wrong password', () => {
+    const wrongPassword = 'password1';
+    handler.createUser(name, age, email, wrongPassword);
+
+    expect(() => {
+      handler.loginUser(testUser.email, testUser.password);
+    }).toThrow('El usuario no existe o la contraseña es incorrecta');
+  });
+
+  test('should log out the active user correctly', () => {
+    handler.createUser(name, age, email, password);
+    handler.logoutUser();
+
+    expect(handler.getActiveUser()).toEqual(null);
+    expect(handler.activeUser).toEqual(null);
+  });
+
+  test('should edit user password with a valid one', () => {
+    const newPassword = 'newPassword';
+
+    handler.createUser(name, age, email, password);
     handler.setActiveUser(testUser);
-    const newPassword = 'unaPassword';
     handler.editUserPassword(newPassword);
+
     expect(handler.activeUser.password).toEqual(newPassword);
   });
-  test('test edit user with invalid password', () => {
+
+  test('should edit user password with an invalid one', () => {
+    const invalidPassword = '';
+
+    handler.createUser(name, age, email, password);
     handler.setActiveUser(testUser);
-    const newPassword = '';
+
     expect(() => {
-      handler.editUserPassword(newPassword);
-    }).toThrow('La contraseña ingresada no es valida');
+      handler.editUserPassword(invalidPassword);
+    }).toThrow('La contraseña ingresada no es valida, debe tener un largo minimo de 8 caracteres sin espacios');
   });
 });
 
-describe('ABM transaction tests', () => {
-  let testUser;
-  let testTransaction;
+describe('Transaction methods tests', () => {
   beforeEach(() => {
-    testUser = new User('Fran', 16, 'unMail@mail.com', 'sads32sasdwasdwe');
+    transactionName = 'transactionName';
+    category = 'category';
+    amount = 1000;
+    date = '10/11/2021';
+    type = 'expense';
+
+    handler = new Handler();
+    testUser = new User(name, age, email, password);
     handler.addUser(testUser);
     handler.setActiveUser(testUser);
-    testTransaction = new Transaction(testUser, 'transaccion prueba', 'unaCategoria', 1000, '10/11/2021', 'expense');
+    testTransaction = new Transaction(testUser, transactionName, category, amount, date, type);
     User.USER_ID = 1;
+    Transaction.TRANSACTION_ID = 1;
   });
 
-  test('test add transaction in handler', () => {
+  test('should add a transaction correctly', () => {
     handler.addTransaction(testTransaction);
-    expect(handler.transactions[0]).toEqual(testTransaction);
+    expect(handler.getTransactionsByUser(testUser).length).toEqual(1);
   });
 
-  test('test get transaction by existing user', () => {
+  test('should get all transactions by the active user', () => {
     handler.addTransaction(testTransaction);
     expect(handler.getTransactionsByUser()).toEqual([testTransaction]);
   });
 
-  test('test get transaction by id', () => {
+  test('should get 0 transactions for the active user', () => {
+    expect(handler.getTransactionsByUser().length).toEqual(0);
+  });
+
+  test('should get a transaction by id', () => {
     handler.addTransaction(testTransaction);
     expect(handler.getTransactionById(testTransaction.id)).toEqual(testTransaction);
   });
 
-  test('test update balance', () => {
+  test('should get 0 transaction by id', () => {
+    expect(handler.getTransactionById(testTransaction.id)).toEqual(undefined);
+  });
+
+  test('should update balance correctly', () => {
     const oldBalance = testUser.balance;
+    const updatedBalance = oldBalance + testTransaction.amount;
+
     handler.addTransaction(testTransaction);
     handler.updateBalance(testTransaction);
-    expect(handler.getActiveUser().balance).toEqual(oldBalance + testTransaction.amount);
-  });
-});
 
-describe('Log in & register', () => {
-  let testUser;
-  beforeEach(() => {
-    User.USER_ID = 1;
-    testUser = new User('Fran', 16, 'unMail@mail.com', 'sads32sasdwasdwe');
-    User.USER_ID = 1;
+    expect(handler.getActiveUser().balance).toEqual(updatedBalance);
   });
 
-  test('test create User correctly and save it', () => {
-    handler.createUser(testUser.name, testUser.age, testUser.email, testUser.password);
-    expect(handler.users[0]).toEqual(testUser);
+  test('should create a transaction correctly', () => {
+    handler.createTransaction(transactionName, category, amount, date, type);
+
+    expect(handler.getTransactionsByUser().length).toEqual(1);
   });
 
-  test('test create User correctly and set as active User', () => {
-    handler.createUser(testUser.name, testUser.age, testUser.email, testUser.password);
-    expect(handler.activeUser).toEqual(testUser);
+  test('should create a transaction correctly', () => {
+    handler.createTransaction(transactionName, category, amount, date, type);
+
+    expect(handler.getTransactionsByUser().length).toEqual(1);
   });
 
-  test('test create User that already exists', () => {
-    handler.createUser(testUser.name, testUser.age, testUser.email, testUser.password);
+  test('should try to create a transaction that has unvalid empty name', () => {
     expect(() => {
-      handler.createUser(testUser.name, testUser.age, testUser.email, testUser.password);
-    }).toThrow('El usuario ya existe con ese email');
-  });
-
-  test('test create User that is unvalid', () => {
-    expect(() => {
-      handler.createUser('', testUser.age, testUser.email, testUser.password);
+      handler.createTransaction('', category, amount, date, type);
     }).toThrow('El nombre ingresado no es valido');
   });
 
-  test('test log in user correctly', () => {
-    handler.createUser(testUser.name, testUser.age, testUser.email, testUser.password);
-    handler.loginUser(testUser.email, testUser.password);
-    expect(handler.activeUser).toEqual(testUser);
+  test('should return a transaction list sorted by date', () => {
+    const anotherDate = '13/11/2021';
+    const anotherTransaction = new Transaction(testUser, transactionName, category, amount, anotherDate, type);
+    testTransaction.id = 2;
+    anotherTransaction.id = 3;
+    const sortedList = [testTransaction, anotherTransaction];
+
+    handler.createTransaction(transactionName, category, amount, date, type);
+    handler.createTransaction(anotherTransaction.name, anotherTransaction.category, anotherTransaction.amount, anotherTransaction.date, anotherTransaction.type);
+
+    expect(handler.sortTransactionsByDate()).toEqual(sortedList);
   });
 
-  test('test log in user wrong email', () => {
-    handler.createUser(testUser.name, testUser.age, testUser.email, testUser.password);
-    expect(() => {
-      handler.loginUser('testUser.email', testUser.password);
-    }).toThrow('El usuario no existe o la contraseña es incorrecta');
-  });
+  test('should return an empty transaction list sorted by date', () => {
+    const sortedList = [];
 
-  test('test log in user wrong password', () => {
-    handler.createUser(testUser.name, testUser.age, testUser.email, testUser.password);
-    expect(() => {
-      handler.loginUser(testUser.email, 'testUser.password');
-    }).toThrow('El usuario no existe o la contraseña es incorrecta');
-  });
-
-  test('test log out user correctly', () => {
-    handler.createUser(testUser.name, testUser.age, testUser.email, testUser.password);
-    handler.logoutUser();
-    expect(handler.activeUser).toEqual(null);
+    expect(handler.sortTransactionsByDate()).toEqual(sortedList);
   });
 });
 
-describe('create transaction tests', () => {
-  const correctName = 'name';
-  const correctCategory = 'category';
-  const correctAmount = 1000;
-  const date = moment();
-  const correctDate = moment(date, 'DD/MM/YYYY', true);
-  const correctType = 'expense';
+describe('charts methods tests', () => {
   beforeEach(() => {
-    handler.setActiveUser(handler.createUser('Fran', 16, 'unMail@mail.com', 'sads32sasdwasdwe'));
-    User.USER_ID = 1;
+    transactionName = 'transactionName';
+    category = 'category';
+    amount = 1000;
+    date = '10/11/2021';
+    type = 'expense';
+    anotherTransactionName = 'anotherTransactionName';
+    anotherCategory = 'anotherCategory';
+    anotherAmount = 5000;
+    anotherDate = '13/11/2021';
+    anotherType = 'income';
+
+    handler = new Handler();
+    testUser = new User(name, age, email, password);
+    handler.addUser(testUser);
+    handler.setActiveUser(testUser);
   });
 
-  test('test create transaction correctly', () => {
-    const testTransaction = new Transaction(handler.getActiveUser(), correctName, correctCategory, correctAmount, correctDate, correctType);
-    Transaction.TRANSACTION_ID--;
-    handler.createTransaction(correctName, correctCategory, correctAmount, correctDate, correctType);
-    expect(handler.transactions[0]).toEqual(testTransaction);
+  test('should get the expense and income', () => {
+    handler.createTransaction(transactionName, category, amount, date, type);
+    handler.createTransaction(anotherTransactionName, anotherCategory, anotherAmount, anotherDate, anotherType);
+    const testResult = [amount, anotherAmount];
+
+    expect(handler.getExpenseAndIncome()).toEqual(testResult);
   });
 
-  test('test create unvalid transaction', () => {
-    expect(() => {
-      handler.createTransaction('', correctCategory, correctAmount, correctDate, correctType);
-    }).toThrow('El nombre ingresado no es valido');
-  });
-});
+  test('should get no expense and income', () => {
+    const testResult = [0, 0];
 
-describe('metodos para interactuar con los charts tests', () => {
-  beforeEach(() => {
-    handler.createUser('Fran', 16, 'unMail@mail.com', 'sads32sasdwasdwe');
-    handler.createTransaction('transaccion prueba', 'unaCategoria', 1000, '10/11/2021', 'income');
-    handler.createTransaction('transaccion prueba2', 'otraCategoria', 5000, '10/11/2021', 'expense');
+    expect(handler.getExpenseAndIncome()).toEqual(testResult);
   });
 
-  test('test get expense and income', () => {
-    expect(handler.getExpenseAndIncome()).toEqual([5000, 1000]);
+  test('should get the transactions by category', () => {
+    handler.createTransaction(transactionName, category, amount, date, type);
+    handler.createTransaction(anotherTransactionName, anotherCategory, anotherAmount, anotherDate, anotherType);
+    const testResultCategories = [category, anotherCategory];
+    const testResultAmounts = [-amount, anotherAmount];
+
+    expect(handler.getTransactionsByCategory()).toEqual([testResultCategories, testResultAmounts]);
   });
 
-  test('test get expense and income update balance', () => {
-    handler.getExpenseAndIncome();
-    expect(handler.getActiveUser().balance).toEqual(-4000);
+  test('should get no transactions by category', () => {
+    const testResultCategories = [];
+    const testResultAmounts = [];
+
+    expect(handler.getTransactionsByCategory()).toEqual([testResultCategories, testResultAmounts]);
   });
 
-  test('test transactions by category', () => {
-    expect(handler.getTransactionsByCategory()).toEqual([['unaCategoria', 'otraCategoria'], [1000, -5000]]);
+  test('should get the transactions by date', () => {
+    handler.createTransaction(transactionName, category, amount, date, type);
+    handler.createTransaction(anotherTransactionName, anotherCategory, anotherAmount, anotherDate, anotherType);
+    const testResultDates = [date, anotherDate];
+    const testResultAmounts = [-amount, anotherAmount];
+
+    expect(handler.getTransactionsByDate()).toEqual([testResultDates, testResultAmounts]);
   });
 
-  test('test transactions by category', () => {
-    expect(handler.getTransactionsByDate()).toEqual([['10/11/2021'], [-4000]]);
-  });
-});
+  test('should get no transactions by date', () => {
+    const testResultDates = [];
+    const testResultAmounts = [];
 
-describe('metodos para interactuar con los charts branches alternativas tests', () => {
-  beforeEach(() => {
-    handler.createUser('Fran', 16, 'unMail@mail.com', 'sads32sasdwasdwe');
-    // handler.createTransaction('transaccion prueba', 'unaCategoria', 1000, '10/11/2021', 'income');
-    // handler.createTransaction('transaccion prueba2', 'otraCategoria', 5000, '10/11/2021', 'expense');
+    expect(handler.getTransactionsByDate()).toEqual([testResultDates, testResultAmounts]);
   });
 
-  test('test get expense and income only expense', () => {
-    handler.createTransaction('transaccion prueba2', 'otraCategoria', 5000, '10/11/2021', 'expense');
-    expect(handler.getExpenseAndIncome()).toEqual([5000, 0]);
+  test('should get transactions by date with invalid type', () => {
+    const notExpenseOrIncomeType = 'notExpenseOrIncomeType';
+    handler.createTransaction(transactionName, category, amount, date, type);
+    handler.createTransaction(anotherTransactionName, anotherCategory, anotherAmount, date, notExpenseOrIncomeType);
+    const testResultDates = [date];
+    const testResultAmounts = [4000];
+
+    expect(handler.getTransactionsByDate()).toEqual([testResultDates, testResultAmounts]);
   });
-  test('test get expense and income only income', () => {
-    handler.createTransaction('transaccion prueba2', 'otraCategoria', 5000, '10/11/2021', 'income');
-    expect(handler.getExpenseAndIncome()).toEqual([0, 5000]);
-  });
-  test('test get expense and income with invalid type', () => {
-    handler.createTransaction('transaccion prueba', 'unaCategoria', 1000, '10/11/2021', 'income');
-    handler.createTransaction('transaccion prueba2', 'otraCategoria', 5000, '10/11/2021', 'expense');
-    handler.createTransaction('transaccion prueba', 'unaCategoria', 1000, '10/11/2021', 'income');
-    handler.createTransaction('transaccion prueba2', 'otraCategoria', 5000, '10/11/2021', 'expse');
-    expect(handler.getExpenseAndIncome()).toEqual([5000, 2000]);
-  });
-  test('test transactions by category invalid type', () => {
-    handler.createTransaction('transaccion prueba', 'unaCategoria', 1000, '10/11/2021', 'income');
-    handler.createTransaction('transaccion prueba2', 'otraCategoria', 5000, '10/11/2021', 'expse');
-    expect(handler.getTransactionsByCategory()).toEqual([['unaCategoria', 'otraCategoria'], [1000, 0]]);
-  });
-  test('test transactions by date invalid type', () => {
-    handler.createTransaction('transaccion prueba', 'unaCategoria', 1000, '10/11/2021', 'income');
-    handler.createTransaction('transaccion prueba2', 'otraCategoria', 5000, '10/11/2021', 'expse');
-    expect(handler.getTransactionsByDate()).toEqual([['10/11/2021'], [1000]]);
-  });
-  test('test transactions by category', () => {
-    handler.createTransaction('transaccion prueba', 'unaCategoria', 1000, '10/11/2021', 'income');
-    handler.createTransaction('transaccion prueba2', 'otraCategoria', 5000, '10/11/2021', 'expense');
-    handler.createTransaction('transaccion prueba', 'unaCategoria', 1000, '10/11/2021', 'income');
-    handler.createTransaction('transaccion prueba2', 'otraCategoria', 5000, '10/11/2021', 'expense');
-    expect(handler.getTransactionsByCategory()).toEqual([['unaCategoria', 'otraCategoria'], [2000, -10000]]);
+
+  test('should get transactions by date with invalid type', () => {
+    const notExpenseOrIncomeType = 'notExpenseOrIncomeType';
+    handler.createTransaction(transactionName, category, amount, date, type);
+    handler.createTransaction(anotherTransactionName, anotherCategory, anotherAmount, date, notExpenseOrIncomeType);
+    handler.createTransaction(transactionName, category, amount, date, type);
+    handler.createTransaction(anotherTransactionName, anotherCategory, anotherAmount, date, notExpenseOrIncomeType);
+    const testResultCategories = [category, anotherCategory];
+    const testResultAmounts = [-2000, 10000];
+
+    expect(handler.getTransactionsByCategory()).toEqual([testResultCategories, testResultAmounts]);
   });
 });
