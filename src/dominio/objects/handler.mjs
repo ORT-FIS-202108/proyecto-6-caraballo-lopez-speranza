@@ -25,34 +25,8 @@ export default class Handler {
     return this.users;
   }
 
-  editUserPassword(newPassword) {
-    const validationMsg = User.validatePassword(newPassword);
-    if (!!validationMsg) {
-      throw new Error(validationMsg);
-    }
-    this.activeUser.password = newPassword;
-  }
-
   existsUser(email) {
     return this.users.findIndex((u) => u.email === email) !== -1;
-  }
-
-  addTransaction(transaction) {
-    this.transactions.push(transaction);
-  }
-
-  getTransactionsByUser() {
-    const activeUser = this.getActiveUser();
-    return this.transactions.filter((t) => t.user.id === activeUser.id);
-  }
-
-  getTransactionById(id) {
-    return this.transactions.find((t) => t.id === id);
-  }
-
-  updateBalance(transaction) {
-    const index = this.users.findIndex((u) => u.id === transaction.user.id);
-    this.users[index].balance += transaction.amount;
   }
 
   createUser(name, age, email, password) {
@@ -83,6 +57,32 @@ export default class Handler {
     this.setActiveUser(null);
   }
 
+  editUserPassword(newPassword) {
+    const validationMsg = User.validatePassword(newPassword);
+    if (!!validationMsg) {
+      throw new Error(validationMsg);
+    }
+    this.activeUser.password = newPassword;
+  }
+
+  updateBalance(transaction) {
+    const index = this.users.findIndex((u) => u.id === transaction.user.id);
+    this.users[index].balance += transaction.amount;
+  }
+
+  addTransaction(transaction) {
+    this.transactions.push(transaction);
+  }
+
+  getTransactionsByUser() {
+    const activeUser = this.getActiveUser();
+    return this.transactions.filter((t) => t.user.id === activeUser.id);
+  }
+
+  getTransactionById(id) {
+    return this.transactions.find((t) => t.id === id);
+  }
+
   createTransaction(name, category, amount, date, type) {
     const validationMsg = Transaction.validateTransaction(name, category, amount, date);
     if (!!validationMsg) {
@@ -110,7 +110,7 @@ export default class Handler {
     for (const elem of transaction) {
       if (elem.type === 'income') {
         userIncome += elem.amount;
-      } else if (elem.type === 'expense') {
+      } else {
         userExpense += elem.amount;
       }
     }
@@ -133,7 +133,7 @@ export default class Handler {
       // Agrego la transaccion dependiendo del tipo en la posicion de la categoria
       if (elem.type === 'expense') {
         data[categoryIndex] -= elem.amount;
-      } else if (elem.type === 'income') {
+      } else {
         data[categoryIndex] += elem.amount;
       }
     }
@@ -141,7 +141,6 @@ export default class Handler {
   }
 
   getTransactionsByDate() {
-    const transactions = this.getTransactionsByUser();
     const sortedByDateTransactions = this.sortTransactionsByDate();
     const data = [];
     const dates = [];
@@ -153,7 +152,7 @@ export default class Handler {
       const dateIndex = dates.indexOf(elem.date);
       if (elem.type === 'expense') {
         data[dateIndex] -= elem.amount;
-      } else if (elem.type === 'income') {
+      } else {
         data[dateIndex] += elem.amount;
       }
     }
