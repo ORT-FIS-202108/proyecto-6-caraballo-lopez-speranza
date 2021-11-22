@@ -42,19 +42,75 @@ describe('validateUser tests', () => {
     correctPassword = 'contraseña123';
   });
 
-  test('test validateUser incorrectName', () => {
-    expect(User.validateUser('', correctAge, correctEmail, correctPassword)).toEqual('El nombre ingresado no es valido');
+  test('test validateUser incorrectName empty', () => {
+    const incorrectName = '';
+    expect(User.validateUser(incorrectName, correctAge, correctEmail, correctPassword)).toEqual('El nombre ingresado no es valido');
+  });
+  test('test validateUser incorrectName null', () => {
+    const incorrectName = null;
+    expect(User.validateUser(incorrectName, correctAge, correctEmail, correctPassword)).toEqual('El nombre ingresado no es valido');
+  });
+  test('test validateUser incorrectName white spaces', () => {
+    const incorrectName = '        ';
+    expect(User.validateUser(incorrectName, correctAge, correctEmail, correctPassword)).toEqual('El nombre ingresado no es valido');
+  });
+  test('test validateUser incorrectName unvalid chars', () => {
+    const incorrectName = '.%^#@$';
+    expect(User.validateUser(incorrectName, correctAge, correctEmail, correctPassword)).toEqual('El nombre ingresado no es valido');
   });
   test('test validateUser incorrectAge', () => {
-    expect(User.validateUser(correctName, -34, correctEmail, correctPassword)).toEqual('La edad ingresada no es valida');
+    const incorrectAge = -37;
+    expect(User.validateUser(correctName, incorrectAge, correctEmail, correctPassword)).toEqual('La edad ingresada no es valida');
+  });
+  test('test validateUser null Age', () => {
+    const incorrectAge = null;
+    expect(User.validateUser(correctName, incorrectAge, correctEmail, correctPassword)).toEqual('La edad ingresada no es valida');
+  });
+  test('test validateUser less than min Age', () => {
+    const incorrectAge = User.MIN_AGE -1;
+    expect(User.validateUser(correctName, incorrectAge, correctEmail, correctPassword)).toEqual('La edad ingresada no es valida');
+  });
+  test('test validateUser more than max Age', () => {
+    const incorrectAge = User.MAX_AGE +1;
+    expect(User.validateUser(correctName, incorrectAge, correctEmail, correctPassword)).toEqual('La edad ingresada no es valida');
   });
   test('test validateUser incorrectEmail', () => {
-    expect(User.validateUser(correctName, correctAge, 'no soy un email', correctPassword)).toEqual('El correo ingresado no es valido');
+    const incorrectEmail = 'no soy un email';
+    expect(User.validateUser(correctName, correctAge, incorrectEmail, correctPassword)).toEqual('El correo ingresado no es valido');
   });
-  test('test validateUser incorrectEmail', () => {
-    expect(User.validateUser(correctName, correctAge, correctEmail, '123')).toEqual('La contraseña ingresada no es valida');
+  test('test validateUser null Email', () => {
+    const incorrectEmail = null;
+    expect(User.validateUser(correctName, correctAge, incorrectEmail, correctPassword)).toEqual('El correo ingresado no es valido');
   });
-  test('test validateUser incorrectEmail', () => {
+  test('test validateUser all spaces Email', () => {
+    const incorrectEmail = '      ';
+    expect(User.validateUser(correctName, correctAge, incorrectEmail, correctPassword)).toEqual('El correo ingresado no es valido');
+  });
+  test('test validateUser special caracters Email', () => {
+    const incorrectEmail = '#$%%@#$%%';
+    expect(User.validateUser(correctName, correctAge, incorrectEmail, correctPassword)).toEqual('El correo ingresado no es valido');
+  });
+  test('test validateUser incorrectPassword', () => {
+    const incorrectPassword = '123';
+    expect(User.validateUser(correctName, correctAge, correctEmail, incorrectPassword)).toEqual('La contraseña ingresada no es valida');
+  });
+  test('test validateUser null Password', () => {
+    const incorrectPassword = null;
+    expect(User.validateUser(correctName, correctAge, correctEmail, incorrectPassword)).toEqual('La contraseña ingresada no es valida');
+  });
+  test('test validateUser empty Password', () => {
+    const incorrectPassword = '';
+    expect(User.validateUser(correctName, correctAge, correctEmail, incorrectPassword)).toEqual('La contraseña ingresada no es valida');
+  });
+  test('test validateUser special caracters Password', () => {
+    const incorrectPassword = '#$%@#$';
+    expect(User.validateUser(correctName, correctAge, correctEmail, incorrectPassword)).toEqual('La contraseña ingresada no es valida');
+  });
+  test('test validateUser al spaces Password', () => {
+    const incorrectPassword = '        ';
+    expect(User.validateUser(correctName, correctAge, correctEmail, incorrectPassword)).toEqual('La contraseña ingresada no es valida');
+  });
+  test('test validateUser all correct', () => {
     expect(User.validateUser(correctName, correctAge, correctEmail, correctPassword)).toEqual(undefined);
   });
 });
