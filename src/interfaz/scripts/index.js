@@ -1,5 +1,4 @@
 import {MDCRipple} from '@material/ripple';
-import {MDCTopAppBar} from '@material/top-app-bar';
 import {MDCTabBar} from '@material/tab-bar';
 import {MDCTextField} from '@material/textfield';
 import {MDCSnackbar} from '@material/snackbar';
@@ -7,23 +6,8 @@ import {MDCMenu} from '@material/menu';
 import Handler from '../../dominio/objects/handler.mjs';
 import {INCOME_TYPE, EXPENSE_TYPE} from './constants';
 import {drawBalanceChart, drawChartBarCategory, drawCharByDate} from './charts';
-import User from '../../dominio/objects/user.mjs';
-import Transaction from '../../dominio/objects/transaction.mjs';
 
 const handler = new Handler();
-
-// Dummy data // TODO: Eliminar al finalizar el proyecto
-const testUser = new User('test', 20, 'test@test.com', '12345678', 100);
-handler.addTransaction(new Transaction(testUser, 'Ingres', 'Categoria 1', 1000, '01/11/2021', INCOME_TYPE));
-handler.addTransaction(new Transaction(testUser, 'Ingreso dos', 'Categoria 4', 3000, '21/11/2021', INCOME_TYPE));
-handler.addTransaction(new Transaction(testUser, 'Ingreso tres', 'Categoria 2', 2000, '20/11/2021', INCOME_TYPE));
-handler.addTransaction(new Transaction(testUser, 'Gasto', 'Categoria 1', 2300, '21/11/2021', EXPENSE_TYPE));
-handler.addTransaction(new Transaction(testUser, 'Gasto', 'Categoria 5', 1000, '21/11/2021', INCOME_TYPE));
-handler.addTransaction(new Transaction(testUser, 'Gasto', 'Categoria 3', 1300, '05/11/2021', EXPENSE_TYPE));
-handler.addUser(testUser);
-
-const topAppBarElement = document.querySelector('.mdc-top-app-bar');
-const topAppBar = new MDCTopAppBar(topAppBarElement);
 
 const tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
 tabBar.listen('MDCTabBar:activated', (activatedEvent) => {
@@ -45,7 +29,6 @@ const textFieldUserSignupEmail = new MDCTextField(document.getElementById('userS
 const textFieldUserSignupEmailConfirmation = new MDCTextField(document.getElementById('userSignupEmailConfirmation'));
 const textFieldUserSignupPassword = new MDCTextField(document.getElementById('userSignupPassword'));
 const textFieldUseSignuprPasswordConfirmation = new MDCTextField(document.getElementById('userSignupPasswordConfirmation'));
-
 
 const textFieldExpenseName = new MDCTextField(document.getElementById('expenseName'));
 const textFieldExpenseCategory = new MDCTextField(document.getElementById('expenseCategory'));
@@ -96,7 +79,6 @@ logoutSpan.listen('click', () => {
 });
 
 editPasswordSpan.listen('click', () => {
-  // TODO: vaciar campos, ver issue
   document.querySelectorAll('.content').forEach((element) => {
     element.classList.add('content--hidden');
   });
@@ -116,7 +98,7 @@ addNewPasswordButton.listen('click', () => {
     document.querySelectorAll('.home').forEach((element) => {
       element.classList.remove('content--hidden');
     });
-    // TODO: ver que tab esta activa usando activeIndexTab
+
     document.querySelectorAll('.edit-password').forEach((element) => {
       element.classList.add('edit-password--hidden');
     });
@@ -185,6 +167,8 @@ signupButton.listen('click', () => {
 
     handler.createUser(userName, userAge, userEmail, userPassword);
     displayMainContent();
+
+    drawAllCharts();
   } catch (error) {
     showMessage(error.message);
   }
@@ -246,7 +230,6 @@ function hideMainContent() {
 }
 
 function resetApp() {
-  // TODO: llamar a function logout en handler que borra el current user
   clearLoginFormFields();
   clearSignupFormFields();
   clearExpenseFormFields();
@@ -273,6 +256,10 @@ function clearSignupFormFields() {
   textFieldUseSignuprPasswordConfirmation.value = '';
 }
 
+function clearEditPasswordFormFields() {
+  textFieldUserNewPassword.value = '';
+}
+
 function clearExpenseFormFields() {
   textFieldExpenseName.value = '';
   textFieldExpenseCategory.value = '';
@@ -285,8 +272,4 @@ function clearIncomeFormFields() {
   textFieldIncomeCategory.value = '';
   textFieldIncomeAmount.value = '';
   textFieldIncomeDate.value = '';
-}
-
-function clearEditPasswordFormFields() {
-  userNewPassword.value = '';
 }

@@ -89,7 +89,7 @@ export default class Handler {
       throw new Error(validationMsg);
     }
 
-    const transaction = new Transaction(this.getActiveUser(), name, category, amount, date, type);
+    const transaction = new Transaction(this.getActiveUser(), name, category.toLowerCase(), amount, date, type);
     this.addTransaction(transaction);
   }
 
