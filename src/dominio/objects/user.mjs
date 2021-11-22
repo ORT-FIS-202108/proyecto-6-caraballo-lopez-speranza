@@ -22,7 +22,7 @@ export default class User {
       return 'El nombre ingresado no es valido';
     }
     if (age === null || !(age >= MIN_AGE && age <= MAX_AGE)) {
-      return 'La edad ingresada no es valida';
+      return 'La edad ingresada no es valida, debe estar entre 12 y 99 años';
     }
     if (email === null || !emailRegex.test(email)) {
       return 'El correo ingresado no es valido';
@@ -33,7 +33,7 @@ export default class User {
   static validatePassword(password) {
     const passwordRegex = /^\S{8,}$/;
     if (password === null || !passwordRegex.test(password)) {
-      return 'La contraseña ingresada no es valida';
+      return 'La contraseña ingresada no es valida, debe tener un largo minimo de 8 caracteres sin espacios';
     }
   }
 }

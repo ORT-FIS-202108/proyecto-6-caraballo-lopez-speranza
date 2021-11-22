@@ -30,7 +30,7 @@ describe('constructor Transaction tests', () => {
   });
 });
 
-describe('validation Transactions tests', () => {
+describe('transaction validation tests', () => {
   beforeEach(() => {
     name = 'name';
     category = 'category';
