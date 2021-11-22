@@ -24,12 +24,10 @@ handler.addUser(testUser);
 
 const topAppBarElement = document.querySelector('.mdc-top-app-bar');
 const topAppBar = new MDCTopAppBar(topAppBarElement);
-let activeIndexTab = 0;
 
 const tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
 tabBar.listen('MDCTabBar:activated', (activatedEvent) => {
   document.querySelectorAll('.content').forEach((element, index) => {
-    activeIndexTab = index;
     if (index === activatedEvent.detail.index) {
       element.classList.remove('content--hidden');
     } else {
@@ -143,7 +141,6 @@ addExpenseButton.listen('click', () => {
   }
 });
 
-// Agregar Ingreso //
 addIncomeButton.listen('click', () => {
   const incomeName = textFieldIncomeName.value;
   const incomeCategory = textFieldIncomeCategory.value;
@@ -168,7 +165,6 @@ loginButton.listen('click', () => {
     handler.loginUser(userEmail, userPassword);
     displayMainContentAfterLogin();
 
-    // Dibujar el chart de balance de usuario activo
     drawAllCharts();
   } catch (error) {
     showMessage(error.message);
