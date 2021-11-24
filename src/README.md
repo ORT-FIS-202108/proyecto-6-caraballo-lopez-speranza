@@ -7,6 +7,8 @@ Fecha de entrega: 29-nov-2021
 Decidimos armar un UML del sistema para planificar en forma correcta los metodos que iba a necesitar cada funcionalidad.
 De esta forma logramos un diseño consistente del dominio el cual funciona de forma independiente de la interfaz.
 
+[Proceso de desarrollo del UML](docs/uml/README.md)
+
 ![UML Final](docs/assets/UMLFinal.png "UML final del sistema")
 
 
