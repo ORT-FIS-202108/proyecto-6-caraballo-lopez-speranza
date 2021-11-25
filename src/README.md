@@ -3,6 +3,16 @@ Fecha de entrega: 29-nov-2021
 
 ## Construcción
 
+### UML final del sistema
+Decidimos armar un UML del sistema para planificar en forma correcta los metodos que iba a necesitar cada funcionalidad.
+De esta forma logramos un diseño consistente del dominio el cual funciona de forma independiente de la interfaz.
+
+[Proceso de desarrollo del UML](docs/uml/README.md)
+
+![UML Final](docs/assets/UMLFinal.png "UML final del sistema")
+
+
+
 Implementación de funciones principales (sin la necesidad de persistencia de datos)
 
 Configuración de plataforma tecnológica para desarrollo y producción
@@ -29,6 +39,8 @@ IDE Visual Studio Code: configuración común del equipo
 
 Estándares de codificación Google (HTML, CSS, JavaScript)
 
+
+
 Buenas prácticas de OOP: separación de lógica e interfaz
 
 Análisis estático de código: mostrar reducción de problemas
@@ -46,6 +58,11 @@ A partir de este punto solo se realizan actividades de test de sistema, reporte 
 ## Test de sistema
 
 Realizar test de sistema en un entorno separado del desarrollo
+
+Generamos una rama separada de dev y main con una copia del código del code freeze 
+todas las pruebas y verificaciones así como la documentación posterior al code freeze se realizarion sobre esa rama.
+
+![Rama dev](docs/assets/rama_qa.png 'Rama dev')
 
 Generar casos de prueba aplicando técnica partición equivalente
 
