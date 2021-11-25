@@ -7,14 +7,14 @@ Fecha de entrega: 29-nov-2021
 Decidimos armar un UML del sistema para planificar en forma correcta los metodos que iba a necesitar cada funcionalidad.
 De esta forma logramos un diseño consistente del dominio el cual funciona de forma independiente de la interfaz.
 
-[Proceso de desarrollo del UML](docs/uml/README.md) 
+ - [Proceso de desarrollo del UML](docs/uml/README.md) 
 
 <img width="35%" alt="UML final del sistema" src="docs/assets/UMLFinal.png">
 
 
 ## Implementación de funciones principales (sin la necesidad de persistencia de datos)
 
-[Demos de las funcionalidades en desktop y mobile](docs/demo/README.md) 
+ - [Demos de las funcionalidades en desktop y mobile](docs/demo/README.md) 
 
 <img src="https://media.giphy.com/media/SH8hhuxXV55LeEaHQN/giphy.gif"/>
 
@@ -24,17 +24,17 @@ De esta forma logramos un diseño consistente del dominio el cual funciona de fo
 
 # Interfaz de usuario
 
-Interfaz de usuario web / mobile (responsive)
+## Interfaz de usuario web / mobile (responsive)
 
-Página única con navegación entre secciones
+## Página única con navegación entre secciones
 
-Implementación: Material Design Web Components
+## Implementación: Material Design Web Components
 
-Aplicar un sistema de diseño y principios de usabilidad
+## Aplicar un sistema de diseño y principios de usabilidad
 
-Cumplimiento de estándar de accesibilidad WCAG
+## Cumplimiento de estándar de accesibilidad WCAG
 
-Seguir especificación de estilo
+## Seguir especificación de estilo
 
 # Codificación
 
@@ -60,7 +60,7 @@ A partir de este punto solo se realizan actividades de test de sistema, reporte 
 
 # Test de sistema
 
-Realizar test de sistema en un entorno separado del desarrollo
+## Realizar test de sistema en un entorno separado del desarrollo
 
 Generamos una rama separada de dev y main con una copia del código del code freeze 
 todas las pruebas y verificaciones así como la documentación posterior al code freeze se realizarion sobre esa rama.
