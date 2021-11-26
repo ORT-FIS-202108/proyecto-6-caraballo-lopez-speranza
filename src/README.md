@@ -34,14 +34,15 @@ Aplicar un sistema de diseño y principios de usabilidad
 
 Cumplimiento de estándar de accesibilidad WCAG
 
-Seguir especificación de estilo
+## Seguir especificación de estilo
+[Especificaciones de estilo](docs/estilo-estandares/README.md)
 
 # Codificación
 
 IDE Visual Studio Code: configuración común del equipo
 
-Estándares de codificación Google (HTML, CSS, JavaScript)
-
+## Estándares de codificación Google (HTML, CSS, JavaScript)
+[Especificaciones de estilo](docs/estilo-estandares/README.md)
 
 
 Buenas prácticas de OOP: separación de lógica e interfaz
@@ -60,8 +61,7 @@ A partir de este punto solo se realizan actividades de test de sistema, reporte 
 
 # Test de sistema
 
-Realizar test de sistema en un entorno separado del desarrollo
-
+## Realizar test de sistema en un entorno separado del desarrollo
 Generamos una rama separada de dev y main con una copia del código del code freeze 
 todas las pruebas y verificaciones así como la documentación posterior al code freeze se realizarion sobre esa rama.
 
