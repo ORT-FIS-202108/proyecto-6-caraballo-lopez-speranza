@@ -85,7 +85,23 @@ todas las pruebas y verificaciones así como la documentación posterior al code
 
 ## Generar casos de prueba aplicando técnica partición equivalente
 
+### Pruebas de valores limite
+
+### Prueba Log In
+
+[Prueba Log In](docs/testing-valores-limite/tvl-login.md)
+
+### Prueba Ingreso
+
+[Prueba Agregar Ingreso](docs/testing-valores-limite/tvl-agregar-ingreso.md)
+
+### Prueba Gasto
+
+[Prueba Agregar Gasto](docs/testing-valores-limite/tvl-agregar-gasto.md)
+
 ## Detallar sesiones de prueba exploratoria
+
+[Sesion Exploratoria Reportes](docs/sesion-testing-exploratorio/reporte.md)
 
 # Reporte de issues
 
