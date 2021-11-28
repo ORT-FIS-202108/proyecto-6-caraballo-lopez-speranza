@@ -85,6 +85,8 @@ todas las pruebas y verificaciones así como la documentación posterior al code
 
 ## Generar casos de prueba aplicando técnica partición equivalente
 
+[Casos de prueba cambio de contraseña](docs/particion-equivalente/cambio-contrasena.md)
+
 ### Pruebas de valores limite
 
 ### Prueba Log In
