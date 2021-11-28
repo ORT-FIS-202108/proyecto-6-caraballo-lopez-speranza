@@ -40,6 +40,18 @@ De esta forma logramos un diseño consistente del dominio el cual funciona de fo
 # Codificación
 
 ## IDE Visual Studio Code: configuración común del equipo
+#### Para la configuracion del IDE utilizamos lo siguiente:
+- node v14.17.4
+- Visual Studio Code 1.62.3
+- npm 6.14.14
+- eslint: 8.2.0
+- eslint-config-google: 0.14.0
+- git version 2.33.0
+- moment: 2.29.1
+- jest: 26.6.3
+- chart.js: 3.6.0
+- material-components-web: 11.0.0
+- Extensión ESLint
 
 ## Estándares de codificación Google (HTML, CSS, JavaScript)
 [Estándares de codificación Google](docs/estilo-estandares/README.md)
