@@ -82,6 +82,9 @@ todas las pruebas y verificaciones así como la documentación posterior al code
 ## Generar casos de prueba aplicando técnica partición equivalente
 
 ## Detallar sesiones de prueba exploratoria
+- Ernesto Speranza prueba exploratoria
+- 
+- 
 
 # Reporte de issues
 
