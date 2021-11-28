@@ -65,8 +65,12 @@ De esta forma logramos un diseño consistente del dominio el cual funciona de fo
 
 ## Test unitarios en Jest
 
-## 100% cobertura en clases de dominio
+Durante el desarrollo de la aplicación fuimos realizando pruebas unitarias utilizando jest para saber que funcionaba de forma correcta con certeza y ahorrarnos hacer las pruebas en runtime. También si cambiamos algo del funcionamiento de la aplicación sabíamos con certeza si algo de la app se rompía. Conseguimos llegar al 100% de cobertura de código y luego de llegar a esa meta continuamos agregando pruebas para los casos límites de las funciones.
 
+Para organizar los test creamos una carpeta dentro de dominio llamada tests y creamos una clase de prueba para cada clase del dominio. Luego utilizamos los estandares vistos en clase para desarrollar los tests.
+
+## 100% cobertura en clases de dominio
+<img width="40%" alt="Cobertura de codigo" src="https://i.imgur.com/0pVrit7.png">
 
 | En la semana previa a la entrega se debe congelar el desarrollo (22-nov-2021).
 A partir de este punto solo se realizan actividades de test de sistema, reporte de issues y generación del informe académico.
