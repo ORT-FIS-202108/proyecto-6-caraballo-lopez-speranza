@@ -8,6 +8,9 @@ https://material.io/resources/color
 - Font: Roboto
 - Icons: filled
 
+<img width="45%" alt="Prueba de estilo" src="../assets/estiloPrueba.jpg">
+
+
 # Estándares de codificación y Analisis estático de código
 
 ## Estándares de codificación
@@ -45,3 +48,38 @@ Para configurar ESLint con los estándares de google tuvimos que instalar eslint
 
 ### El setup de ESLint 
 <img width="30%" alt="Setup EsLint" src="../assets/LintSetup.png">
+
+En el uso de ESLint notamos redición de problemas en ciertas áreas:
+- Incremento del uso de Const en lugar de Let
+- Reducción de funciones, variables y imports sin utilizar
+- Estandarización de la Indentación
+- Espaciado consistente en las estructuras de control
+- Uso correcto de las llaves
+
+## Algunos ejemplos:
+### Incremento del uso de Const en lugar de Let
+### _Sin ESLint_:
+<img width="40%" alt="Setup EsLint" src="../assets/lint/sinLintConst.png">
+
+### _Con ESLint_:
+<img width="40%" alt="Setup EsLint" src="../assets/lint/conLintConst.png">
+
+
+### Reducción de funciones, variables y imports sin utilizar
+
+### _Sin ESLint_:
+
+<img width="40%" alt="Setup EsLint" src="../assets/lint/sinLintFunciones.png">
+
+### _Con ESLint_:
+
+<img width="40%" alt="Setup EsLint" src="../assets/lint/conLintFunciones.png">
+
+### _Sin ESLint_:
+<img width="40%" alt="Setup EsLint" src="../assets/lint/importSinLint.png">
+
+### _Con ESLint_:
+
+<img width="40%" alt="Setup EsLint" src="../assets/lint/importConLint.png">
+
+
