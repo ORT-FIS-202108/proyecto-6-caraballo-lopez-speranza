@@ -33,6 +33,7 @@ De esta forma logramos un diseño consistente del dominio el cual funciona de fo
 ## Aplicar un sistema de diseño y principios de usabilidad
 
 ## Cumplimiento de estándar de accesibilidad WCAG
+[Check List estándares WCAG](docs/WCAG/README.md)
 
 ## Seguir especificación de estilo
 [Especificaciones de estilo](docs/estilo-estandares/README.md)

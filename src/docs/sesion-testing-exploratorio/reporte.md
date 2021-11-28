@@ -15,19 +15,16 @@
 | --- | --- |
 | INICIO | 18:00 28.11.2021 |
 | TESTER | Ernesto Speranza |
-| ESTRUCTURA DE DIVISIÓN | DURACIÓN: Corta (30 min) 
-DISEÑO Y EJECUCIÓN DE PRUEBAS: 45% 
-INVESTIGACIÓN Y REPORTES DE DEFECTOS: 55% 
-ARMADO DE LA SESIÓN (Setup - Configuración): 0% 
-OBJETIVO vs. OPORTUNIDAD: 100% - 0% |
+| ESTRUCTURA DE DIVISIÓN | 
+| DURACIÓN: | Corta (30 min) |
+DISEÑO Y EJECUCIÓN DE PRUEBAS: | 45% |
+INVESTIGACIÓN Y REPORTES DE DEFECTOS: | 55% |
+ARMADO DE LA SESIÓN (Setup - Configuración): | 0% |
+OBJETIVO vs. OPORTUNIDAD:| 100% - 0% |
 | ARCHIVOS DE DATOS | ------- |
-| Defectos y enhancements | 
-**P2:** Cambiar mensaje de error &quot;El campo de edad está vacío, ingrese un nombre para crear un usuario&quot; 
-**P3:** Cambiar mensaje de error &quot;El campo de edad está vacío, ingrese su edad para crear un usuario&quot; 
-**P4:** Cambiar mensaje de error &quot;El correo ingresado no es válido, use un mail con formato válido como usuario@provedor.com&quot;
- |
+| Defectos y enhancements | **P2:** Cambiar mensaje de error &quot;El campo de edad está vacío, ingrese un nombre para crear un usuario&quot; **P3:** Cambiar mensaje de error &quot;El campo de edad está vacío, ingrese su edad para crear un usuario&quot; **P4:** Cambiar mensaje de error &quot;El correo ingresado no es válido, use un mail con formato válido como usuario@provedor.com&quot;
 | Inconvenientes | No aplica |
-| Notas de prueba ||
+| Notas de prueba |
 
 - Ingresamos al sitio: [http://localhost:8080/](http://localhost:8080/) donde se ejecuta la aplicación Mis gastos de manera local.
 
