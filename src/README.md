@@ -76,8 +76,10 @@ todas las pruebas y verificaciones así como la documentación posterior al code
 ## Reportar issues (bugs, improvements, missing features) en GitHub 
 
 ## Aplicar buenas prácticas de reporte de issues
+[Formato de reporte de issues](docs/issues/README.md) 
 
 ## Definir labels para tipos de issue y niveles de severidad
+[Definición de labels y severidad](docs/issues/README.md) 
 
 ## Dejar issues abiertos para correcciones o mejoras futuras
 
