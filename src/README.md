@@ -42,13 +42,13 @@ Cumplimiento de estándar de accesibilidad WCAG
 IDE Visual Studio Code: configuración común del equipo
 
 ## Estándares de codificación Google (HTML, CSS, JavaScript)
-[Especificaciones de estilo](docs/estilo-estandares/README.md)
+[Estándares de codificación Google](docs/estilo-estandares/README.md)
 
 
 Buenas prácticas de OOP: separación de lógica e interfaz
 
-Análisis estático de código: mostrar reducción de problemas
-
+## Análisis estático de código: mostrar reducción de problemas
+[Análisis estatico de código](docs/estilo-estandares/README.md)
 # Test unitario
 
 Test unitarios en Jest
