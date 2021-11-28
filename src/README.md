@@ -24,36 +24,36 @@ De esta forma logramos un diseño consistente del dominio el cual funciona de fo
 
 # Interfaz de usuario
 
-Interfaz de usuario web / mobile (responsive)
+## Interfaz de usuario web / mobile (responsive)
 
-Página única con navegación entre secciones
+## Página única con navegación entre secciones
 
-Implementación: Material Design Web Components
+## Implementación: Material Design Web Components
 
-Aplicar un sistema de diseño y principios de usabilidad
+## Aplicar un sistema de diseño y principios de usabilidad
 
-Cumplimiento de estándar de accesibilidad WCAG
+## Cumplimiento de estándar de accesibilidad WCAG
 
 ## Seguir especificación de estilo
 [Especificaciones de estilo](docs/estilo-estandares/README.md)
 
 # Codificación
 
-IDE Visual Studio Code: configuración común del equipo
+## IDE Visual Studio Code: configuración común del equipo
 
 ## Estándares de codificación Google (HTML, CSS, JavaScript)
 [Estándares de codificación Google](docs/estilo-estandares/README.md)
 
 
-Buenas prácticas de OOP: separación de lógica e interfaz
+## Buenas prácticas de OOP: separación de lógica e interfaz
 
 ## Análisis estático de código: mostrar reducción de problemas
 [Análisis estatico de código](docs/estilo-estandares/README.md)
 # Test unitario
 
-Test unitarios en Jest
+## Test unitarios en Jest
 
-100% cobertura en clases de dominio
+## 100% cobertura en clases de dominio
 
 
 | En la semana previa a la entrega se debe congelar el desarrollo (22-nov-2021).
@@ -67,26 +67,26 @@ todas las pruebas y verificaciones así como la documentación posterior al code
 
 <img width="45%" alt="Rama dev" src="docs/assets/rama_qa.png">
 
-Generar casos de prueba aplicando técnica partición equivalente
+## Generar casos de prueba aplicando técnica partición equivalente
 
-Detallar sesiones de prueba exploratoria
+## Detallar sesiones de prueba exploratoria
 
 # Reporte de issues
 
-Reportar issues (bugs, improvements, missing features) en GitHub 
+## Reportar issues (bugs, improvements, missing features) en GitHub 
 
-Aplicar buenas prácticas de reporte de issues
+## Aplicar buenas prácticas de reporte de issues
 
-Definir labels para tipos de issue y niveles de severidad
+## Definir labels para tipos de issue y niveles de severidad
 
-Dejar issues abiertos para correcciones o mejoras futuras
+## Dejar issues abiertos para correcciones o mejoras futuras
 
-Sumarizar número de issues reportados por tipo
+## Sumarizar número de issues reportados por tipo
 
-Realizar una evaluación global de la calidad
+## Realizar una evaluación global de la calidad
 
 # Reflexión
 
-Detalle del trabajo individual
+## Detalle del trabajo individual
 
-Técnicas aplicadas y aprendizajes
+## Técnicas aplicadas y aprendizajes
