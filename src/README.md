@@ -133,7 +133,12 @@ En las siguientes pruebas solo se testearon los valores limite ya que los errore
 
 ## Dejar issues abiertos para correcciones o mejoras futuras
 
+Una vez terminado el desarrollo del software y empezada la fase de testing, fuimos detectando issues que nuestra aplicacion presentaba, cada issue que encontramos la documentamos en github y podra ser visualizada en las imagenes que siguen.
+
 ## Sumarizar número de issues reportados por tipo
+
+Aqui dejamos las issues ordenadas en tabla y representadas con graficas.<br>
+<img width="70%" alt="Cobertura de codigo" src="https://i.imgur.com/O1lJ2Ii.png">
 
 ## Realizar una evaluación global de la calidad
 
