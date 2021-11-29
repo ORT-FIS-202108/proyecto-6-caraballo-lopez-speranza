@@ -123,7 +123,7 @@ En las siguientes pruebas solo se testearon los valores limite ya que los errore
 - [Prueba Agregar Gasto](docs/testing-valores-limite/tvl-agregar-gasto.md)
 
 ## Detallar sesiones de prueba exploratoria
-
+- [Sesion Exploratoria Sign in](docs/sesion-testing-exploratorio/reporte.md)
 - [Sesion Exploratoria Reportes](docs/sesion-testing-exploratorio/reporte.md)
 
 # Reporte de issues
@@ -139,7 +139,7 @@ En las siguientes pruebas solo se testearon los valores limite ya que los errore
 - [Definición de labels y severidad](docs/issues/README.md) 
 
 ## Dejar issues abiertos para correcciones o mejoras futuras
-- [Issues](https://github.com/ORT-FIS-202108/proyecto-6-caraballo-lopez-speranza/issues)
+- [Issues Abiertos](https://github.com/ORT-FIS-202108/proyecto-6-caraballo-lopez-speranza/issues)
 
 Una vez terminado el desarrollo del software y empezada la fase de testing, fuimos detectando issues que nuestra aplicacion presentaba, cada issue que encontramos la documentamos en github y podra ser visualizada en las imagenes que siguen.
 
