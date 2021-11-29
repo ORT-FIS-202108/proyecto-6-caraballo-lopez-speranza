@@ -7,14 +7,14 @@ Fecha de entrega: 29-nov-2021
 Decidimos armar un UML del sistema para planificar en forma correcta los metodos que iba a necesitar cada funcionalidad.
 De esta forma logramos un diseño consistente del dominio el cual funciona de forma independiente de la interfaz.
 
-[Proceso de desarrollo del UML](docs/uml/README.md) 
+- [Proceso de desarrollo del UML](docs/uml/README.md) 
 
 <img width="35%" alt="UML final del sistema" src="docs/assets/UMLFinal.png">
 
 
 ## Implementación de funciones principales (sin la necesidad de persistencia de datos)
 
-[Demos de las funcionalidades en desktop y mobile](docs/demo/README.md) 
+- [Demos de las funcionalidades en desktop y mobile](docs/demo/README.md) 
 
 <img src="https://media.giphy.com/media/SH8hhuxXV55LeEaHQN/giphy.gif"/>
 
@@ -33,9 +33,10 @@ De esta forma logramos un diseño consistente del dominio el cual funciona de fo
 ## Aplicar un sistema de diseño y principios de usabilidad
 
 ## Cumplimiento de estándar de accesibilidad WCAG
+- [Check List estándares WCAG](docs/WCAG/README.md)
 
 ## Seguir especificación de estilo
-[Especificaciones de estilo](docs/estilo-estandares/README.md)
+- [Especificaciones de estilo](docs/estilo-estandares/README.md)
 
 # Codificación
 
@@ -54,13 +55,13 @@ De esta forma logramos un diseño consistente del dominio el cual funciona de fo
 - Extensión ESLint
 
 ## Estándares de codificación Google (HTML, CSS, JavaScript)
-[Estándares de codificación Google](docs/estilo-estandares/README.md)
+- [Estándares de codificación Google](docs/estilo-estandares/README.md)
 
 
 ## Buenas prácticas de OOP: separación de lógica e interfaz
 
 ## Análisis estático de código: mostrar reducción de problemas
-[Análisis estatico de código](docs/estilo-estandares/README.md)
+- [Análisis estatico de código](docs/estilo-estandares/README.md)
 # Test unitario
 
 ## Test unitarios en Jest
@@ -85,37 +86,29 @@ todas las pruebas y verificaciones así como la documentación posterior al code
 
 ## Generar casos de prueba aplicando técnica partición equivalente
 
-[Casos de prueba cambio de contraseña](docs/particion-equivalente/cambio-contrasena.md)
+- [Casos de prueba agregar gasto](docs/particion-equivalente/agregar-gasto.md)
+- [Casos de prueba agregar ingreso](docs/particion-equivalente/agregar-ingreso.md)
+- [Casos de prueba cambio de contraseña](docs/particion-equivalente/cambio-contrasena.md)
 
-### Pruebas de valores limite
+## Pruebas de valores limite
 
-En las siguientes pruebas solo se contemplan los valores limite ya que en las diferentes pruebas de particion equivalente se prueban valores no validos que no son limite.
-
-### Prueba Log In
-
-[Prueba Log In](docs/testing-valores-limite/tvl-login.md)
-
-### Prueba Ingreso
-
-[Prueba Agregar Ingreso](docs/testing-valores-limite/tvl-agregar-ingreso.md)
-
-### Prueba Gasto
-
-[Prueba Agregar Gasto](docs/testing-valores-limite/tvl-agregar-gasto.md)
+- [Prueba Log In](docs/testing-valores-limite/tvl-login.md)
+- [Prueba Agregar Ingreso](docs/testing-valores-limite/tvl-agregar-ingreso.md)
+- [Prueba Agregar Gasto](docs/testing-valores-limite/tvl-agregar-gasto.md)
 
 ## Detallar sesiones de prueba exploratoria
 
-[Sesion Exploratoria Reportes](docs/sesion-testing-exploratorio/reporte.md)
+- [Sesion Exploratoria Reportes](docs/sesion-testing-exploratorio/reporte.md)
 
 # Reporte de issues
 
 ## Reportar issues (bugs, improvements, missing features) en GitHub 
 
 ## Aplicar buenas prácticas de reporte de issues
-[Formato de reporte de issues](docs/issues/README.md) 
+- [Formato de reporte de issues](docs/issues/README.md) 
 
 ## Definir labels para tipos de issue y niveles de severidad
-[Definición de labels y severidad](docs/issues/README.md) 
+- [Definición de labels y severidad](docs/issues/README.md) 
 
 ## Dejar issues abiertos para correcciones o mejoras futuras
 
