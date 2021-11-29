@@ -108,6 +108,8 @@ todas las pruebas y verificaciones así como la documentación posterior al code
 - [Casos de prueba agregar gasto](docs/particion-equivalente/agregar-gasto.md)
 - [Casos de prueba agregar ingreso](docs/particion-equivalente/agregar-ingreso.md)
 - [Casos de prueba cambio de contraseña](docs/particion-equivalente/cambio-contrasena.md)
+- [Casos de prueba iniciar sesion](docs/particion-equivalente/iniciar-sesion.md)
+- [Casos de prueba registro de usuario](docs/particion-equivalente/registro-usuario.md)
 
 ## Pruebas de valores limite
 
@@ -145,7 +147,9 @@ Aqui dejamos las issues ordenadas en tabla y representadas con graficas.<br>
 # Reflexión
 
 ## Detalle del trabajo individual:<br>
-[Diego](../docs/reflexiones/diego.md)<br>
+- [Tabla: Detalle del trabajo individual](docs/detalle-individual/README.md)
+- [Diego](docs/reflexiones/diego.md)<br>
+
 
 [Francisco](../docs/reflexiones/fran.md)<br>
 
