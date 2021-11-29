@@ -142,7 +142,9 @@ En las siguientes pruebas solo se testearon los valores limite ya que los errore
 # Reflexión
 
 ## Detalle del trabajo individual:<br>
-[Diego](../docs/reflexiones/diego.md)<br>
+- [Tabla: Detalle del trabajo individual](docs/detalle-individual/README.md)
+- [Diego](docs/reflexiones/diego.md)<br>
+
 
 ## Técnicas aplicadas y aprendizajes
 
