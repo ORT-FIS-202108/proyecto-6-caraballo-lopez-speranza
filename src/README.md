@@ -92,7 +92,9 @@ todas las pruebas y verificaciones así como la documentación posterior al code
 
 ## Pruebas de valores limite
 
-- [Prueba Log In](docs/testing-valores-limite/tvl-login.md)
+En las siguientes pruebas solo se testearon los valores limite ya que los errores normales se testearon en las pruebas de particion equivalente.
+
+- [Prueba Log In](docs/testing-valores-limite/tvl-singin.md)
 - [Prueba Agregar Ingreso](docs/testing-valores-limite/tvl-agregar-ingreso.md)
 - [Prueba Agregar Gasto](docs/testing-valores-limite/tvl-agregar-gasto.md)
 
