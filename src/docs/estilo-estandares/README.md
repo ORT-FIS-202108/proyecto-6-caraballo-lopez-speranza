@@ -65,7 +65,7 @@ En el uso de ESLint notamos redición de problemas en ciertas áreas:
 <img width="40%" alt="Setup EsLint" src="../assets/lint/conLintConst.png">
 
 
-### Reducción de funciones, variables y imports sin utilizar
+### Reducción de funciones
 
 ### _Sin ESLint_:
 
@@ -75,11 +75,11 @@ En el uso de ESLint notamos redición de problemas en ciertas áreas:
 
 <img width="40%" alt="Setup EsLint" src="../assets/lint/conLintFunciones.png">
 
+### Reducción de imports sin utilizar
+
 ### _Sin ESLint_:
 <img width="40%" alt="Setup EsLint" src="../assets/lint/importSinLint.png">
 
 ### _Con ESLint_:
 
 <img width="40%" alt="Setup EsLint" src="../assets/lint/importConLint.png">
-
-
