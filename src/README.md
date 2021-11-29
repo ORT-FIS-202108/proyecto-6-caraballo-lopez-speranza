@@ -89,6 +89,8 @@ todas las pruebas y verificaciones así como la documentación posterior al code
 
 ### Pruebas de valores limite
 
+En las siguientes pruebas solo se contemplan los valores limite ya que en las diferentes pruebas de particion equivalente se prueban valores no validos que no son limite.
+
 ### Prueba Log In
 
 [Prueba Log In](docs/testing-valores-limite/tvl-login.md)
