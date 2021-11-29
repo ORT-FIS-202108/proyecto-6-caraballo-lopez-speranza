@@ -120,7 +120,8 @@ En las siguientes pruebas solo se testearon los valores limite ya que los errore
 
 # Reflexión
 
-## Detalle del trabajo individual
+## Detalle del trabajo individual:<br>
+[Diego](../docs/reflexiones/diego.md)<br>
 
 ## Técnicas aplicadas y aprendizajes
 
