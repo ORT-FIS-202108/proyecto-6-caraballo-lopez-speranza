@@ -108,6 +108,8 @@ todas las pruebas y verificaciones así como la documentación posterior al code
 - [Casos de prueba agregar gasto](docs/particion-equivalente/agregar-gasto.md)
 - [Casos de prueba agregar ingreso](docs/particion-equivalente/agregar-ingreso.md)
 - [Casos de prueba cambio de contraseña](docs/particion-equivalente/cambio-contrasena.md)
+- [Casos de prueba iniciar sesion](docs/particion-equivalente/iniciar-sesion.md)
+- [Casos de prueba registro de usuario](docs/particion-equivalente/registro-usuario.md)
 
 ## Pruebas de valores limite
 
