@@ -140,7 +140,7 @@ Una vez terminado el desarrollo del software y empezada la fase de testing, fuim
 ## Sumarizar número de issues reportados por tipo
 
 Aqui dejamos las issues ordenadas en tabla y representadas con graficas.<br>
-<img width="70%" alt="Cobertura de codigo" src="https://i.imgur.com/O1lJ2Ii.png">
+<img width="70%" alt="Cobertura de codigo" src="https://i.imgur.com/TIviiyk.png">
 
 ## Realizar una evaluación global de la calidad
 
@@ -149,9 +149,7 @@ Aqui dejamos las issues ordenadas en tabla y representadas con graficas.<br>
 ## Detalle del trabajo individual:<br>
 - [Tabla: Detalle del trabajo individual](docs/detalle-individual/README.md)
 - [Diego](docs/reflexiones/diego.md)<br>
-
-
-[Francisco](../docs/reflexiones/fran.md)<br>
+- [Francisco](docs/reflexiones/fran.md)<br>
 
 ## Técnicas aplicadas y aprendizajes
 
