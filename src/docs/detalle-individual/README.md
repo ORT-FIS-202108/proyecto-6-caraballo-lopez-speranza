@@ -25,6 +25,5 @@
 | |Dejar issues abiertos para correcciones o mejoras futuras|Ejecucción|Ejecucción|Ejecucción|
 | |Sumarizar número de issues reportados por tipo|Ejecucción|Ejecucción|Documentación y ejecución.|
 | |Realizar una evaluación global de la calidad|Ejecucción|Ejecucción|Documentación y ejecución.|
-|Reflexión|Detalle del trabajo individual
-|Documentación y ejecución.|Ejecución y Revisión|Ejecución y Revisión|
+|Reflexión|Detalle del trabajo individual|Documentación y ejecución.|Ejecución y Revisión|Ejecución y Revisión|
 | |Técnicas aplicadas y aprendizajes|Documentación y ejecución.|Documentación y ejecución.|Documentación y ejecución.|
