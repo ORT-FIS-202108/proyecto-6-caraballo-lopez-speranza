@@ -149,7 +149,7 @@ Aqui dejamos las issues ordenadas en tabla y representadas con graficas.<br>
 <img width="70%" alt="Cobertura de codigo" src="https://i.imgur.com/TIviiyk.png">
 
 ## Realizar una evaluación global de la calidad
-
+[Evaluación global de la calidad](docs/evaluacion-global/README.md)
 # Reflexión
 
 ## Detalle del trabajo individual:<br>
