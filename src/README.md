@@ -22,6 +22,25 @@ De esta forma logramos un diseño consistente del dominio el cual funciona de fo
 
 ## Documentación del uso de librerías externas (package.json)
 
+En relación al uso de librerías externas para el desarrollo del proyecto utilizamos las siguientes:
+- Eslint
+- moment.js
+- chart.js
+
+Sobre el uso de Eslint, fue agregada ya que era un ítem requerido según la letra del obligatorio, usado para hacer análisis estático del código.
+
+Por otro lado decidimos usar la librería moment.js para poder hacer un manejo y validación de las fechas, ya que esta librería por ejemplo, nos permite validar un formato específico así como pueden ser otras validaciones, algo que nos pareció muy necesario, de manera
+de poder controlar todo lo relacionado a este tipo de dato.
+
+Previo uso de moment.js, probamos otra librería para poder mostrar un datepicker en la selección de la fecha sin mucho éxito, ya que no logramos hacerlo funcionar, esta fue: material-datetime-picker: https://www.npmjs.com/package/material-datetime-picker
+
+Por último, usamos chart.js para poder crear las distintas gráficas que necesitábamos, y esta librería provee un abanico de opciones.
+
+A continuación adjuntamos links a cada una de ellas como referencia:
+- Eslint: https://eslint.org/docs/user-guide/getting-started
+- moment.js: https://momentjs.com/
+- chart.js: https://www.chartjs.org/docs/latest/
+
 # Interfaz de usuario
 
 ## Interfaz de usuario web / mobile (responsive)
