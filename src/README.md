@@ -51,6 +51,9 @@ A continuación adjuntamos links a cada una de ellas como referencia:
 
 ## Aplicar un sistema de diseño y principios de usabilidad
 
+Para la evaluacion de la usabilidad de nuestro sistema, aplicamos y revisamos los principios de usabilidad de la siguiente manera:
+
+- [Evaluacion de los principios de usabilidad](docs/usabilidad/README.md)
 ## Cumplimiento de estándar de accesibilidad WCAG
 - [Check List estándares WCAG](docs/WCAG/README.md)
 
@@ -138,7 +141,12 @@ En las siguientes pruebas solo se testearon los valores limite ya que los errore
 ## Dejar issues abiertos para correcciones o mejoras futuras
 - [Issues](https://github.com/ORT-FIS-202108/proyecto-6-caraballo-lopez-speranza/issues)
 
+Una vez terminado el desarrollo del software y empezada la fase de testing, fuimos detectando issues que nuestra aplicacion presentaba, cada issue que encontramos la documentamos en github y podra ser visualizada en las imagenes que siguen.
+
 ## Sumarizar número de issues reportados por tipo
+
+Aqui dejamos las issues ordenadas en tabla y representadas con graficas.<br>
+<img width="70%" alt="Cobertura de codigo" src="https://i.imgur.com/TIviiyk.png">
 
 ## Realizar una evaluación global de la calidad
 
@@ -148,8 +156,7 @@ En las siguientes pruebas solo se testearon los valores limite ya que los errore
 - [Tabla: Detalle del trabajo individual](docs/detalle-individual/README.md)
 - [Diego](docs/reflexiones/diego.md)<br>
 - [Ernesto](docs/reflexiones/ernesto.md)<br>
-
-
+- [Francisco](docs/reflexiones/fran.md)<br>
 
 ## Técnicas aplicadas y aprendizajes
 
