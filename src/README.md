@@ -126,6 +126,8 @@ En las siguientes pruebas solo se testearon los valores limite ya que los errore
 # Reporte de issues
 
 ## Reportar issues (bugs, improvements, missing features) en GitHub 
+- [Bugs, improvements, missing features](https://github.com/ORT-FIS-202108/proyecto-6-caraballo-lopez-speranza/issues)
+- [Issues Cerrados](https://github.com/ORT-FIS-202108/proyecto-6-caraballo-lopez-speranza/issues?q=is%3Aissue+is%3Aclosed)
 
 ## Aplicar buenas prácticas de reporte de issues
 - [Formato de reporte de issues](docs/issues/README.md) 
@@ -134,6 +136,7 @@ En las siguientes pruebas solo se testearon los valores limite ya que los errore
 - [Definición de labels y severidad](docs/issues/README.md) 
 
 ## Dejar issues abiertos para correcciones o mejoras futuras
+- [Issues](https://github.com/ORT-FIS-202108/proyecto-6-caraballo-lopez-speranza/issues)
 
 ## Sumarizar número de issues reportados por tipo
 
@@ -144,6 +147,8 @@ En las siguientes pruebas solo se testearon los valores limite ya que los errore
 ## Detalle del trabajo individual:<br>
 - [Tabla: Detalle del trabajo individual](docs/detalle-individual/README.md)
 - [Diego](docs/reflexiones/diego.md)<br>
+- [Ernesto](docs/reflexiones/ernesto.md)<br>
+
 
 
 ## Técnicas aplicadas y aprendizajes
