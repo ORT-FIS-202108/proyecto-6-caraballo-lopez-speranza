@@ -123,3 +123,20 @@ En las siguientes pruebas solo se testearon los valores limite ya que los errore
 ## Detalle del trabajo individual
 
 ## Técnicas aplicadas y aprendizajes
+
+Para la segunda instancia lo que hicimos fue mantener lo que desde nuestro
+punto de vista funcionó bien en la entrega anterior, esto fue:
+
+Usar Trello para gestionar el proyecto, de manera de definir bien al comienzo
+todas las tareas que pudimos identificar que eran necesarias y a su vez
+nos las asignamos a los diferentes miembros del equipo, buscando poder organizar el trabajo.
+
+A su vez también mantuvimos el uso de Google Drive, donde cada uno de los integrantes iba compartiendo el avance y además el resto podía ir revisando y validando, pudiendo ver en alguna reunión en caso de ser necesario.
+
+Luego algo que nos llevó un poco de tiempo entender bien cómo funciona es Material Design, ya que ninguno de nosotros no había trabajado previamente con esto, luego de superar los primeros días fuimos entendiendo su funcionamiento y cómo aprovechar los componentes que proporciona.
+
+También tuvimos que interiorizarnos sobre el uso de librerías externas para poder hacer las gráficas y realizar todas las validaciones necesarias para las fechas. Esto nos demandó cierta investigación de cómo se debía importar y configurar cada una de ellas para el correcto funcionamiento de las mismas.
+
+Otro ítem a destacar fue el uso de Eslint, ya que al principio tuvimos varios errores detectados y eso nos llevó a hacer varios cambios en nuestro código, algo que al pasar el tiempo después nos resulto practico y muy útil de usar, ya que incorporamos cuales son algunos de los errores que nos pasaban y cómo solucionarlos, por nombrar algunos: imports sin usar, funciones sin usar, correcta indentación, const vs let.
+
+Por último, también queremos mencionar los relacionado al manejo de los issues en github, algo en lo que ninguno estaba acostumbrado a realizar, pero que resultó ser de mucha ayuda para ver fácilmente si había algún problema, como poder reproducirlo para su posterior solución.
