@@ -51,6 +51,9 @@ A continuación adjuntamos links a cada una de ellas como referencia:
 
 ## Aplicar un sistema de diseño y principios de usabilidad
 
+Para la evaluacion de la usabilidad de nuestro sistema, aplicamos y revisamos los principios de usabilidad de la siguiente manera:
+
+- [Evaluacion de los principios de usabilidad](docs/usabilidad/README.md)
 ## Cumplimiento de estándar de accesibilidad WCAG
 - [Check List estándares WCAG](docs/WCAG/README.md)
 
