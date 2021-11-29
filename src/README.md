@@ -123,7 +123,7 @@ En las siguientes pruebas solo se testearon los valores limite ya que los errore
 - [Prueba Agregar Gasto](docs/testing-valores-limite/tvl-agregar-gasto.md)
 
 ## Detallar sesiones de prueba exploratoria
-- [Sesion Exploratoria Sign in](docs/sesion-testing-exploratorio/reporte.md)
+- [Sesion Exploratoria Sign in](docs/sesion-testing-exploratorio/sign-in.md)
 - [Sesion Exploratoria Reportes](docs/sesion-testing-exploratorio/reporte.md)
 
 # Reporte de issues
