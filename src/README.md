@@ -125,6 +125,7 @@ En las siguientes pruebas solo se testearon los valores limite ya que los errore
 ## Detallar sesiones de prueba exploratoria
 - [Sesion Exploratoria Sign in](docs/sesion-testing-exploratorio/sign-in.md)
 - [Sesion Exploratoria Reportes](docs/sesion-testing-exploratorio/reporte.md)
+- [Sesion Exploratoria Agregar gasto](docs/sesion-testing-exploratorio/agregar-gasto.md)
 
 # Reporte de issues
 
