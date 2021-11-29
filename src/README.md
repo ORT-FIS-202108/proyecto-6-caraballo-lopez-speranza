@@ -142,6 +142,8 @@ En las siguientes pruebas solo se testearon los valores limite ya que los errore
 ## Detalle del trabajo individual:<br>
 [Diego](../docs/reflexiones/diego.md)<br>
 
+[Francisco](../docs/reflexiones/fran.md)<br>
+
 ## Técnicas aplicadas y aprendizajes
 
 Para la segunda instancia lo que hicimos fue mantener lo que desde nuestro
