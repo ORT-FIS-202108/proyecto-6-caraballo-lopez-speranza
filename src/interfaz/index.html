@@ -1,28 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="ES">
 
 <head>
+  <title>Mis Gastos</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="bundle.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-
   <header class="mdc-top-app-bar">
     <div class="mdc-top-app-bar__row">
-      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-        <span class="mdc-top-app-bar__title">Cartelera</span>
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start header">
+        <h6 class="mdc-top-app-bar__title title">Mis Gastos</h6>
+
+        <div class="mdc-menu-surface--anchor main-hidden">
+          <button id="user-menu" class="mdc-button mdc-button--icon-leading">
+            <span class="material-icons user">person</span>
+          </button>
+          <div class="mdc-menu mdc-menu-surface menu">
+            <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+              <li class="mdc-list-item" role="menuitem" id="edit-password">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__text">Cambiar contraseña</span>
+              </li>
+              <li class="mdc-list-item" role="menuitem" id="logout">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__text">Cerrar sesion</span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </section>
     </div>
 
-    <div class="mdc-tab-bar" role="tablist">
+    <div class="mdc-tab-bar tab-bar-botom main main-hidden" role="tablist">
       <div class="mdc-tab-scroller">
         <div class="mdc-tab-scroller__scroll-area">
           <div class="mdc-tab-scroller__scroll-content">
 
             <button class="mdc-tab mdc-tab--active sample-content-tab" role="tab" aria-selected="true" tabindex="0">
               <span class="mdc-tab__content">
-                <span class="mdc-tab__text-label">Películas</span>
+                <span class="mdc-tab__text-label menu-text">Home</span>
+                <span class="material-icons menu-icon">home</span>
               </span>
               <span class="mdc-tab-indicator mdc-tab-indicator--active">
                 <span
@@ -33,103 +54,331 @@
 
             <button class="mdc-tab sample-content-tab" role="tab" aria-selected="false" tabindex="1">
               <span class="mdc-tab__content">
-                <span class="mdc-tab__text-label">Agregar película</span>
+                <span class="mdc-tab__text-label menu-text">Agregar gasto</span>
+                <span class="material-icons menu-icon">remove_circle</span>
               </span>
               <span class="mdc-tab-indicator">
                 <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
               </span>
               <span class="mdc-tab__ripple"></span>
             </button>
+
+            <button class="mdc-tab sample-content-tab" role="tab" aria-selected="false" tabindex="2">
+              <span class="mdc-tab__content">
+                <span class="mdc-tab__text-label menu-text">Agregar ingreso</span>
+                <span class="material-icons menu-icon">add_circle</span>
+              </span>
+              <span class="mdc-tab-indicator">
+                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+              </span>
+              <span class="mdc-tab__ripple"></span>
+            </button>
+
+            <button class="mdc-tab sample-content-tab" role="tab" aria-selected="false" tabindex="3">
+              <span class="mdc-tab__content">
+                <span class="mdc-tab__text-label menu-text">Ver reporte</span>
+                <span class="material-icons menu-icon">analytics</span>
+              </span>
+              <span class="mdc-tab-indicator">
+                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+              </span>
+              <span class="mdc-tab__ripple"></span>
+            </button>
+
           </div>
         </div>
       </div>
     </div>
   </header>
 
-  <main class="mdc-top-app-bar--fixed-adjust">
-    <section class="content">
-      <h1>Películas</h1>
-    </section>
-    <section class="content sample-content--hidden">
-      <h1>Próximamente</h1>
-      <label class="mdc-text-field mdc-text-field--outlined" id="title">
-        <span class="mdc-notched-outline">
-          <span class="mdc-notched-outline__leading"></span>
-          <span class="mdc-notched-outline__notch">
-            <span class="mdc-floating-label">Título</span>
-          </span>
-          <span class="mdc-notched-outline__trailing"></span>
-        </span>
-        <input type="text" class="mdc-text-field__input" aria-labelledby="title">
-      </label>
-      <label class="mdc-text-field mdc-text-field--outlined" id="year">
-        <span class="mdc-notched-outline">
-          <span class="mdc-notched-outline__leading"></span>
-          <span class="mdc-notched-outline__notch">
-            <span class="mdc-floating-label">Año</span>
-          </span>
-          <span class="mdc-notched-outline__trailing"></span>
-        </span>
-        <input type="number" class="mdc-text-field__input" aria-labelledby="year">
-      </label>
-      <div class="mdc-select mdc-select--outlined">
-        <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+  <div class="mdc-top-app-bar--fixed-adjust">
+
+    <section class="initial-content login">
+      <h6 class="mdc-top-app-bar__title title sub-title">Ingresar a Mis Gastos</h6>
+      <div class="login-form">
+        <label class="mdc-text-field mdc-text-field--outlined" id="userEmail">
           <span class="mdc-notched-outline">
             <span class="mdc-notched-outline__leading"></span>
             <span class="mdc-notched-outline__notch">
-              <span id="outlined-select-label" class="mdc-floating-label">Género</span>
+              <span class="mdc-floating-label">Email</span>
             </span>
             <span class="mdc-notched-outline__trailing"></span>
           </span>
-          <span class="mdc-select__selected-text-container">
-            <span id="demo-selected-text" class="mdc-select__selected-text"></span>
+          <input type="text" class="mdc-text-field__input" aria-labelledby="userEmail">
+        </label>
+
+        <label class="mdc-text-field mdc-text-field--outlined" id="userPassword">
+          <span class="mdc-notched-outline">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__notch">
+              <span class="mdc-floating-label">Contraseña</span>
+            </span>
+            <span class="mdc-notched-outline__trailing"></span>
           </span>
-          <span class="mdc-select__dropdown-icon">
-            <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-              <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd"
-                points="7 10 12 15 17 10">
-              </polygon>
-              <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd"
-                points="7 15 12 10 17 15">
-              </polygon>
-            </svg>
-          </span>
+          <input type="password" class="mdc-text-field__input" aria-labelledby="userPassword">
+        </label>
+
+        <a href="javascript:void(0)" class="user-links">Olvidaste tu contraseña?</a>
+
+        <div class="actions">
+          <button class="mdc-button mdc-button--raised" id="loginButton">
+            Iniciar sesión
+          </button>
         </div>
 
-        <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
-          <ul class="mdc-list" role="listbox" aria-label="Genre picker listbox">
-            <li class="mdc-list-item mdc-list-item--selected" aria-selected="true" data-value="" role="option">
-              <span class="mdc-list-item__ripple"></span>
-            </li>
-            <li class="mdc-list-item" aria-selected="false" data-value="Aventura" role="option">
-              <span class="mdc-list-item__ripple"></span>
-              <span class="mdc-list-item__text">
-                Aventura
-              </span>
-            </li>
-            <li class="mdc-list-item" aria-selected="false" data-value="Drama" role="option">
-              <span class="mdc-list-item__ripple"></span>
-              <span class="mdc-list-item__text">
-                Drama
-              </span>
-            </li>
-            <li class="mdc-list-item" aria-selected="false" data-value="Comedia" role="option">
-              <span class="mdc-list-item__ripple"></span>
-              <span class="mdc-list-item__text">
-                Comedia
-              </span>
-            </li>
-          </ul>
+        <a href="javascript:void(0)" id="signupLink" class="user-links">No tengo cuenta. Registrarme</a>
+      </div>
+    </section>
+
+    <section class="initial-content signup initial-content-hidden">
+      <h6 class="mdc-top-app-bar__title title sub-title">Registrate en Mis Gastos</h6>
+      <div class="login-form">
+        <label class="mdc-text-field mdc-text-field--outlined" id="userSignupName">
+          <span class="mdc-notched-outline">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__notch">
+              <span class="mdc-floating-label">Nombre completo</span>
+            </span>
+            <span class="mdc-notched-outline__trailing"></span>
+          </span>
+          <input type="text" class="mdc-text-field__input" aria-labelledby="userSignupName">
+        </label>
+
+        <label class="mdc-text-field mdc-text-field--outlined" id="userSignupAge">
+          <span class="mdc-notched-outline">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__notch">
+              <span class="mdc-floating-label">Edad</span>
+            </span>
+            <span class="mdc-notched-outline__trailing"></span>
+          </span>
+          <input type="number" class="mdc-text-field__input" aria-labelledby="userSignupAge">
+        </label>
+
+        <label class="mdc-text-field mdc-text-field--outlined" id="userSignupEmail">
+          <span class="mdc-notched-outline">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__notch">
+              <span class="mdc-floating-label">Email</span>
+            </span>
+            <span class="mdc-notched-outline__trailing"></span>
+          </span>
+          <input type="text" class="mdc-text-field__input" aria-labelledby="userSignupEmail">
+        </label>
+
+        <label class="mdc-text-field mdc-text-field--outlined" id="userSignupEmailConfirmation">
+          <span class="mdc-notched-outline">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__notch">
+              <span class="mdc-floating-label">Confirmar email</span>
+            </span>
+            <span class="mdc-notched-outline__trailing"></span>
+          </span>
+          <input type="text" class="mdc-text-field__input" aria-labelledby="userSignupEmailConfirmation">
+        </label>
+
+        <label class="mdc-text-field mdc-text-field--outlined" id="userSignupPassword">
+          <span class="mdc-notched-outline">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__notch">
+              <span class="mdc-floating-label">Contraseña</span>
+            </span>
+            <span class="mdc-notched-outline__trailing"></span>
+          </span>
+          <input type="password" class="mdc-text-field__input" aria-labelledby="userSignupPassword">
+        </label>
+
+        <label class="mdc-text-field mdc-text-field--outlined" id="userSignupPasswordConfirmation">
+          <span class="mdc-notched-outline">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__notch">
+              <span class="mdc-floating-label">Confirmar contraseña</span>
+            </span>
+            <span class="mdc-notched-outline__trailing"></span>
+          </span>
+          <input type="password" class="mdc-text-field__input" aria-labelledby="userSignupPasswordConfirmation">
+        </label>
+
+        <div class="actions">
+          <button class="mdc-button mdc-button--raised" id="signupButton">
+            Registrar
+          </button>
+        </div>
+
+        <a href="/" class="user-links">Tengo cuenta. Iniciar sesión</a>
+      </div>
+    </section>
+  </div>
+
+  <div class="mdc-top-app-bar--fixed-adjust main main-hidden">
+    <section class="content home">
+      <h6 class="mdc-top-app-bar__title title sub-title">Balance Total</h6>
+      <div class="active-report">
+        <div class="chart-container home-chart">
+          <canvas id="balanceHome"></canvas>
         </div>
       </div>
+    </section>
+
+    <section class="content content--hidden">
+      <h6 class="mdc-top-app-bar__title sub-title">Agregar Gasto</h6>
+      <div class="add-form">
+        <label class="mdc-text-field mdc-text-field--outlined" id="expenseName">
+          <span class="mdc-notched-outline">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__notch">
+              <span class="mdc-floating-label">Nombre del gasto</span>
+            </span>
+            <span class="mdc-notched-outline__trailing"></span>
+          </span>
+          <input type="text" class="mdc-text-field__input" aria-labelledby="expenseName">
+        </label>
+
+        <label class="mdc-text-field mdc-text-field--outlined" id="expenseCategory">
+          <span class="mdc-notched-outline">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__notch">
+              <span class="mdc-floating-label">Categoria</span>
+            </span>
+            <span class="mdc-notched-outline__trailing"></span>
+          </span>
+          <input type="text" class="mdc-text-field__input" aria-labelledby="expenseCategory">
+        </label>
+
+        <label class="mdc-text-field mdc-text-field--outlined" id="expenseAmount">
+          <span class="mdc-notched-outline">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__notch">
+              <span class="mdc-floating-label">Monto</span>
+            </span>
+            <span class="mdc-notched-outline__trailing"></span>
+          </span>
+          <input type="number" class="mdc-text-field__input" aria-labelledby="expenseAmount" min=0>
+        </label>
+
+        <label class="mdc-text-field mdc-text-field--outlined" id="expenseDate">
+          <span class="mdc-notched-outline">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__notch">
+              <span class="mdc-floating-label">Fecha</span>
+            </span>
+            <span class="mdc-notched-outline__trailing"></span>
+          </span>
+          <input type="text" class="mdc-text-field__input" aria-labelledby="expenseDate">
+        </label>
+
+        <div class="actions">
+          <button class="mdc-button mdc-button--raised" id="addExpenseButton">
+            Agregar
+          </button>
+        </div>
       </div>
-      <div class="button">
-        <button class="mdc-button mdc-button--raised" id="addButton">
-          <span class="mdc-button__label">AGREGAR</span>
+    </section>
+
+    <section class="content content--hidden">
+      <div class="add-form">
+        <h6 class="mdc-top-app-bar__title sub-title">Agregar Ingreso</h6>
+        <label class="mdc-text-field mdc-text-field--outlined" id="incomeName">
+          <span class="mdc-notched-outline">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__notch">
+              <span class="mdc-floating-label">Nombre del ingreso</span>
+            </span>
+            <span class="mdc-notched-outline__trailing"></span>
+          </span>
+          <input type="text" class="mdc-text-field__input" aria-labelledby="incomeName">
+        </label>
+
+        <label class="mdc-text-field mdc-text-field--outlined" id="incomeCategory">
+          <span class="mdc-notched-outline">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__notch">
+              <span class="mdc-floating-label">Categoria</span>
+            </span>
+            <span class="mdc-notched-outline__trailing"></span>
+          </span>
+          <input type="text" class="mdc-text-field__input" aria-labelledby="incomeCategory">
+        </label>
+
+        <label class="mdc-text-field mdc-text-field--outlined" id="incomeAmount">
+          <span class="mdc-notched-outline">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__notch">
+              <span class="mdc-floating-label">Monto</span>
+            </span>
+            <span class="mdc-notched-outline__trailing"></span>
+          </span>
+          <input type="number" class="mdc-text-field__input" aria-labelledby="incomeAmount" min=0>
+        </label>
+
+        <label class="mdc-text-field mdc-text-field--outlined" id="incomeDate">
+          <span class="mdc-notched-outline">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__notch">
+              <span class="mdc-floating-label">Fecha</span>
+            </span>
+            <span class="mdc-notched-outline__trailing"></span>
+          </span>
+          <input type="text" class="mdc-text-field__input" aria-labelledby="incomeDate">
+        </label>
+
+        <div class="actions">
+          <button class="mdc-button mdc-button--raised" id="addIncomeButton">
+            Agregar
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content content--hidden" id="section-category-report">
+      <h6 class="mdc-top-app-bar__title title sub-title">Mis Reportes</h6>
+      <div class="active-report">
+        <div class="chart-container">
+          <canvas id="categoryReport"></canvas>
+        </div>
+        <div class="actions">
+          <button class="mdc-button mdc-button--raised" id="byDateReportButton">
+            Ver Historico
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content content--hidden" id="section-by-date-report">
+      <h6 class="mdc-top-app-bar__title title sub-title">Mis Reportes</h6>
+      <div class="active-report">
+        <div class="chart-container">
+          <canvas id="byDateReport"></canvas>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="mdc-button mdc-button--raised" id="byCategoryReportButton">
+          Ver por categorias
         </button>
       </div>
     </section>
-  </main>
+  </div>
+
+  <div class="mdc-top-app-bar--fixed-adjust main main-hidden">
+    <section class="edit-password--hidden edit-password">
+      <h6 class="mdc-top-app-bar__title title sub-title">Editar Contraseña</h6>
+      <label class="mdc-text-field mdc-text-field--outlined" id="userNewPassword">
+        <span class="mdc-notched-outline">
+          <span class="mdc-notched-outline__leading"></span>
+          <span class="mdc-notched-outline__notch">
+            <span class="mdc-floating-label">Nueva contraseña</span>
+          </span>
+          <span class="mdc-notched-outline__trailing"></span>
+        </span>
+        <input type="password" class="mdc-text-field__input" aria-labelledby="userNewPassword">
+      </label>
+      <div class="actions">
+        <button class="mdc-button mdc-button--raised" id="addNewPasswordButton">
+          Agregar
+        </button>
+      </div>
+    </section>
+  </div>
 
   <aside class="mdc-snackbar">
     <div class="mdc-snackbar__surface" role="status" aria-relevant="additions">
@@ -137,14 +386,13 @@
       </div>
       <div class="mdc-snackbar__actions" aria-atomic="true">
         <button type="button" class="mdc-button mdc-snackbar__action">
-          <div class="mdc-button__ripple"></div>
           <span class="mdc-button__label">Cerrar</span>
         </button>
       </div>
     </div>
   </aside>
 
+  <script src="bundle.js" async></script>
 </body>
-<script src="bundle.js" async></script>
 
 </html>

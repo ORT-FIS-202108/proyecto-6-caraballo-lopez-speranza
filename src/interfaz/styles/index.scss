@@ -1,8 +1,9 @@
 @use "@material/theme" with (
-  $primary: #00bcd4,
-  $secondary: #f44336,
+  $primary: #512DA8,
+  $secondary: #00796B,
   $background: #c7c7c7,
 );
+@use "material-components-web";
 @use '@material/button/mdc-button';
 @use '@material/button';
 @use "@material/drawer";
@@ -40,9 +41,35 @@ body {
   position: absolute;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 100%;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.sub-title {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
 .mdc-top-app-bar {
   z-index: 7;
   @include icon-button.core-styles;
+}
+
+.tab-bar-botom {
+  position: fixed;
+  bottom: -0.5em;
+  width: 100%;
 }
 
 section {
@@ -50,31 +77,121 @@ section {
 }
 
 .content {
-  margin: 10rem auto;
-  padding-bottom: 20rem;
+  text-align: center; 
+}
+
+.initial-content {
+  margin: 5rem auto;
   text-align: center;
 }
 
-.sample-content--hidden {
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-links {
+  font-size: 12px;
+  color: grey;
+  text-decoration: none;
+}
+
+.actions {
+  margin: 2rem;
+}
+
+.main-hidden {
+  display: none;
+}
+
+.initial-content-hidden {
+  display: none;
+}
+
+.content--hidden {
+  display: none;
+}
+
+.edit-password {
+  margin: 2rem auto;
+  text-align: center; 
+}
+
+.edit-password--hidden {
   display: none;
 }
 
 .mdc-tab {
-    background-color: #67daff;
+  background-color: #512DA8;
 }
 
 .mdc-tab__content .mdc-tab__text-label {
-    color: black;
+  color: white;
 }
 
 .mdc-text-field {
-    margin: 1rem auto;
+  margin: 1rem auto;
 }
 
 .button {
   margin-top: 1rem;
 }
 
-.mdc-snackbar__actions .mdc-button__label {
-  color: #67daff;
+.add-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu {
+  min-width: 200px;
+}
+
+.user {
+  color: white;
+}
+
+.chart-container {
+  position: relative;
+  width: 60%;
+}
+
+.active-report {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-icon {
+  display: none;
+  color: white;
+}
+
+@media only screen and (min-width: 1441px) {
+  .chart-container {
+    width: 55%;
+  }
+
+  .home-chart {
+    width: 38%;
+  }
+}
+
+
+@media only screen and (max-width: 1440px) {
+  .chart-container {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 768px ) {
+  .chart-container {
+    width: 90%;
+  }
+  .menu-icon{
+    display: block;
+  }
+  .menu-text{
+    display: none;
+  }
 }
